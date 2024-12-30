@@ -1,0 +1,16 @@
+
+# Redirect root domain to the HTML file in the root folder
+RewriteEngine On
+RewriteRule ^$ /index.html [L]
+
+     <!--  adding cache headers  -->
+    <IfModule mod_headers.c>
+  # Set cache expiry time to 1 week (adjust as needed)
+  Header set Cache-Control "public, max-age=604800"
+  # Optional: Add ETag header for browser caching based on file content
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/gif "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType application/css "access plus 1 week"
+</IfModule>

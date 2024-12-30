@@ -1,0 +1,42 @@
+# Robots.txt file for https://web1expert.com/
+# Last Updated: 2024
+# This file helps manage search engine crawlers and optimize SEO.
+
+# Allow all user agents to crawl your site, except for specific disallowed sections
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /temp/
+Disallow: /private/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /search/
+Disallow: /login/
+Disallow: /register/
+
+# Prevent indexing of duplicate or thin content
+Disallow: /?s=  # Blocks search result pages
+Disallow: /*?*   # Blocks URLs with query parameters
+Disallow: /tag/  # Blocks tag archives (optional, for WordPress)
+
+# Optimize crawling (avoid overloading server resources)
+Crawl-delay: 10
+
+# Block specific bots that might harm SEO
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SEMrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Explicit permission for Googlebot (important for SEO)
+User-agent: Googlebot
+Allow: /wp-content/uploads/
+Disallow: /wp-admin/
+Disallow: /private/
+
+# Sitemap directive to help crawlers find all public URLs
+Sitemap: https://web1expert.com/sitemap_index.xml
