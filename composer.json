@@ -1,1 +1,24 @@
-
+{
+  "name": "bpshbp/w1e",
+  "description": "A short description of the project",
+  "type": "project",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.4",  # Required PHP version
+    "vendor1/package1": "^1.2",  # Specific dependency with version constraint
+    "vendor2/package2": "~2.0",  # Allows minor updates within major version 2.x
+    "ext-json": "*"  # Requirement for a PHP extension
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"  # Development dependency (e.g., for testing)
+  },
+  "autoload": {
+    "psr-4": {
+      "W1E\\": "src/"  # Autoloading configuration for project namespace
+    }
+  },
+  "scripts": {
+    "test": "phpunit"  # Example script to run tests
+  }
+}
