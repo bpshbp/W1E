@@ -15,8 +15,8 @@
     },
     "autoload": {
         "psr-4": {
-            "W1E\\\\": "src/" // Corrected: No spaces in the key
-        }
+            "W1E\\\\": "src/"
+        } // This closing brace is ESSENTIAL
     },
     "scripts": {
         "test": "phpunit"
