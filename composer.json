@@ -5,11 +5,11 @@
   "license": "MIT",
   "minimum-stability": "stable",
   "require": {
-    "php": ">=8.3.13"  # Required PHP version
-    "vendor1/package1": "^1.2",  # Specific dependency with version constraint
-    "vendor2/package2": "~2.0",  # Allows minor updates within major version 2.x
-    "ext-json": "*"  # Requirement for a PHP extension
-  },
+        "php": ">=8.3.13",
+        "psr/log": "^1.0",
+        "monolog/monolog": "^2.0",
+        "ext-json": "*"
+    },
   "require-dev": {
     "phpunit/phpunit": "^9.5"  # Development dependency (e.g., for testing)
   },
