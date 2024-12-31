@@ -14,9 +14,12 @@
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
+        "classmap": [
+            "src/"
+        ],
         "psr-4": {
             "W1E\\\\": "src/"
-        } // This closing brace is ESSENTIAL
+        }
     },
     "scripts": {
         "test": "phpunit"
