@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "W1E NAMESPACE\\\\": "src/" // Corrected: No spaces in the key
+            "W1E\\\\": "src/" // Corrected: No spaces in the key
         }
     },
     "scripts": {
