@@ -5,7 +5,7 @@
   "license": "MIT",
   "minimum-stability": "stable",
   "require": {
-    "php": ">=7.4",  # Required PHP version
+    "php": ">=8.3.13",  # Required PHP version
     "vendor1/package1": "^1.2",  # Specific dependency with version constraint
     "vendor2/package2": "~2.0",  # Allows minor updates within major version 2.x
     "ext-json": "*"  # Requirement for a PHP extension
