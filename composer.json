@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "**REPLACE_WITH_MAIN_NAMESPACE**\\": "src/" // Replace with actual namespace
+            "**W1E**\\": "src/" // Replace with actual namespace
         }
     },
     "scripts": {
