@@ -1,9 +1,9 @@
 <?php
 
-namespace W1E NAMESPACE;
+namespace W1E;
 
 class Example {
     public function hello() {
-        return "Hello from W1E NAMESPACE!";
+        return "Hello from W1E!";
     }
 }
