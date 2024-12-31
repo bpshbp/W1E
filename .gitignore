@@ -1,6 +1,25 @@
-# Ignore the WordPress directory blog/ 
-# Ignore temporary files and directories *.tmp *.log *.bak 
-# Ignore system files .DS_Store Thumbs.db 
-# Ignore IDE and editor settings *.vscode/ *.idea/ 
-# Ignore node_modules if using Node.js node_modules/ 
-# Ignore build directories dist/ build/ 
+# Ignore the WordPress directory blog/
+blog/
+
+# Ignore temporary files and directories
+*.tmp
+*.log
+*.bak
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and editor settings
+.vscode/
+.idea/
+
+# Ignore node_modules if using Node.js
+node_modules/
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore composer.lock
+composer.lock
