@@ -1,1 +1,53 @@
-
+{
+  "package": {
+    "name": "bpshbp/w1e",
+    "version": "1.0.0",
+    "require": {
+      "php": "^7.4 <8.2",
+      "psr/log": "^1.0",
+      "monolog/monolog": "^2.0",
+      "ext-json": "*"
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^9.5"
+    },
+    "require-dependencies": {
+      "psr/log": {
+        "require": {
+          "psr/psr-3": "^1.0"
+        }
+      },
+      "monolog/monolog": {
+        "require": {
+          "phputil/phputil": "^7.1"
+        }
+      }
+    },
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Your Name",
+        "email": "youremail@example.com"
+      }
+    ],
+    "description": "A short description of the project",
+    "autoload": {
+      "psr-4": {
+        "W1E\\\\": "src/"
+      }
+    },
+    "scripts": {
+      "test": "phpunit"
+    },
+    "minimum-stability": "stable"
+  },
+  "content-hash": "d6c1c91b79d7140594e249343184ce6f",
+  "packages": [
+    // ... information about all dependencies and their versions ...
+  ],
+  "providers": [
+    // ... information about providers used ...
+  ],
+  "version": "2.0.0"
+}
