@@ -21,7 +21,3 @@ node_modules/
 dist/
 build/
 
-# Ignore composer.lock
-composer.lock
-
-vendor/
