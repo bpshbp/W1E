@@ -1,5 +1,4 @@
-# Ignore the WordPress directory blog/
-blog/
+
 
 # Ignore temporary files and directories
 *.tmp
