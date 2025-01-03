@@ -5,7 +5,10 @@
     --light: #EEF9FF;
     --dark: #091E3E;
 }
-
+b, strong {
+    font-weight: bolder;
+    color: #06A3DA !important;
+}
 
 /*** Spinner ***/
 .spinner {
