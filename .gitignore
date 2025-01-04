@@ -1,4 +1,7 @@
-
+# Ignore Preventing Sensitive Information Exposure
+config.js
+.env
+secrets.json
 
 # Ignore temporary files and directories
 *.tmp
