@@ -1,0 +1,9 @@
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: W1E_API_KEY
+        env:
+          API_KEY: ${{ secrets.eMW57RDdA4iuDKi8MGbf2/fvyC4Eke3du95TFuSXr8Y= }}
+        run: |
+          curl -H "X-API-Key: $API_KEY" https://api.example.com
