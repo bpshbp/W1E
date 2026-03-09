@@ -1,1068 +1,1286 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	
-	<!-- code to disable right click,VIEW PAGE SOURCE on html & wordpress -->
-<script>document.addEventListener('contextmenu', event => event.preventDefault()); </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web1Expert — Premium Website, Budget-Friendly Pricing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <meta charset="utf-8">
-<!-- 	<meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' https://code.jquery.com;  /* Example CDN */
-        style-src 'self' https://fonts.googleapis.com;
-        img-src 'self' data:;
-        font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self';
-    "> -->
-
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://web1expert.com/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Web1Expert delivers affordable, secure, and high-speed Website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7">
-    <meta name="keywords" content="affordable website development, cheap web design services, low-cost website development company, budget-friendly web development, professional web development on a budget, custom website design for small businesses, inexpensive website solutions, cost-effective web design services, affordable e-commerce development, cheap website packages, low-cost WordPress development, budget web developers, affordable responsive website design, cheap small business website solutions, affordable custom website development">
-
-    <meta property="og:title" content="Web1Expert-Premium Website, Budget-Friendly Pricing.">
-    <meta property="og:description" content="Web1Expert delivers affordable, secure, and high-speed Website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7">
-    <meta property="og:image" content="img/logo.png">
-    <meta property="og:url" content="https://web1expert.com/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Web1Expert-Premium Website, Budget-Friendly Pricing.">
-    <meta name="twitter:description" content="Web1Expert delivers affordable, secure, and high-speed Website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7">
-    <meta name="author" content="Web1Expert">
-    <meta name="twitter:image" content="img/logo.png">
-
-
-    <!-- Schema.org Structured Data with Nonce -->
-    
-    <script type="application/ld+json" nonce="abc123">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Web1Expert - Your Guide to Expert Web Solutions",
-      "description": "Discover expert tips and tutorials for web development, hosting, and SEO to optimize your online presence.",
-      "url": "https://web1expert.com/",
-      "author": {
-        "@type": "Organization",
-        "name": "Web1Expert"
-      }
+    :root {
+      --navy:   #050d1a;
+      --navy2:  #071428;
+      --navy3:  #0b1f3a;
+      --gold:   #f0a500;
+      --gold2:  #ffc93c;
+      --gold3:  #ffe08a;
+      --white:  #f5f0e8;
+      --muted:  #8fa3bb;
+      --card:   rgba(11,31,58,0.85);
+      --border: rgba(240,165,0,0.18);
+      --glow:   0 0 40px rgba(240,165,0,0.22);
     }
-    </script>
 
+    html { scroll-behavior: smooth; }
 
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content:'';
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
 
+    /* ─── TOP BAR ─── */
+    .topbar {
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 8px 20px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      position: relative; z-index: 100;
+    }
+    .topbar a { color: var(--navy); text-decoration: underline; }
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-    <link rel="apple-touch-icon" href="img/favicon.ico">
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 99;
+      backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(5,13,26,0.92);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem; font-weight: 800;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.88rem; font-weight: 400;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold2); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 0.06em;
+      padding: 10px 22px; border-radius: 4px;
+      text-decoration: none; transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
 
-    <!-- Language and Regional Targeting -->
-    <meta name="language" content="en">
-    <meta name="geo.region" content="US-CA">
-    <meta name="geo.placename" content="California">
-    <meta name="geo.position" content="37.7749;-122.4194">
-    <meta name="ICBM" content="37.7749, -122.4194">
+    /* ─── SECTIONS WRAPPER ─── */
+    section { position: relative; z-index: 1; }
 
-    <!-- Performance and Security Tags -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 92vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 100px 5% 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 30%, rgba(240,165,0,0.12) 0%, transparent 65%),
+                  radial-gradient(ellipse 40% 40% at 80% 80%, rgba(7,20,40,0.9) 0%, transparent 70%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0; opacity: 0.07;
+      background-image:
+        linear-gradient(rgba(240,165,0,.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(240,165,0,.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 860px; }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(240,165,0,0.12);
+      border: 1px solid var(--border);
+      color: var(--gold2);
+      font-family: 'Syne', sans-serif; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.14em;
+      padding: 6px 18px; border-radius: 100px;
+      margin-bottom: 28px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      margin: 24px auto 0;
+      max-width: 580px;
+      font-size: 1.08rem; color: var(--muted);
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      margin-top: 44px;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.95rem; letter-spacing: 0.05em;
+      padding: 16px 38px; border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(240,165,0,0.35);
+      transition: all .2s;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(240,165,0,0.45); }
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--white); background: transparent;
+      font-family: 'Syne', sans-serif; font-weight: 600;
+      font-size: 0.95rem;
+      padding: 16px 38px; border-radius: 6px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
-    <!-- Miscellaneous -->
-    <meta name="rating" content="General">
-    <meta name="distribution" content="Global">
-    <meta name="revisit-after" content="7 days">
+    .hero-trust {
+      margin-top: 54px;
+      display: flex; gap: 40px; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp .7s .45s ease both;
+    }
+    .trust-item {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+    }
+    .trust-num {
+      font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+      color: var(--gold2); line-height: 1;
+    }
+    .trust-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.07em; }
+    .trust-divider { width: 1px; background: var(--border); height: 48px; align-self: center; }
 
+    /* ─── BADGE STRIP ─── */
+    .badge-strip {
+      background: var(--navy3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 5%;
+      display: flex; gap: 48px; justify-content: center; align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .badge-item svg { color: var(--gold); flex-shrink: 0; }
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    /* ─── SECTION COMMON ─── */
+    .section { padding: 100px 5%; }
+    .section-label {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 0.16em; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .section-title em { font-style: normal; color: var(--gold2); }
+    .section-sub { color: var(--muted); max-width: 540px; margin-top: 14px; font-size: 1rem; }
 
-   
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center; margin-top: 60px;
+    }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 36px; }
+    .about-feat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    .about-feat:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .about-feat-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .about-feat-title {
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
+      color: var(--white);
+    }
+    .about-phone {
+      margin-top: 36px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .about-phone-num {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800;
+      color: var(--gold2);
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: linear-gradient(135deg, var(--navy3), var(--navy2));
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 48px 40px;
+      text-align: center;
+      box-shadow: var(--glow);
+    }
+    .about-card-num {
+      font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 800;
+      color: var(--gold); line-height: 1;
+    }
+    .about-card-text { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+    .about-card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .about-mini {
+      background: rgba(240,165,0,0.06); border: 1px solid var(--border);
+      border-radius: 10px; padding: 18px 12px;
+    }
+    .about-mini-num {
+      font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+      color: var(--gold2);
+    }
+    .about-mini-label { font-size: 0.78rem; color: var(--muted); }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    /* ─── WHY US ─── */
+    .why-section {
+      background: var(--navy3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px; margin-top: 60px;
+    }
+    .why-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 34px 28px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      position: relative; overflow: hidden;
+    }
+    .why-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .why-card:hover::before { transform: scaleX(1); }
+    .why-card:hover { border-color: rgba(240,165,0,0.4); transform: translateY(-5px); box-shadow: var(--glow); }
+    .why-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .why-title {
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .why-desc { color: var(--muted); font-size: 0.9rem; }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px; margin-top: 60px;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 32px 28px;
+      text-decoration: none;
+      transition: all .25s;
+      display: flex; flex-direction: column; gap: 14px;
+      position: relative; overflow: hidden;
+    }
+    .service-card::after {
+      content: '→';
+      position: absolute; bottom: 28px; right: 28px;
+      font-size: 1.2rem; color: var(--gold);
+      opacity: 0; transform: translateX(-8px);
+      transition: all .25s;
+    }
+    .service-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: var(--glow); }
+    .service-card:hover::after { opacity: 1; transform: translateX(0); }
+    .service-icon { font-size: 2rem; }
+    .service-title {
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem;
+      color: var(--white);
+    }
+    .service-desc { color: var(--muted); font-size: 0.88rem; }
 
-    
-    
-    
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      margin: 0 5%;
+      background: linear-gradient(120deg, #0f2444 0%, #1a3a60 50%, #0f2444 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 64px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+      box-shadow: var(--glow);
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute; right: -80px; top: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(240,165,0,0.2), transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-text h2 {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; letter-spacing: -0.02em; color: var(--white);
+    }
+    .cta-text p { color: var(--muted); margin-top: 10px; font-size: 1rem; }
+    .cta-num {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--gold2);
+      white-space: nowrap;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; margin-top: 60px;
+    }
+    .price-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 40px 32px;
+      display: flex; flex-direction: column;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      position: relative;
+    }
+    .price-card.featured {
+      border-color: var(--gold);
+      box-shadow: 0 0 60px rgba(240,165,0,0.2);
+    }
+    .price-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: var(--glow); }
+    .price-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: var(--navy);
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.1em; padding: 5px 18px; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .price-name {
+      font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .price-subtitle { color: var(--muted); font-size: 0.82rem; margin-bottom: 20px; }
+    .price-amount {
+      font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
+      color: var(--white); line-height: 1;
+    }
+    .price-amount span { font-size: 1rem; color: var(--muted); font-weight: 400; }
+    .price-inr { color: var(--gold2); font-size: 0.9rem; margin-top: 4px; }
+    .price-divider { height: 1px; background: var(--border); margin: 24px 0; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .price-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.9rem; color: var(--muted);
+    }
+    .price-features li::before {
+      content: '✓'; color: var(--gold); font-weight: 700;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .price-cta {
+      display: block; text-align: center;
+      background: var(--gold); color: var(--navy);
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
+      letter-spacing: 0.06em; padding: 14px; border-radius: 8px;
+      text-decoration: none; margin-top: 28px;
+      transition: background .2s, transform .15s;
+    }
+    .price-cta:hover { background: var(--gold2); transform: translateY(-2px); }
+    .price-cta.ghost {
+      background: transparent; color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .price-cta.ghost:hover { background: rgba(240,165,0,0.1); }
+
+    /* ─── PRICING SECTION 2 ─── */
+    .pricing2-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; margin-top: 60px;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section { background: var(--navy3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px; margin-top: 60px;
+    }
+    .testi-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 32px;
+      transition: border-color .2s, transform .2s;
+    }
+    .testi-card:hover { border-color: rgba(240,165,0,0.35); transform: translateY(-4px); }
+    .testi-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 3px; margin-bottom: 16px; }
+    .testi-text { color: var(--muted); font-size: 0.93rem; line-height: 1.75; margin-bottom: 24px; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--navy3));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem;
+      color: var(--navy); flex-shrink: 0;
+    }
+    .testi-name {
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem;
+      color: var(--white);
+    }
+    .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ─── TEAM ─── */
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px; margin-top: 60px;
+    }
+    .team-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 32px 20px; text-align: center;
+      transition: border-color .2s, transform .2s;
+    }
+    .team-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .team-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #0b1f3a);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem;
+      color: var(--navy); margin: 0 auto 16px;
+      border: 3px solid var(--border);
+    }
+    .team-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); }
+    .team-role { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+    /* ─── CONTACT ─── */
+    .contact-section {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy3) 100%);
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      margin-top: 60px; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 28px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 18px;
+    }
+    .contact-icon {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: rgba(240,165,0,0.12); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-detail-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .contact-detail-val { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); margin-top: 4px; }
+    .contact-form-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 40px;
+    }
+    .contact-form-card h3 {
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.2rem;
+      color: var(--white); margin-bottom: 28px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.06em; }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--navy); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px;
+      color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: var(--navy2); }
+    .form-submit {
+      width: 100%;
+      background: var(--gold); color: var(--navy);
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem;
+      letter-spacing: 0.06em; padding: 14px;
+      border: none; border-radius: 8px; cursor: pointer;
+      transition: background .2s, transform .15s;
+      text-decoration: none; display: block; text-align: center;
+    }
+    .form-submit:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #020a14;
+      border-top: 1px solid var(--border);
+      padding: 64px 5% 32px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px; margin-bottom: 48px;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800;
+      color: var(--gold); text-decoration: none;
+    }
+    .footer-desc { color: var(--muted); font-size: 0.88rem; margin-top: 16px; line-height: 1.8; max-width: 320px; }
+    .footer-contact { margin-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+    .footer-contact-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--muted); }
+    .footer-contact-item a { color: var(--muted); text-decoration: none; }
+    .footer-contact-item a:hover { color: var(--gold); }
+    .footer-col-title {
+      font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.1em; color: var(--white); margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { color: var(--muted); font-size: 0.82rem; }
+    .footer-copy a { color: var(--gold); text-decoration: none; }
+
+    /* ─── FLOATING WHATSAPP ─── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25d366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.5);
+      text-decoration: none; font-size: 1.6rem;
+      transition: transform .2s, box-shadow .2s;
+      animation: pulse 2s infinite;
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 8px 32px rgba(37,211,102,0.65); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(37,211,102,0.5); }
+      50%       { box-shadow: 0 4px 40px rgba(37,211,102,0.8); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .cta-banner { padding: 40px 28px; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-trust { gap: 20px; }
+      .trust-divider { display: none; }
+      .cta-banner { text-align: center; justify-content: center; }
+    }
+  </style>
 </head>
+<body>
 
-<body oncontextmenu="return false">
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6118ccf9d6e7610a49b04135/1fd4e1c12';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner"></div>
+<!-- TOP BAR -->
+<div class="topbar">
+  🚀 Launching Your Dream Website from Just <strong>$50</strong> — 15+ Years of Expertise. &nbsp;
+  <a href="https://wa.me/919004108811">WhatsApp Us Now →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://web1expert.com">Web1<span>Expert</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="https://blog.web1expert.com">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/919004108811">Free Quote →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ Mumbai, India · Serving Clients Worldwide</div>
+    <h1>Creative &amp; Innovative<br/><em>Digital Solutions</em></h1>
+    <p class="hero-sub">Premium websites, stunning graphics, powerful apps &amp; digital marketing — at prices that actually make sense for your business.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://wa.me/919004108811">Get a Free Quote →</a>
+      <a class="btn-ghost" href="#pricing">See Pricing</a>
     </div>
-    <!-- Spinner End -->
-
-
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
-        <div class="row gx-0">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>Mumbai,India</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+919004108811</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@web1expert.com</small>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://x.com/tksutk"><i class="fab fa-twitter fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/cheapWebsiteDesigning"><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.linkedin.com/company/web1expert009/"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.instagram.com/web1expertdotcom/"><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
-                </div>
-            </div>
-        </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-num">405</span>
+        <span class="trust-label">Happy Clients</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">475</span>
+        <span class="trust-label">Projects Done</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">234</span>
+        <span class="trust-label">Active Projects</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">15+</span>
+        <span class="trust-label">Years Experience</span>
+      </div>
     </div>
-    <!-- Topbar End -->
+  </div>
+</section>
 
+<!-- BADGE STRIP -->
+<div class="badge-strip">
+  <div class="badge-item">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    FREE Website Security
+  </div>
+  <div class="badge-item">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    24/7 Support
+  </div>
+  <div class="badge-item">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    All Device Compatible
+  </div>
+  <div class="badge-item">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    FREE Data Upload
+  </div>
+  <div class="badge-item">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Award Winning
+  </div>
+  <div class="badge-item">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+    Professional Staff
+  </div>
+</div>
 
-    <!-- Navbar & Carousel Start -->
-    <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a href="https://web1expert.com/" class="navbar-brand p-0">
-                <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Web1Expert</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="https://web1expert.com" class="nav-item nav-link active">Home</a>
-                    <a href="https://blog.web1expert.com/" class="nav-item nav-link">Free Website</a>
-                      <div class="nav-item dropdown">
-                        <a href="https://blog.web1expert.com/gallery/" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Samples</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="https://tinyurl.com/cvww001" class="dropdown-item">Website Portfolio</a>
-                            <a href="https://tinyurl.com/cvg001" class="dropdown-item">Graphics Portfolio</a>
-                            <a href="https://tinyurl.com/vcv001" class="dropdown-item">Videos Samples</a>
-                            <a href="https://tinyurl.com/cvw001" class="dropdown-item">Articles Samples</a>
-                            <a href="https://wa.me/919004108811" class="dropdown-item">Free Quote</a>
-                        </div>
-                    </div>
-                    <a href="#price" class="nav-item nav-link">Pricing</a>
-                    <a href="#services" class="nav-item nav-link">Services</a>
-                    <a href="#testimonial" class="nav-item nav-link">Testimonial</a>
-                    <a href="https://blog.web1expert.com/category/blog/" class="nav-item nav-link">Blog</a>
-                     <a href="https://besthelptool.site" class="nav-item nav-link">FREE Tools</a>
-                   <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                        </div>
-                    </div>
-                  -->
-                    <!--<a href="https://wa.me/919004108811" class="nav-item nav-link">Contact</a>-->
-                </div>
-                <!--<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>-->
-                <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 ms-3">Contact Us</a>
-            </div>
-        </nav>
-
-        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Creative & Innovative Digital Solution</h1>
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Free Quote</a>
-                            <a href="https://wa.me/919004108811" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Creative & Innovative</h5>
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Creative & Innovative Digital Solution</h1>
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Free Quote</a>
-                            <a href="https://wa.me/919004108811" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="section-label">About Us</p>
+      <h2 class="section-title">The Best IT Solution With <em>15 Years</em> of Experience</h2>
+      <p class="section-sub">We deliver affordable, secure, and high-speed website services for individuals and small businesses. Get top-tier performance with unbeatable prices.</p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-icon">🏆</div>
+          <div class="about-feat-title">Award Winning</div>
         </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">👥</div>
+          <div class="about-feat-title">Professional Staff</div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">🕐</div>
+          <div class="about-feat-title">24/7 Support</div>
+        </div>
+        <div class="about-feat">
+          <div class="about-feat-icon">💰</div>
+          <div class="about-feat-title">Fair Prices</div>
+        </div>
+      </div>
+      <div class="about-phone">
+        <div>
+          <div style="font-size:0.78rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;">Call to ask any question</div>
+          <a class="about-phone-num" href="tel:+919004108811" style="text-decoration:none;">+91 9004108811</a>
+        </div>
+        <a class="btn-primary" href="https://wa.me/919004108811" style="padding:12px 24px;font-size:0.85rem;">Request A Quote</a>
+      </div>
     </div>
-    <!-- Navbar & Carousel End -->
-
-
-    <!-- Full Screen Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <div class="about-card-num">15+</div>
+        <div class="about-card-text">Years of Trusted IT Experience</div>
+        <div class="about-card-row">
+          <div class="about-mini">
+            <div class="about-mini-num">405</div>
+            <div class="about-mini-label">Happy Clients</div>
+          </div>
+          <div class="about-mini">
+            <div class="about-mini-num">475</div>
+            <div class="about-mini-label">Projects Done</div>
+          </div>
+          <div class="about-mini">
+            <div class="about-mini-num">234</div>
+            <div class="about-mini-label">Current Projects</div>
+          </div>
+          <div class="about-mini">
+            <div class="about-mini-num">100%</div>
+            <div class="about-mini-label">Satisfaction</div>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- Full Screen Search End -->
+  </div>
+</section>
 
-
-    <!-- Facts Start -->
-    <div class="container-fluid facts py-5 pt-lg-0">
-        <div class="container py-5 pt-lg-0">
-            <div class="row gx-0">
-                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-users text-primary"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-white mb-0">Happy Clients</h5>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">405</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-check text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-primary mb-0">Projects Done</h5>
-                            <h1 class="mb-0" data-toggle="counter-up">475</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
-                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-award text-primary"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-white mb-0">Current Projects</h5>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">234</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- WHY US -->
+<section class="section why-section" id="why">
+  <div style="text-align:center;" class="reveal">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">We Are Here to Grow Your<br/><em>Business Exponentially</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon">🏅</div>
+      <div class="why-title">Best In Industry</div>
+      <div class="why-desc">Recognized for excellence across web development, design, and digital marketing with consistent award-winning work.</div>
     </div>
-    <!-- Facts Start -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="section-title position-relative pb-3 mb-5">
-                        <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
-                        <h1 class="mb-0">The Best IT Solution With 15 Years of Experience</h1>
-                    </div>
-                    <p class="mb-4"></p>
-                    <div class="row g-0 mb-3">
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Award Winning</h5>
-                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Professional Staff</h5>
-                        </div>
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>24/7 Support</h5>
-                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Fair Prices</h5>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
-                            <i class="fa fa-phone-alt text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="text-primary mb-0">+919004108811</h4>
-                        </div>
-                    </div>
-                    <a href="https://wa.me/919004108811" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Request A Quote</a>
-                </div>
-                <div class="col-lg-5" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="img/about.jpg" style="object-fit: cover;">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🏆</div>
+      <div class="why-title">Award Winning</div>
+      <div class="why-desc">Our projects have earned accolades for innovation, design quality, and measurable business impact for clients worldwide.</div>
     </div>
-    <!-- About End -->
-
-
-    <!-- Features Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
-                <h1 class="mb-0">We Are Here to Grow Your Business Exponentially</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4">
-                    <div class="row g-5">
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-cubes text-white"></i>
-                            </div>
-                            <h4>Best In Industry</h4>
-                            <p class="mb-0"></p>
-                        </div>
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-award text-white"></i>
-                            </div>
-                            <h4>Award Winning</h4>
-                            <p class="mb-0"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="img/feature.jpg" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row g-5">
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-users-cog text-white"></i>
-                            </div>
-                            <h4>Professional Staff</h4>
-                            <p class="mb-0"></p>
-                        </div>
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-phone-alt text-white"></i>
-                            </div>
-                            <h4>24/7 Support</h4>
-                            <p class="mb-0"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="why-card reveal">
+      <div class="why-icon">👨‍💻</div>
+      <div class="why-title">Professional Staff</div>
+      <div class="why-desc">Senior developers, designers, and marketers with deep domain expertise deliver precision on every project.</div>
     </div>
-    <!-- Features Start -->
-
-
-    <!-- Service Start -->
-    <div id="services" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
-                <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-shield-alt text-white"></i>
-                        </div>
-                      <a href="https://web1expert.com/#price"><h4 class="mb-3">Web & APP Designing</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-chart-pie text-white"></i>
-                        </div>
-                       <a href="https://web1expert.com/#price"> <h4 class="mb-3">Website Development</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-				 <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-chart-pie text-white"></i>
-                        </div>
-                       <a href="https://web1expert.com/#price"> <h4 class="mb-3">Software Development</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-				 <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-chart-pie text-white"></i>
-                        </div>
-                       <a href="https://web1expert.com/#price"> <h4 class="mb-3">APP Development</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-				 <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-chart-pie text-white"></i>
-                        </div>
-                       <a href="https://web1expert.com/#price"> <h4 class="mb-3">Graphic Designing</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-code text-white"></i>
-                        </div>
-                       <a href="https://web1expert.com/#price"> <h4 class="mb-3">Video Development</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fab fa-android text-white"></i>
-                        </div>
-                      <a href="https://web1expert.com/#price">  <h4 class="mb-3">Digital Marketing</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                        <div class="service-icon">
-                            <i class="fa fa-search text-white"></i>
-                        </div>
-                       <a href="https://web1expert.com/#price"> <h4 class="mb-3">Content Writing</h4></a>
-                        <p class="m-0"></p>
-                        <a class="btn btn-lg btn-primary rounded" href="https://web1expert.com/#price">
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                    <div class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-                        <h3 class="text-white mb-3">Call Us For Quote</h3>
-                        <p class="text-white mb-3"></p>
-                        <h2 class="text-white mb-0">+919004108811</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="why-card reveal">
+      <div class="why-icon">🕐</div>
+      <div class="why-title">24/7 Support</div>
+      <div class="why-desc">Round-the-clock assistance ensures your business never faces downtime without expert backup immediately available.</div>
     </div>
-    <!-- Service End -->
+  </div>
+</section>
 
-<!-- Pricing Plan Start -->
-    <div id="price" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Pricing Plans</h5>
-                <h1 class="mb-0">We are Offering Competitive Prices for Individuals</h1>
-            </div>
-			
-            <div class="row g-0">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="bg-light rounded">
-                        <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="text-primary mb-1">FREE Website Plan</h4><br>
-                            <small class="text-uppercase">Below Prices are for NON PROFIT</small><br><br>
-							 <!-- <small class="text-uppercase">For small Business Prices are 2x</small><br><br>
-                            <small class="text-uppercase">For Big Business Prices are 3x</small>-->
-                        </div>
-                        <div class="p-5 pt-0">
-                            <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>50 or ₹5000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-							<div class="d-flex justify-content-between mb-3"><span>Free LIFE TIME HOSTING</span><i class="fa fa-check text-primary pt-1"></i></div>
-				<div class="d-flex justify-content-between mb-3"><span>Free Data Upload</span><i class="fa fa-check text-primary pt-1"></i></div>
-			  <div class="d-flex justify-content-between mb-2"><span>FREE Website Security Setup</span><i class="fa fa-check text-primary pt-1"></i></div>
-                           <div class="d-flex justify-content-between mb-2"><span>Free All Device Compatible Website</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
-                        <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="text-primary mb-1">PRO Website Plan</h4><br>
-                            <small class="text-uppercase">For small Business Prices are 2x</small><br><br>
-                            <small class="text-uppercase">For Big Brand Prices are 3x</small>
-                        </div>
-                        <div class="p-5 pt-0">
-                            <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>60 or ₹5000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-                            <div class="d-flex justify-content-between mb-3"><span>Free 5 Page Website</span><i class="fa fa-check text-primary pt-1"></i></div>
-				<div class="d-flex justify-content-between mb-3"><span>Free GOOGLE MAP Integration</span><i class="fa fa-check text-primary pt-1"></i></div>
-				<div class="d-flex justify-content-between mb-3"><span>Free Contact Form</span><i class="fa fa-check text-primary pt-1"></i></div>
-				<div class="d-flex justify-content-between mb-3"><span>FREE Website Security Setup</span><i class="fa fa-check text-primary pt-1"></i></div>
-                             <div class="d-flex justify-content-between mb-3"><span>Free Data Upload</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Free CDN Setup</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>More Features Cost Extra</span><i class="fa fa-check text-primary pt-1"></i></div>
-							<div class="d-flex justify-content-between mb-3"><span>Free All Device Compatible Website</span><i class="fa fa-check text-primary pt-1"></i></div>
-                                   <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="bg-light rounded">
-                        <div class="border-bottom py-4 px-5 mb-4">
-                            <h4 class="text-primary mb-1">Ecommerce Plan</h4><br>
-                             <small class="text-uppercase">For Small Business Prices are 2x</small><br><br>
-                           <small class="text-uppercase">For Big Brand Prices are 5x</small>
-                        </div>
-                        <div class="p-5 pt-0">
-                            <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>100 or ₹10000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
-                            </h1>
-                            <div class="d-flex justify-content-between mb-3"><span>Free 5 Product Setup</span><i class="fa fa-check text-primary pt-1"></i></div>
-				<div class="d-flex justify-content-between mb-3"><span>Free GOOGLE MAP Integration</span><i class="fa fa-check text-primary pt-1"></i></div>
-                             <div class="d-flex justify-content-between mb-3"><span>Free Contact Form</span><i class="fa fa-check text-primary pt-1"></i></div>
-							<div class="d-flex justify-content-between mb-3"><span>FREE Website Security Setup</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Free Data Upload</span><i class="fa fa-check text-primary pt-1"></i></div>
-                             <div class="d-flex justify-content-between mb-2"><span>Free CDN Setup</span><i class="fa fa-check text-primary pt-1"></i></div>
-							<div class="d-flex justify-content-between mb-2"><span>More Features Cost Extra</span><i class="fa fa-check text-primary pt-1"></i></div>
-                             <div class="d-flex justify-content-between mb-2"><span>Free All Device Compatible Website</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="reveal">
+    <p class="section-label">Our Services</p>
+    <h2 class="section-title">Custom IT Solutions for Your<br/><em>Successful Business</em></h2>
+    <p class="section-sub">End-to-end digital services — from design to deployment, marketing to maintenance.</p>
+  </div>
+  <div class="services-grid">
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">🎨</div>
+      <div class="service-title">Web &amp; App Designing</div>
+      <div class="service-desc">Pixel-perfect, mobile-first UI/UX designs that captivate visitors and drive conversions.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">🖥️</div>
+      <div class="service-title">Website Development</div>
+      <div class="service-desc">Fast, secure, SEO-ready websites built with modern tech and optimized for performance.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">⚙️</div>
+      <div class="service-title">Software Development</div>
+      <div class="service-desc">Custom software solutions tailored to automate and scale your business operations.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">📱</div>
+      <div class="service-title">App Development</div>
+      <div class="service-desc">Native and cross-platform mobile apps that deliver seamless user experiences on all devices.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">✏️</div>
+      <div class="service-title">Graphic Designing</div>
+      <div class="service-desc">Logos, flyers, social media graphics, brochures, and more — visual identity that sells.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">🎬</div>
+      <div class="service-title">Video Development</div>
+      <div class="service-desc">Reels, logo animations, corporate profiles, and celebration videos with professional polish.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">📈</div>
+      <div class="service-title">Digital Marketing</div>
+      <div class="service-desc">SEO, social media management, and content strategy to grow your organic reach and revenue.</div>
+    </a>
+    <a class="service-card reveal" href="#pricing">
+      <div class="service-icon">📝</div>
+      <div class="service-title">Content Writing</div>
+      <div class="service-desc">Compelling SEO-optimised copy for websites, blogs, articles, and marketing materials.</div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner reveal">
+  <div class="cta-text">
+    <h2>Need a Free Quote?<br/>Feel Free to Contact Us</h2>
+    <p>Reply within 24 hours · 24/7 telephone support</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+    <div class="cta-num">+91 9004108811</div>
+    <a class="btn-primary" href="https://wa.me/919004108811">WhatsApp Us Now</a>
+  </div>
+</div>
+
+<!-- PRICING WEBSITES -->
+<section id="pricing" class="section">
+  <div style="text-align:center;" class="reveal">
+    <p class="section-label">Pricing Plans</p>
+    <h2 class="section-title">Competitive Prices for<br/><em>Individuals &amp; Businesses</em></h2>
+    <p class="section-sub" style="margin:14px auto 0;">For Small Business: 2x · For Big Brand: 3x–5x</p>
+  </div>
+  <div class="pricing-grid">
+    <!-- FREE -->
+    <div class="price-card reveal">
+      <div class="price-name">FREE Website Plan</div>
+      <div class="price-subtitle">Below prices are for Non-Profit</div>
+      <div class="price-amount">$50 <span>or</span></div>
+      <div class="price-inr">₹5,000</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Free Lifetime Hosting</li>
+        <li>Free Data Upload</li>
+        <li>FREE Website Security Setup</li>
+        <li>Free All Device Compatible Website</li>
+      </ul>
+      <a class="price-cta ghost" href="https://wa.me/919004108811">Order Now</a>
     </div>
-    <!-- Pricing Plan End -->
-    <div id="price1" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Pricing Plans</h5><br>
-                <h1 class="mb-0">We are Offering Competitive Prices for Small & Big Brands</h1>
-            </div> 
-            <div class="row g-0">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="bg-light rounded">
-                        <div class="border-bottom py-4 px-5 mb-4"><br>
-                            <h4 class="text-primary mb-1">Graphic Design Plan</h4><br>
-                             <small class="text-uppercase">For Small Business Prices are 2x</small><br><br>
-                         <small class="text-uppercase">For Big Brand Prices are 3x</small>
-                        </div>
-                        <div class="p-5 pt-0">
-                            <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>5 or ₹500<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/Art</small>
-                            </h1>
-                            
-				<div class="d-flex justify-content-between mb-3"><span>Logo Design just for 15$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Flyer Design just for 15$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Social Media Design just for 5$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Brochure (4 Pages) for 25$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-2"><span>Business Card Design </b> just for 5$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-2"><span>Visiting / ID Card</b> just for 15$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Sticker Design</b> just for 5$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-2"><span>Infographics Design just for 15$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-2"><span>Letter Head Design just for 8$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                             <div class="d-flex justify-content-between mb-3"><span>Invitation Card Design just for 10$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-2"><span>Web Banner Design just for 15$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-2"><span>UI/UX Design just for 8$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="bg-white rounded shadow position-relative" style="z-index: 1;">
-                        <div class="border-bottom py-4 px-5 mb-4"><br>
-                            <h4 class="text-primary mb-1">Video Editing Plan</h4><br>
-                            <small class="text-uppercase">For small Business Prices are 2x</small><br><br>
-                            <small class="text-uppercase">For Big Brand Prices are 3x</small>
-                        </div>
-                        <div class="p-5 pt-0">
-                            <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>15.00 or ₹1000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/Minute</small>
-                            </h1>
-				<div class="d-flex justify-content-between mb-3"><span>Insta Reels(30 Sec)for 15$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Logo Animation for 25$</span><i class="fa fa-check text-primary pt-1"></i></div>
-							<div class="d-flex justify-content-between mb-3"><span>Company Profile for 25$</span><i class="fa fa-check text-primary pt-1"></i></div>
-                           <div class="d-flex justify-content-between mb-3"><span>Celebration Video Edit for 25$ </span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Free Data Upload</span><i class="fa fa-check text-primary pt-1"></i></div>
-			<div class="d-flex justify-content-between mb-3"><span>Free Fair Revisions</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            
-                            
-                            
-                            
-                            
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="bg-light rounded">
-                        <div class="border-bottom py-4 px-5 mb-4"><br>
-                            <h4 class="text-primary mb-1">Digital Marketing Plan</h4><br>
-                            <small class="text-uppercase">For Small Business Prices are 2x</small><br><br>
-                            <small class="text-uppercase">For Big Brand Prices are 3x</small>
-                        </div>
-                        <div class="p-5 pt-0">
-                            <h1 class="display-5 mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>100.00 or ₹10000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/Month</small>
-                            </h1>
-                            <div class="d-flex justify-content-between mb-3"><span>Free 20 Page Onpage SEO</span><i class="fa fa-check text-primary pt-1"></i></div>
-		            <div class="d-flex justify-content-between mb-3"><span>Free Offpage SEO</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Free Technical SEO</span><i class="fa fa-check text-primary pt-1"></i></div>
-				 <div class="d-flex justify-content-between mb-3"><span>Free Social Media Management</span><i class="fa fa-check text-primary pt-1"></i></div>
-                            <div class="d-flex justify-content-between mb-3"><span>Free SEO Audits</span><i class="fa fa-check text-primary pt-1"></i></div>
-                    
-                            
-                            <a href="https://wa.me/919004108811" class="btn btn-primary py-2 px-4 mt-4">Order Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- PRO -->
+    <div class="price-card featured reveal">
+      <div class="price-badge">⭐ MOST POPULAR</div>
+      <div class="price-name">PRO Website Plan</div>
+      <div class="price-subtitle">Small Business: 2x · Big Brand: 3x</div>
+      <div class="price-amount">$60 <span>or</span></div>
+      <div class="price-inr">₹5,000</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Free 5 Page Website</li>
+        <li>Free Google Map Integration</li>
+        <li>Free Contact Form</li>
+        <li>FREE Website Security Setup</li>
+        <li>Free Data Upload</li>
+        <li>Free CDN Setup</li>
+        <li>Free All Device Compatible Website</li>
+        <li>More Features Available</li>
+      </ul>
+      <a class="price-cta" href="https://wa.me/919004108811">Order Now</a>
     </div>
-    <!-- Pricing Plan End -->
-
-    <!-- Quote Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="section-title position-relative pb-3 mb-5">
-                        <h5 class="fw-bold text-primary text-uppercase">Request A Quote</h5>
-                        <h1 class="mb-0">Need A Free Quote? Please Feel Free to Contact Us</h1>
-                    </div>
-                    <div class="row gx-3">
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                            <h5 class="mb-4"><i class="fa fa-reply text-primary me-3"></i>Reply within 24 hours</h5>
-                        </div>
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                            <h5 class="mb-4"><i class="fa fa-phone-alt text-primary me-3"></i>24 hrs telephone support</h5>
-                        </div>
-                    </div>
-                    <p class="mb-4"></p>
-                    <div class="d-flex align-items-center mt-2 wow zoomIn" data-wow-delay="0.6s">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded" style="width: 60px; height: 60px;">
-                            <i class="fa fa-phone-alt text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="mb-2">Call to ask any question</h5>
-                            <h4 class="text-primary mb-0">+919004108811</h4>
-                        </div>
-                    </div>
-                </div>
-               <!-- <div class="col-lg-5">
-                    <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-xl-12">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control bg-light border-0" rows="3" placeholder="Message"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Quote End -->
-
-
-    <!-- Testimonial Start -->
-    <div id="testimonial" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div  class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Testimonial</h5>
-                <h1 class="mb-0">What Our Clients Say About Our Digital Services</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
-                <div class="testimonial-item bg-light my-4">
-                    <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;" >
-                        <div class="ps-4">
-                            <h4 class="text-primary mb-1">Emily Smith</h4>
-                            <small class="text-uppercase">Blogger</small>
-                        </div>
-                    </div>
-                    <div class="pt-4 pb-5 px-5">
-                        Excellent service with reliable uptime and exceptional customer support. www.Web1Expert.com helped my small business get online quickly and affordably. Highly recommend!
-                    </div>
-                </div>
-                <div class="testimonial-item bg-light my-4">
-                    <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;" >
-                        <div class="ps-4">
-                            <h4 class="text-primary mb-1">John Doe</h4>
-                            <small class="text-uppercase">Business Owner</small>
-                        </div>
-                    </div>
-                    <div class="pt-4 pb-5 px-5">
-                        I’ve been using www.Web1Expert.com for over a year, and I couldn’t be happier. Their hosting is fast, secure, and cost-effective. Plus, the customer support team is always responsive!
-                    </div>
-                </div>
-                <div class="testimonial-item bg-light my-4">
-                    <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" >
-                        <div class="ps-4">
-                            <h4 class="text-primary mb-1">Michael Thompson</h4>
-                            <small class="text-uppercase">Web Designer</small>
-                        </div>
-                    </div>
-                    <div class="pt-4 pb-5 px-5">
-                        As a freelancer, I needed a hosting provider that offered great performance at an affordable price. www.Web1Expert.com delivered just that and more. My website has never been smoother!
-                    </div>
-                </div>
-                <div class="testimonial-item bg-light my-4">
-                    <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
-                        <img class="img-fluid rounded" src="img/testimonial-4.jpg" style="width: 60px; height: 60px;" >
-                        <div class="ps-4">
-                            <h4 class="text-primary mb-1">Sarah Brown</h4>
-                            <small class="text-uppercase">E-commerce Entrepreneur</small>
-                        </div>
-                    </div>
-                    <div class="pt-4 pb-5 px-5">
-                        I switched to www.Web1Expert.com after struggling with unreliable hosting. Now my website loads faster, and I’ve saved money too. Definitely a solid choice!
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ECOMMERCE -->
+    <div class="price-card reveal">
+      <div class="price-name">Ecommerce Plan</div>
+      <div class="price-subtitle">Small Business: 2x · Big Brand: 5x</div>
+      <div class="price-amount">$100 <span>or</span></div>
+      <div class="price-inr">₹10,000</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Free 5 Product Setup</li>
+        <li>Free Google Map Integration</li>
+        <li>Free Contact Form</li>
+        <li>FREE Website Security Setup</li>
+        <li>Free Data Upload</li>
+        <li>Free CDN Setup</li>
+        <li>Free All Device Compatible Website</li>
+        <li>More Features Available</li>
+      </ul>
+      <a class="price-cta ghost" href="https://wa.me/919004108811">Order Now</a>
     </div>
-    <!-- Testimonial End -->
+  </div>
+</section>
 
-
-    <!-- Team Start -->
-   <div id="team" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Team Members</h5>
-                <h1 class="mb-0">Professional Stuffs Ready to Help Your Business</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://x.com/tksutk"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.facebook.com/cheapWebsiteDesigning/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.instagram.com/web1expertdotcom/"><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/company/web1expert009/"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h4 class="text-primary">Matthew Martinez</h4>
-                            <p class="text-uppercase m-0">Database Administrator</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://x.com/tksutk"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.facebook.com/cheapWebsiteDesigning/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.instagram.com/web1expertdotcom/"><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/company/web1expert009/"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h4 class="text-primary">Sarah Davis</h4>
-                            <p class="text-uppercase m-0">IT Project Manager</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="team-item bg-light rounded overflow-hidden">
-                        <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
-                            <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://x.com/tksutk"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.facebook.com/cheapWebsiteDesigning/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.instagram.com/web1expertdotcom/"><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/company/web1expert009/"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center py-4">
-                            <h4 class="text-primary">Christopher Wilson</h4>
-                            <p class="text-uppercase m-0">Front-End Developer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- PRICING 2: GRAPHIC / VIDEO / MARKETING -->
+<section class="section" style="padding-top:0;">
+  <div style="text-align:center;" class="reveal">
+    <p class="section-label">More Pricing Plans</p>
+    <h2 class="section-title">Prices for <em>Small &amp; Big Brands</em></h2>
+  </div>
+  <div class="pricing2-grid">
+    <!-- GRAPHIC -->
+    <div class="price-card reveal">
+      <div class="price-name">Graphic Design Plan</div>
+      <div class="price-subtitle">Small Business: 2x · Big Brand: 3x</div>
+      <div class="price-amount">$5 <span>/ Art or</span></div>
+      <div class="price-inr">₹500/Art</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Logo Design — $15</li>
+        <li>Flyer Design — $15</li>
+        <li>Social Media Design — $5</li>
+        <li>Brochure (4 Pages) — $25</li>
+        <li>Business Card — $5</li>
+        <li>Visiting / ID Card — $15</li>
+        <li>Sticker Design — $5</li>
+        <li>Infographics — $15</li>
+        <li>Letterhead — $8</li>
+        <li>Invitation Card — $10</li>
+        <li>Web Banner — $15</li>
+        <li>UI/UX Design — $8</li>
+      </ul>
+      <a class="price-cta ghost" href="https://wa.me/919004108811">Order Now</a>
     </div>
-    <!-- Team End -->
-
-
-    <!-- Blog Start -->
-<!--    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Latest Blog</h5>
-                <h1 class="mb-0">Read The Latest Articles from Our Blog Post</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-1.jpg" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                            </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-2.jpg" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                            </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                    <div class="blog-item bg-light rounded overflow-hidden">
-                        <div class="blog-img position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/blog-3.jpg" alt="">
-                            <a class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4" href="">Web Design</a>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-3">
-                                <small class="me-3"><i class="far fa-user text-primary me-2"></i>John Doe</small>
-                                <small><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan, 2045</small>
-                            </div>
-                            <h4 class="mb-3">How to build a website</h4>
-                            <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p>
-                            <a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!-- Blog Start -->
-
-
-    <!-- Vendor Start -->
-  <!--   <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">-->
-       <!--    <div class="container py-5 mb-5">
-            <div class="bg-white">
-                <div class="owl-carousel vendor-carousel">
-                    <img src="img/vendor-1.jpg" alt="">
-                    <img src="img/vendor-2.jpg" alt="">
-                    <img src="img/vendor-3.jpg" alt="">
-                    <img src="img/vendor-4.jpg" alt="">
-                    <img src="img/vendor-5.jpg" alt="">
-                    <img src="img/vendor-6.jpg" alt="">
-                    <img src="img/vendor-7.jpg" alt="">
-                    <img src="img/vendor-8.jpg" alt="">
-                    <img src="img/vendor-9.jpg" alt="">
-                </div>
-            </div>
-        </div>
+    <!-- VIDEO -->
+    <div class="price-card featured reveal">
+      <div class="price-badge">🎬 VIRAL CONTENT</div>
+      <div class="price-name">Video Editing Plan</div>
+      <div class="price-subtitle">Small Business: 2x · Big Brand: 3x</div>
+      <div class="price-amount">$15 <span>/ min or</span></div>
+      <div class="price-inr">₹1,000/Minute</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Insta Reels (30 sec) — $15</li>
+        <li>Logo Animation — $25</li>
+        <li>Company Profile — $25</li>
+        <li>Celebration Video Edit — $25</li>
+        <li>Free Data Upload</li>
+        <li>Free Fair Revisions</li>
+      </ul>
+      <a class="price-cta" href="https://wa.me/919004108811">Order Now</a>
     </div>
-    <!-- Vendor End -->
-    
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row gx-5">
-                <div class="col-lg-4 col-md-6 footer-about">
-                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary p-4">
-                        <a href="index.html" class="navbar-brand">
-                            <h1 class="m-0 text-white"><i class="fa fa-user-tie me-2"></i>Web1Expert</h1>
-                        </a>
-                        <p class="mt-3 mb-4">Web1Expert delivers affordable, secure, and high-speed Website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7</p>
-                        <!--<form action="">
-                            <div class="input-group">
-                                <input type="text" class="form-control border-white p-3" placeholder="Your Email">
-                                <button class="btn btn-dark">Sign Up</button>
-                            </div>
-                        </form>-->
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Get In Touch</h3>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-geo-alt text-primary me-2"></i>
-                                <p class="mb-0">Mumbai,India</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-envelope-open text-primary me-2"></i>
-                                <p class="mb-0">info@web1expert.com</p>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <i class="bi bi-telephone text-primary me-2"></i>
-                                <p class="mb-0">+919004108811</p>
-                            </div>
-                            <div class="d-flex mt-4">
-                                <a class="btn btn-primary btn-square me-2" href="https://x.com/tksutk"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="https://www.facebook.com/cheapWebsiteDesigning/"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square me-2" href="https://www.linkedin.com/company/web1expert009/"><i class="fab fa-linkedin-in fw-normal"></i></a>
-                                <a class="btn btn-primary btn-square" href="https://www.instagram.com/web1expertdotcom/"><i class="fab fa-instagram fw-normal"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Quick Links</h3>
-                            </div>
-                            <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="https://web1expert.com"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                                <a class="text-light mb-2" href="#price"><i class="bi bi-arrow-right text-primary me-2"></i>Pricing</a>
-                                <a class="text-light mb-2" href="#services"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                                <a class="text-light mb-2" href="#testimonial"><i class="bi bi-arrow-right text-primary me-2"></i>Testimonial</a>
-                                <a class="text-light mb-2" href="https://blog.web1expert.com"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                                <a class="text-light" href="https://wa.me/919004108811"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <div class="section-title section-title-sm position-relative pb-3 mb-4">
-                                <h3 class="text-light mb-0">Popular Links</h3>
-                            </div>
-                            <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href="https://web1expert.com"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                                <a class="text-light mb-2" href="#price"><i class="bi bi-arrow-right text-primary me-2"></i>Pricing</a>
-                                <a class="text-light mb-2" href="#services"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                                <a class="text-light mb-2" href="#testimonial"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                                <a class="text-light mb-2" href="https://blog.web1expert.com"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                                <a class="text-light" href="https://wa.me/919004108811"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- DIGITAL MARKETING -->
+    <div class="price-card reveal">
+      <div class="price-name">Digital Marketing Plan</div>
+      <div class="price-subtitle">Small Business: 2x · Big Brand: 3x</div>
+      <div class="price-amount">$100 <span>/ mo or</span></div>
+      <div class="price-inr">₹10,000/Month</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Free 20 Page Onpage SEO</li>
+        <li>Free Offpage SEO</li>
+        <li>Free Technical SEO</li>
+        <li>Free Social Media Management</li>
+        <li>Free SEO Audits</li>
+      </ul>
+      <a class="price-cta ghost" href="https://wa.me/919004108811">Order Now</a>
     </div>
-    <div class="container-fluid text-white" style="background: #061429;">
-        <div class="container text-center">
-            <div class="row justify-content-end">
-                <div class="col-lg-8 col-md-6">
-                    <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
-                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="www.Web1Expert.com">www.Web1Expert.com</a>. All Rights Reserved. 
-						
-						
-						Designed by <a class="text-white border-bottom" href="https://web1expert.com/">www.Web1Expert.com</a></p>
-                    </div>
-                </div>
-            </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section testimonials-section">
+  <div style="text-align:center;" class="reveal">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">What Our Clients Say About<br/><em>Our Digital Services</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Excellent service with reliable uptime and exceptional customer support. Web1Expert helped my small business get online quickly and affordably. Highly recommend!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">E</div>
+        <div>
+          <div class="testi-name">Emily Smith</div>
+          <div class="testi-role">Blogger</div>
         </div>
+      </div>
     </div>
-    <!-- Footer End -->
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">I've been using Web1Expert for over a year, and I couldn't be happier. Their hosting is fast, secure, and cost-effective. Plus, the customer support team is always responsive!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">John Doe</div>
+          <div class="testi-role">Business Owner</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">As a freelancer, I needed a hosting provider that offered great performance at an affordable price. Web1Expert delivered just that and more. My website has never been smoother!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div>
+          <div class="testi-name">Michael Thompson</div>
+          <div class="testi-role">Web Designer</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">I switched to Web1Expert after struggling with unreliable hosting. Now my website loads faster, and I've saved money too. Definitely a solid choice!</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">Sarah Brown</div>
+          <div class="testi-role">E-commerce Entrepreneur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- TEAM -->
+<section class="section">
+  <div style="text-align:center;" class="reveal">
+    <p class="section-label">Team Members</p>
+    <h2 class="section-title">Professional Staff Ready to<br/><em>Help Your Business</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="team-avatar">M</div>
+      <div class="team-name">Matthew Martinez</div>
+      <div class="team-role">Database Administrator</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">S</div>
+      <div class="team-name">Sarah Davis</div>
+      <div class="team-role">IT Project Manager</div>
+    </div>
+    <div class="team-card reveal">
+      <div class="team-avatar">C</div>
+      <div class="team-name">Christopher Wilson</div>
+      <div class="team-role">Front-End Developer</div>
+    </div>
+  </div>
+</section>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- CONTACT -->
+<section id="contact" class="section contact-section">
+  <div class="reveal">
+    <p class="section-label">Request A Quote</p>
+    <h2 class="section-title">Need a Free Quote? Feel Free<br/>to <em>Contact Us</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Location</div>
+          <div class="contact-detail-val">Mumbai, India</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-detail-label">Email Us</div>
+          <div class="contact-detail-val"><a href="/cdn-cgi/l/email-protection#137a7d757c5364767122766b637661673d707c7e" style="color:var(--white);text-decoration:none;"><span class="__cf_email__" data-cfemail="3950575f56794e5c5b085c41495c4b4d175a5654">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Call / WhatsApp</div>
+          <div class="contact-detail-val"><a href="tel:+919004108811" style="color:var(--gold2);text-decoration:none;">+91 9004108811</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">⚡</div>
+        <div>
+          <div class="contact-detail-label">Response Time</div>
+          <div class="contact-detail-val">Reply within 24 hours</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <a class="btn-primary" href="https://wa.me/919004108811" style="display:inline-block;">
+          💬 WhatsApp for Instant Quote
+        </a>
+      </div>
+    </div>
+    <div class="contact-form-card reveal">
+      <h3>Get Your Free Quote</h3>
+      <div id="form-success" style="display:none;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.4);border-radius:10px;padding:18px 20px;margin-bottom:20px;color:#25d366;font-family:'Syne',sans-serif;font-weight:600;font-size:0.95rem;">
+        ✅ Opening WhatsApp with your details pre-filled!
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-name">Your Name *</label>
+          <input id="f-name" type="text" placeholder="John Smith" required/>
+        </div>
+        <div class="form-group">
+          <label for="f-phone">Phone / WhatsApp *</label>
+          <input id="f-phone" type="tel" placeholder="+91 xxxxxxxxxx" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="f-email">Email Address</label>
+        <input id="f-email" type="email" placeholder="you@example.com"/>
+      </div>
+      <div class="form-group">
+        <label for="f-service">Service Required *</label>
+        <select id="f-service">
+          <option value="">-- Select a Service --</option>
+          <option>Web &amp; App Designing</option>
+          <option>Website Development</option>
+          <option>Software Development</option>
+          <option>App Development</option>
+          <option>Graphic Designing</option>
+          <option>Video Development</option>
+          <option>Digital Marketing</option>
+          <option>Content Writing</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="f-budget">Approximate Budget</label>
+        <select id="f-budget">
+          <option value="">-- Select Budget --</option>
+          <option>Under $50 / ₹5,000</option>
+          <option>$50–$100 / ₹5,000–₹10,000</option>
+          <option>$100–$500 / ₹10,000–₹40,000</option>
+          <option>$500+ / ₹40,000+</option>
+          <option>Let's discuss</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="f-msg">Message / Project Details *</label>
+        <textarea id="f-msg" placeholder="Describe your project briefly — what you need, your goals, timeline…" required></textarea>
+      </div>
+      <button class="form-submit" onclick="sendToWhatsApp()" type="button">
+        💬 Send via WhatsApp →
+      </button>
+      <p style="text-align:center;margin-top:12px;font-size:0.78rem;color:var(--muted);">
+        Your details will be pre-filled in WhatsApp — no copy-pasting needed.
+      </p>
+    </div>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="footer-logo" href="https://web1expert.com">Web1Expert</a>
+      <p class="footer-desc">Web1Expert delivers affordable, secure, and high-speed website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7 support.</p>
+      <div class="footer-contact">
+        <div class="footer-contact-item">📍 Mumbai, India</div>
+        <div class="footer-contact-item">📧 <a href="/cdn-cgi/l/email-protection#31585f575e71465453005449415443451f525e5c"><span class="__cf_email__" data-cfemail="731a1d151c3304161142160b031601075d101c1e">[email&#160;protected]</span></a></div>
+        <div class="footer-contact-item">📞 <a href="tel:+919004108811">+91 9004108811</a></div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="https://web1expert.com">Home</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="https://blog.web1expert.com">Latest Blog</a></li>
+        <li><a href="https://wa.me/919004108811">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Portfolio</div>
+      <ul class="footer-links">
+        <li><a href="https://tinyurl.com/cvww001">Website Portfolio</a></li>
+        <li><a href="https://tinyurl.com/cvg001">Graphics Portfolio</a></li>
+        <li><a href="https://tinyurl.com/vcv001">Video Samples</a></li>
+        <li><a href="https://tinyurl.com/cvw001">Articles Samples</a></li>
+        <li><a href="https://blog.web1expert.com/gallery/">Gallery</a></li>
+        <li><a href="https://besthelptool.site">FREE Tools</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© <a href="https://web1expert.com">www.Web1Expert.com</a>. All Rights Reserved. Designed by <a href="https://web1expert.com">Web1Expert</a></p>
+    <p class="footer-copy" style="color:var(--border);">Mumbai, India · Serving Clients Worldwide</p>
+  </div>
+</footer>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/919004108811" title="Chat on WhatsApp" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── WhatsApp Pre-filled Form ──
+  function sendToWhatsApp() {
+    const name    = document.getElementById('f-name').value.trim();
+    const phone   = document.getElementById('f-phone').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const service = document.getElementById('f-service').value.trim();
+    const budget  = document.getElementById('f-budget').value.trim();
+    const msg     = document.getElementById('f-msg').value.trim();
 
+    // Validation
+    if (!name) { alert('Please enter your name.'); document.getElementById('f-name').focus(); return; }
+    if (!phone) { alert('Please enter your phone number.'); document.getElementById('f-phone').focus(); return; }
+    if (!service) { alert('Please select a service.'); document.getElementById('f-service').focus(); return; }
+    if (!msg) { alert('Please describe your project.'); document.getElementById('f-msg').focus(); return; }
 
+    // Build the pre-filled WhatsApp message
+    const lines = [
+      '👋 *New Quote Request from Web1Expert.com*',
+      '─────────────────────────',
+      `👤 *Name:* ${name}`,
+      `📞 *Phone:* ${phone}`,
+      email   ? `📧 *Email:* ${email}`   : '',
+      `🛠️ *Service:* ${service}`,
+      budget  ? `💰 *Budget:* ${budget}` : '',
+      '─────────────────────────',
+      `📝 *Message:*\n${msg}`,
+      '─────────────────────────',
+      '_Sent via Web1Expert Contact Form_'
+    ].filter(Boolean).join('\n');
 
-</body>
+    const encoded = encodeURIComponent(lines);
+    const waURL   = `https://wa.me/919004108811?text=${encoded}`;
 
-</html>
+    // Show success flash
+    const successEl = document.getElementById('form-success');
+    successEl.style.display = 'block';
+    setTimeout(() => { successEl.style.display = 'none'; }, 4000);
+
+    // Open WhatsApp
+    window.open(waURL, '_blank');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Counter animation
+  function animateCounters() {
+    const counters = [
+      { el: document.querySelector('.trust-num:nth-child(1)'), target: 405 },
+    ];
+    document.querySelectorAll('.trust-num').forEach((el, i) => {
+      const targets = [405, 475, 234, 15];
+      const suffixes = ['', '', '', '+'];
+      let start = 0;
+      const end = targets[i] || 0;
+      const suffix = suffixes[i] || '';
+      const duration = 1800;
+      const step = end / (duration / 16);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= end) { el.textContent = end + suffix; clearInterval(timer); }
+        else el.textContent = Math.floor(start) + suffix;
+      }, 16);
+    });
+  }
+  // Run coun
