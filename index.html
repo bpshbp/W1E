@@ -510,6 +510,29 @@ footer {
   animation:waPulse 2s infinite;
 }
 .wa-float:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(37,211,102,0.7); }
+/* FLOATING MESSENGER */
+.msg-float {
+  position:fixed; bottom:92px; right:26px; z-index:200;
+  width:56px; height:56px; border-radius:50%;
+  background:linear-gradient(135deg,#0099ff,#a033ff 50%,#ff5c87);
+  color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(0,153,255,0.45);
+  text-decoration:none; transition:transform .2s, box-shadow .2s;
+}
+.msg-float:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(0,153,255,0.65); }
+/* BACK TO TOP */
+.btt-float {
+  position:fixed; bottom:158px; right:26px; z-index:200;
+  width:56px; height:56px; border-radius:50%;
+  background:var(--navy3); border:1px solid var(--border); color:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  cursor:pointer; transition:transform .2s, box-shadow .2s, background .2s, opacity .3s;
+  opacity:0; pointer-events:none;
+}
+.btt-float.visible { opacity:1; pointer-events:all; }
+.btt-float:hover { transform:scale(1.12) translateY(-3px); background:var(--gold); color:var(--navy); box-shadow:0 8px 30px rgba(240,165,0,0.4); }
 /* ANIMATIONS */
 @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 @keyframes waPulse {
@@ -553,7 +576,6 @@ footer {
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 
 <!-- INFO BAR -->
-<!-- FIX 2: Removed "Free Website" link | FIX 3: Renamed FREE Tools → FREE PAID Tools -->
 <div class="infobar">
   <div class="infobar-left">
     <span>📍 Mumbai, India</span>
@@ -573,7 +595,6 @@ footer {
 </div>
 
 <!-- NAV -->
-<!-- FIX 2: Removed "Free Website" menu item | FIX 3: FREE Tools → FREE PAID Tools -->
 <nav>
   <a class="nav-logo" href="https://web1expert.com">Web1<span>Expert</span></a>
   <ul class="nav-links">
@@ -600,7 +621,6 @@ footer {
 </nav>
 
 <!-- MOBILE NAV -->
-<!-- FIX 2: Removed "Free Website" mobile item | FIX 3: FREE Tools → FREE PAID Tools -->
 <div class="mobile-nav" id="mobileNav">
   <a href="https://web1expert.com" onclick="closeMenu()">Home</a>
   <a href="https://tinyurl.com/cvww001" target="_blank" onclick="closeMenu()" class="mob-sub">↳ Website Portfolio</a>
@@ -646,7 +666,7 @@ footer {
   <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 Support</div>
   <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>All Device Compatible</div>
   <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>FREE Data Upload</div>
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Award Winning</div>
+  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Review Winning</div>
   <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Professional Staff</div>
 </div>
 
@@ -658,7 +678,7 @@ footer {
       <h2 class="section-title">The Best IT Solution With <em>15 Years</em> of Experience</h2>
       <p class="section-sub">Web1Expert delivers affordable, secure, and high-speed website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7 support.</p>
       <div class="about-feats">
-        <div class="about-feat"><div class="about-feat-icon">🏆</div><div class="about-feat-title">Award Winning</div></div>
+        <div class="about-feat"><div class="about-feat-icon">🏆</div><div class="about-feat-title">Review Winning</div></div>
         <div class="about-feat"><div class="about-feat-icon">👥</div><div class="about-feat-title">Professional Staff</div></div>
         <div class="about-feat"><div class="about-feat-icon">🕐</div><div class="about-feat-title">24/7 Support</div></div>
         <div class="about-feat"><div class="about-feat-icon">💰</div><div class="about-feat-title">Fair Prices</div></div>
@@ -700,7 +720,7 @@ footer {
     </div>
     <div class="why-card reveal">
       <div class="why-icon">🏆</div>
-      <div class="why-title">Award Winning</div>
+      <div class="why-title">Review Winning</div>
       <div class="why-desc">Our projects have earned accolades for innovation, design quality, and measurable business impact for clients worldwide.</div>
     </div>
     <div class="why-card reveal">
@@ -827,7 +847,6 @@ footer {
     <div class="price-card featured reveal">
       <div class="price-badge">⭐ MOST POPULAR</div>
       <div class="price-name">PRO Graphic & Video Editing Plan</div>
-     <!-- <div class="price-note">For small Business Price is ₹1000 or 10$/Page<br/>For Big Brand Price is ₹2000 or 20$/Page<br/>Below Prices are for Student,NGO,CHARITY</div> -->
        <div class="price-note">Note-Below Price may vary based on the Requirement</div>
       <div class="price-amount">$10-$50 <span>or</span></div>
       <div class="price-inr">₹1000-₹5000</div>
@@ -845,7 +864,6 @@ footer {
     </div>
     <div class="price-card reveal">
       <div class="price-name">Marketing Plan</div>
-     <!-- <div class="price-note">For small Business Price is ₹10000/5 Product<br/>For Big Brand Price is ₹15000/5 Product<br/>Below Prices are for Student,NGO,CHARITY</div>-->
       <div class="price-note">Note-Below Price may vary based on the Requirement</div>
       <div class="price-amount">30% <span>or</span></div>
       <div class="price-inr">100$</div>
@@ -864,75 +882,6 @@ footer {
     </div>
   </div>
 </section>
-
-<!-- ═══ PRICING — BRANDS ═══ 
-<section class="section" style="padding-top:0;">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-label">Pricing Plans</p>
-    <h2 class="section-title">We are Offering Competitive Prices for <em>Small &amp; Big Brands</em></h2>
-  </div>
-  <div class="pricing-grid">
-    <div class="price-card reveal">
-      <div class="price-name">Graphic Design Plan</div>
-      <div class="price-note">For small Business Price is ₹1000/Art<br/>For Big Brand Price is ₹1500/Art<br/>Below Prices are for Student,NGO,CHARITY</div>
-      <div class="price-amount">$5 <span>or</span></div>
-      <div class="price-inr">₹300/Art</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Logo Design just for 15$</li>
-        <li>Flyer Design just for 15$</li>
-        <li>Social Media Design just for 5$</li>
-        <li>Brochure (4 Pages) for 25$</li>
-        <li>Business Card Design just for 5$</li>
-        <li>Visiting / ID Card just for 15$</li>
-        <li>Sticker Design just for 5$</li>
-        <li>Infographics Design just for 15$</li>
-        <li>Letter Head Design just for 8$</li>
-        <li>Invitation Card Design just for 10$</li>
-        <li>Web Banner Design just for 15$</li>
-        <li>UI/UX Design just for 8$</li>
-      </ul>
-      <a class="price-cta outline" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-    <div class="price-card featured reveal">
-      <div class="price-badge">🎬 VIRAL CONTENT</div>
-      <div class="price-name">Video Editing Plan</div>
-      <div class="price-note">For small Business Price is $20/30Sec or ₹2,000/30Sec<br/>For Big Brand Price is $30/30Sec or ₹3,000/30Sec<br/>Below Prices are for Student,NGO,CHARITY</div>
-      <div class="price-amount">$15 <span>or</span></div>
-      <div class="price-inr">₹1,000/30 Sec</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Insta Reels (30 Sec) for 10$ or ₹1,000</li>
-        <li>Logo Animation for 25$</li>
-        <li>Company Profile for 25$</li>
-        <li>Celebration Video Edit for 25$</li>
-        <li>Free Data Upload</li>
-        <li>Free Fair Revisions</li>
-      </ul>
-      <a class="price-cta" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-    <div class="price-card reveal">
-      <div class="price-name">Google Marketing Plan</div>
-      <div class="price-note">For small Business Price is $200/Month or ₹15,000/Month<br/>For Big Brand Price is $300/Month or ₹20,000/Month<br/>Below Prices are for Student,NGO,CHARITY</div>
-      <div class="price-amount">$100 <span>or</span></div>
-      <div class="price-inr">₹10,000/Month</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Google My Business setup start at 10$ or 1000INR</li>
-        <li>Google Search Console setup start at 5$ or 200INR</li>
-        <li>Google Analytics setup start at 5$ or 200INR</li>
-        <li>Website SCHEMA Plugin setup start at 10$ or 1000INR</li>
-        <li>Website SEO Plugin setup start at 20$ or 2000INR</li>
-        <li>Website Slow Speed Fixing start at 50$ or 3000INR</li>
-        <li>Website Error Fixing start at 50$ or 5000INR</li>
-        <li>PWA to APP Service start at 50$ or 3000INR</li>
-        <li>Social Media Management Service start at 50$ or 5000INR</li>
-        <li>Website Maintenance start at 50$/Month or 5000INR</li>
-      </ul>
-      <a class="price-cta outline" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-  </div>
-</section>-->
 
 <!-- ═══ TESTIMONIALS ═══ -->
 <section id="testimonial" class="section testi-bg">
@@ -1084,7 +1033,6 @@ footer {
 </section>
 
 <!-- ═══ FOOTER ═══ -->
-<!-- FIX 4: Footer "Latest Blog" linked to https://blog.web1expert.com/category/blog/ -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -1133,7 +1081,27 @@ footer {
   </svg>
 </a>
 
+<!-- FLOATING MESSENGER -->
+<a class="msg-float" href="https://m.me/cheapWebsiteDesigning" target="_blank" aria-label="Chat on Messenger">
+  <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/>
+  </svg>
+</a>
+
+<!-- BACK TO TOP -->
+<button class="btt-float" id="bttBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
 <script>
+/* ── Back to Top ── */
+const bttBtn = document.getElementById('bttBtn');
+window.addEventListener('scroll', () => {
+  bttBtn.classList.toggle('visible', window.scrollY > 300);
+});
+
 /* ── Hamburger ── */
 function toggleMenu() {
   const nav = document.getElementById('mobileNav');
