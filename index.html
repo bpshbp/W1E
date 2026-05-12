@@ -560,6 +560,79 @@ footer {
   .cta-banner { justify-content:center; text-align:center; }
   .infobar { justify-content:center; text-align:center; }
 }
+/* ═══ PROMO BANNER STRIP ═══ */
+.promo-strip {
+  background: linear-gradient(135deg, var(--navy2) 0%, var(--navy3) 100%);
+  border-bottom: 2px solid var(--border);
+  border-top: 1px solid rgba(240,165,0,0.08);
+  overflow: hidden;
+  position: relative;
+  z-index: 98;
+}
+.promo-strip::before,
+.promo-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+.promo-strip::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--navy2) 0%, transparent 100%);
+}
+.promo-strip::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--navy2) 0%, transparent 100%);
+}
+.promo-track {
+  display: flex;
+  animation: promoScroll 36s linear infinite;
+  width: max-content;
+}
+.promo-track:hover { animation-play-state: paused; }
+@keyframes promoScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.promo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  cursor: default;
+  transition: background 0.2s;
+}
+.promo-item:hover { background: rgba(240,165,0,0.05); }
+.promo-icon { font-size: 1.25rem; flex-shrink: 0; }
+.promo-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.promo-label em {
+  font-style: normal;
+  color: var(--white);
+  font-weight: 700;
+}
+.promo-price {
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  padding: 4px 11px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 </style>
 </head>
 <body>
@@ -590,7 +663,7 @@ footer {
 
 <!-- PROMO BAR -->
 <div class="promobar">
-  🚀 Premium Website from just <strong>$50</strong> &nbsp;·&nbsp; 15+ Years of Expertise &nbsp;·&nbsp;
+  🚀 Premium Website start from just <strong>$50</strong> &nbsp;·&nbsp; 15+ Years of Expertise &nbsp;·&nbsp;
   <a href="https://wa.me/919004108811">WhatsApp Us for Free Quote →</a>
 </div>
 
@@ -635,7 +708,76 @@ footer {
   <a href="#contact" onclick="closeMenu()">Contact Us</a>
   <a href="https://wa.me/919004108811" onclick="closeMenu()" class="mob-cta">💬 Free Quote on WhatsApp</a>
 </div>
+<!-- ═══ PROMO BANNER STRIP ═══ -->
+<div class="promo-strip">
+  <div class="promo-track">
 
+    <!-- SET 1 -->
+    <div class="promo-item">
+      <span class="promo-icon">🖥️</span>
+      <span class="promo-label">Get Free <em>LIFETIME</em> Hosting</span>
+      <span class="promo-price">$20 ONE TIME</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🌐</span>
+      <span class="promo-label"><em>Get PRO</em> Website</span>
+      <span class="promo-price">start from $10</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🛒</span>
+      <span class="promo-label"><em>Get PRO</em> Ecommerce Website</span>
+      <span class="promo-price">start from $100</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🎨</span>
+      <span class="promo-label">Get Graphics Design</span>
+      <span class="promo-price">start from $5</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🎬</span>
+      <span class="promo-label">Get Video Editing </span>
+      <span class="promo-price">start from $15</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">📈</span>
+      <span class="promo-label">Get Digital Marketing</span>
+      <span class="promo-price">start from $100</span>
+    </div>
+
+    <!-- SET 2 — exact duplicate required for seamless infinite scroll -->
+    <div class="promo-item">
+      <span class="promo-icon">🖥️</span>
+      <span class="promo-label">Get Free <em>LIFETIME</em> Hosting</span>
+      <span class="promo-price">$20 ONE TIME</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🌐</span>
+      <span class="promo-label"><em>Get PRO</em> Website</span>
+      <span class="promo-price">start from $10</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🛒</span>
+      <span class="promo-label"><em>Get PRO</em> Ecommerce Website</span>
+      <span class="promo-price">start from $100</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🎨</span>
+      <span class="promo-label">Get Graphics Design</span>
+      <span class="promo-price">start from $5</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">🎬</span>
+      <span class="promo-label">Get Video Editing </span>
+      <span class="promo-price">start from $15</span>
+    </div>
+    <div class="promo-item">
+      <span class="promo-icon">📈</span>
+      <span class="promo-label">Get Digital Marketing</span>
+      <span class="promo-price">start from $100</span>
+    </div>
+
+  </div>
+</div>
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-bg"></div>
@@ -741,7 +883,7 @@ footer {
   <div class="reveal">
     <p class="section-label">Our Services</p>
     <h2 class="section-title">Custom IT Solutions for Your <em>Successful Business</em></h2>
-    <p class="section-sub">End-to-end digital services — from design to deployment, marketing to maintenance.</p>
+    <p class="section-sub">End-to-end digital services — start from design to deployment, marketing to maintenance.</p>
   </div>
   <div class="services-grid">
     <a class="service-card reveal" href="#pricing">
