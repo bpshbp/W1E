@@ -98,7 +98,7 @@
         .section-title { font-size: clamp(28px,4vw,44px); margin-bottom: 16px; color: var(--dark); }
         .section-subtitle { font-size: 18px; color: var(--text-muted); line-height: 1.7; }
 
-        /* ── NAVBAR ── */
+        /* NAVBAR */
         .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; transition: var(--transition); }
         .navbar.scrolled { background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
         .navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -111,7 +111,7 @@
         .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
         .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: var(--transition); }
 
-        /* ── MOBILE MENU ── */
+        /* MOBILE MENU */
         .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,23,42,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 24px; opacity: 0; transition: opacity 0.3s; }
         .mobile-menu.active { display: flex; opacity: 1; }
         .mobile-menu a { color: white; font-size: 24px; font-weight: 600; text-decoration: none; transition: var(--transition); }
@@ -119,7 +119,7 @@
         .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.1); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
         .mobile-menu-close:hover { background: rgba(255,255,255,0.2); }
 
-        /* ── HERO ── */
+        /* HERO */
         .hero { min-height: 100vh; background: var(--gradient-hero); display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 0 80px; }
         .hero-particles { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; }
         .particle { position: absolute; border-radius: 50%; opacity: 0.15; animation: float-particle 15s infinite; }
@@ -165,20 +165,20 @@
         .hero-float-2 { bottom: -20px; left: -30px; background: rgba(245,158,11,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 12px 16px; color: #FCD34D; font-size: 13px; font-weight: 600; animation: float-badge 3s ease-in-out infinite reverse; }
         @keyframes float-badge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 
-        /* ── TRUST BAR ── */
+        /* TRUST BAR */
         .trust-bar { background: var(--light2); border-top: 1px solid var(--light3); border-bottom: 1px solid var(--light3); padding: 24px 0; }
         .trust-bar-inner { display: flex; align-items: center; gap: 60px; justify-content: center; flex-wrap: wrap; }
         .trust-item { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
         .trust-item-icon { font-size: 22px; }
 
-        /* ── TICKER ── */
+        /* TICKER */
         .ticker-wrap { background: var(--primary); padding: 12px 0; overflow: hidden; }
         .ticker-track { display: flex; animation: ticker 30s linear infinite; width: max-content; }
         .ticker-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 500; padding: 0 40px; white-space: nowrap; }
         .ticker-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.5); border-radius: 50%; }
         @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-        /* ── SERVICES ── */
+        /* SERVICES */
         .services { background: var(--white); }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 28px; }
         .service-card { background: var(--white); border: 1px solid var(--light3); border-radius: var(--border-radius-lg); padding: 36px; position: relative; overflow: hidden; cursor: pointer; transition: var(--transition); }
@@ -196,7 +196,7 @@
         .service-link { color: var(--primary); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: var(--transition); }
         .service-card:hover .service-link { gap: 12px; }
 
-        /* ── FEATURES ── */
+        /* FEATURES */
         .features { background: var(--dark); position: relative; overflow: hidden; }
         .features::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%,rgba(37,99,235,0.1) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(124,58,237,0.1) 0%,transparent 50%); }
         .features-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -215,7 +215,7 @@
         .stat-label { font-size: 14px; color: rgba(255,255,255,0.5); }
         .stat-icon { font-size: 28px; margin-bottom: 12px; }
 
-        /* ── PROCESS ── */
+        /* PROCESS */
         .process { background: var(--light); }
         .process-steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); position: relative; margin-top: 60px; }
         .process-steps::before { content: ''; position: absolute; top: 40px; left: 80px; right: 80px; height: 2px; background: linear-gradient(90deg,var(--primary),var(--secondary)); z-index: 0; }
@@ -226,7 +226,7 @@
         .step-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
         .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
-        /* ── TESTIMONIALS ── */
+        /* TESTIMONIALS */
         .testimonials { background: var(--light); }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 28px; }
         .testimonial-card { background: white; border-radius: var(--border-radius-lg); padding: 36px; box-shadow: var(--shadow-sm); border: 1px solid var(--light3); transition: var(--transition); position: relative; }
@@ -239,7 +239,7 @@
         .author-info h5 { font-size: 15px; font-weight: 700; color: var(--dark); }
         .author-info span { font-size: 13px; color: var(--text-muted); }
 
-        /* ── PRICING ── */
+        /* PRICING */
         .pricing { background: white; }
         .pricing-toggle { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 50px; }
         .toggle-label { font-size: 15px; font-weight: 600; color: var(--text-muted); cursor: pointer; }
@@ -272,7 +272,7 @@
         .pricing-card.popular .plan-features li { color: rgba(255,255,255,0.7); }
         .plan-features .check { color: var(--secondary); font-weight: 700; }
 
-        /* ── FAQ ── */
+        /* FAQ */
         .faq { background: var(--light); }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { background: white; border: 1px solid var(--light3); border-radius: var(--border-radius); margin-bottom: 12px; overflow: hidden; transition: var(--transition); }
@@ -285,7 +285,7 @@
         .faq-item.open .faq-answer { max-height: 300px; }
         .faq-answer-inner { padding: 0 28px 22px; font-size: 15px; color: var(--text-muted); line-height: 1.7; }
 
-        /* ── CONTACT CTA ── */
+        /* CONTACT CTA */
         .contact-cta { background: var(--gradient-hero); position: relative; overflow: hidden; }
         .contact-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%,rgba(37,99,235,0.2) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(124,58,237,0.2) 0%,transparent 50%); }
         .contact-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -314,7 +314,7 @@
         .form-success h3 { color: white; font-size: 22px; margin-bottom: 8px; }
         .form-success p { color: rgba(255,255,255,0.6); font-size: 15px; }
 
-        /* ── COMPARISON ── */
+        /* COMPARISON */
         .comparison { background: white; }
         .comparison-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
         .comparison-table th { padding: 20px; text-align: center; font-size: 14px; font-weight: 700; }
@@ -326,7 +326,7 @@
         .comparison-table tr:last-child td { border-bottom: none; }
         .check-yes{color:var(--secondary);font-size:20px} .check-no{color:var(--text-light);font-size:20px} .check-partial{color:var(--accent);font-size:20px}
 
-        /* ── QUIZ ── */
+        /* QUIZ */
         .quiz-section { background: var(--gradient-1); padding: 80px 0; position: relative; overflow: hidden; }
         .quiz-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
         .quiz-container { max-width: 650px; margin: 0 auto; position: relative; z-index: 2; text-align: center; }
@@ -349,7 +349,7 @@
         .quiz-result h3 { color: white; font-size: 24px; margin-bottom: 12px; }
         .quiz-result p { color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 24px; line-height: 1.6; }
 
-        /* ── HIGHLIGHT ── */
+        /* HIGHLIGHT */
         .highlight-section { background: white; padding: 80px 0; }
         .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
         .highlight-item { text-align: center; padding: 40px 30px; border-right: 1px solid var(--light3); cursor: default; transition: var(--transition); }
@@ -361,7 +361,7 @@
         .highlight-number .plus { color: var(--primary); }
         .highlight-label { font-size: 14px; color: var(--text-muted); }
 
-        /* ── TECH ── */
+        /* TECH */
         .tech-section { background: var(--dark2); padding: 60px 0; }
         .tech-label { text-align: center; color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 30px; }
         .tech-grid { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -369,7 +369,7 @@
         .tech-pill:hover { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.4); color: white; transform: translateY(-2px); }
         .tech-pill .tech-icon { font-size: 18px; }
 
-        /* ── FOOTER ── */
+        /* FOOTER */
         .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding-top: 80px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
         .footer-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; color: white; margin-bottom: 16px; }
@@ -389,7 +389,7 @@
         .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: var(--transition); }
         .footer-bottom-links a:hover { color: white; }
 
-        /* ── BACK TO TOP & FLOATING WA ── */
+        /* BACK TO TOP & FLOATING WA */
         .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--gradient-1); color: white; border: none; border-radius: 14px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,99,235,0.4); transition: var(--transition); opacity: 0; pointer-events: none; z-index: 100; }
         .back-to-top.visible { opacity: 1; pointer-events: all; }
         .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(37,99,235,0.5); }
@@ -397,27 +397,17 @@
         .floating-wa:hover { animation: none; transform: translateY(-4px); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
         @keyframes float-cta { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
-        /* ── COOKIE ── */
-        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark2); border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; z-index: 9999; transform: translateY(100%); transition: transform 0.4s; }
-        .cookie-banner.show { transform: translateY(0); }
-        .cookie-text { font-size: 13px; color: rgba(255,255,255,0.7); max-width: 600px; }
-        .cookie-text a { color: var(--primary-light); }
-        .cookie-actions { display: flex; gap: 10px; }
-        .cookie-accept { padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: var(--transition); }
-        .cookie-accept:hover { background: var(--primary-dark); }
-        .cookie-decline { padding: 10px 20px; background: transparent; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; }
-
-        /* ── LIVE NOTIF ── */
+        /* LIVE NOTIF */
         .live-notification { position: fixed; top: 80px; right: 20px; background: white; border: 1px solid var(--light3); border-radius: 12px; padding: 14px 18px; box-shadow: var(--shadow-lg); max-width: 280px; z-index: 500; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
         .live-notification.show { transform: translateX(0); }
         .notif-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
         .notif-text strong { color: var(--dark); display: block; }
         .notif-dot { width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; flex-shrink: 0; animation: pulse-dot 2s infinite; }
 
-        /* ── SCROLL PROGRESS ── */
+        /* SCROLL PROGRESS */
         .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--gradient-1); z-index: 10000; width: 0%; transition: width 0.1s linear; }
 
-        /* ── ANIMATIONS ── */
+        /* ANIMATIONS */
         .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .fade-in-up.visible { opacity: 1; transform: translateY(0); }
         .fade-in-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -427,11 +417,11 @@
         .delay-1{transition-delay:0.1s} .delay-2{transition-delay:0.2s} .delay-3{transition-delay:0.3s} .delay-4{transition-delay:0.4s}
         .counter { display: inline; }
 
-        /* ── COLORS ── */
+        /* COLORS */
         .bg-blue{background:linear-gradient(135deg,#1E40AF,#3B82F6)} .bg-green{background:linear-gradient(135deg,#065F46,#10B981)} .bg-yellow{background:linear-gradient(135deg,#92400E,#F59E0B)}
         .avatar-blue{background:linear-gradient(135deg,#2563EB,#7C3AED)} .avatar-green{background:linear-gradient(135deg,#10B981,#2563EB)} .avatar-orange{background:linear-gradient(135deg,#F59E0B,#EF4444)} .avatar-purple{background:linear-gradient(135deg,#7C3AED,#EC4899)} .avatar-teal{background:linear-gradient(135deg,#06B6D4,#10B981)} .avatar-red{background:linear-gradient(135deg,#EF4444,#F97316)}
 
-        /* ── RESPONSIVE ── */
+        /* RESPONSIVE */
         @media(max-width:1024px){
             .hero-content{grid-template-columns:1fr;gap:60px}
             .hero-visual{order:-1;max-width:500px;margin:0 auto}
@@ -469,14 +459,7 @@
 
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <p class="cookie-text">🍪 We use cookies to improve your experience. By continuing, you agree to our <a href="#">Privacy Policy</a>.</p>
-        <div class="cookie-actions">
-            <button class="cookie-decline" onclick="dismissCookie()">Decline</button>
-            <button class="cookie-accept" onclick="acceptCookie()">Accept All</button>
-        </div>
-    </div>
+    <!-- ✅ COOKIE BANNER — completely hidden/removed -->
 
     <!-- Live Notification -->
     <div class="live-notification" id="liveNotif">
@@ -534,7 +517,6 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <!-- ✅ RENAMED: #1 Web Agency 2026 -->
                     <div class="hero-tag"><div class="dot"></div>🏆 Rated #1 Web Agency 2026</div>
                     <h1 class="hero-title">Build a Website That <span class="highlight">Actually Grows</span> Your Business</h1>
                     <p class="hero-desc">We design, develop, and optimize websites that don't just look stunning — they convert visitors into customers, rank on Google, and work for you 24/7. No fluff. Just real, measurable results.</p>
@@ -884,7 +866,7 @@
         </div>
     </div>
 
-    <!-- PRICING -->
+    <!-- ═══ PRICING — All 3 prices updated ═══ -->
     <section class="pricing section" id="pricing">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -899,10 +881,15 @@
                 <span class="pricing-save">Save 20%</span>
             </div>
             <div class="pricing-grid">
-                <!-- ✅ Starter price changed to $100 -->
+
+                <!-- ✅ STARTER — $100 -->
                 <div class="pricing-card fade-in-up delay-1">
                     <div class="plan-name">Starter</div>
-                    <div class="plan-price"><span class="price-currency">$</span><span class="price-amount" id="price1">100</span><span class="price-period">/project</span></div>
+                    <div class="plan-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount" id="price1">100</span>
+                        <span class="price-period">/project</span>
+                    </div>
                     <p class="plan-desc">Perfect for small businesses, freelancers, and local services looking for a clean professional web presence.</p>
                     <div class="plan-divider"></div>
                     <ul class="plan-features">
@@ -913,12 +900,18 @@
                         <li><span class="check">✓</span> SSL security certificate</li>
                         <li><span class="check">✓</span> 30 days free support</li>
                     </ul>
-                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Starter%20Plan" target="_blank" class="btn btn-outline" style="color:var(--dark);border-color:var(--light3);width:100%;justify-content:center">💬 Get Started on WhatsApp</a>
+                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Starter%20Plan%20%24100" target="_blank" class="btn btn-outline" style="color:var(--dark);border-color:var(--light3);width:100%;justify-content:center">💬 Get Started on WhatsApp</a>
                 </div>
+
+                <!-- ✅ GROWTH — $500 (was $1,499) -->
                 <div class="pricing-card popular fade-in-up delay-2">
                     <div class="popular-badge">⭐ Most Popular</div>
                     <div class="plan-name">Growth</div>
-                    <div class="plan-price"><span class="price-currency">$</span><span class="price-amount" id="price2">1,499</span><span class="price-period">/project</span></div>
+                    <div class="plan-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount" id="price2">500</span>
+                        <span class="price-period">/project</span>
+                    </div>
                     <p class="plan-desc">For growing businesses that want a powerful, results-driven website with full SEO and marketing capabilities.</p>
                     <div class="plan-divider"></div>
                     <ul class="plan-features">
@@ -931,11 +924,17 @@
                         <li><span class="check">✓</span> 90 days priority support</li>
                         <li><span class="check">✓</span> Speed & performance optimization</li>
                     </ul>
-                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Growth%20Plan" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">💬 Get Growth Plan on WhatsApp</a>
+                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Growth%20Plan%20%24500" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">💬 Get Growth Plan on WhatsApp</a>
                 </div>
+
+                <!-- ✅ ENTERPRISE — $1,000 (was $4,999) -->
                 <div class="pricing-card fade-in-up delay-3">
                     <div class="plan-name">Enterprise</div>
-                    <div class="plan-price"><span class="price-currency">$</span><span class="price-amount" id="price3">4,999</span><span class="price-period">/project</span></div>
+                    <div class="plan-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount" id="price3">1,000</span>
+                        <span class="price-period">/project</span>
+                    </div>
                     <p class="plan-desc">Full-scale digital solutions for established businesses that need a powerful online ecosystem.</p>
                     <div class="plan-divider"></div>
                     <ul class="plan-features">
@@ -948,8 +947,9 @@
                         <li><span class="check">✓</span> 12 months ongoing support</li>
                         <li><span class="check">✓</span> Monthly performance reports</li>
                     </ul>
-                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Enterprise%20Plan" target="_blank" class="btn btn-outline" style="color:var(--dark);border-color:var(--light3);width:100%;justify-content:center">💬 Let's Talk on WhatsApp</a>
+                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Enterprise%20Plan%20%241000" target="_blank" class="btn btn-outline" style="color:var(--dark);border-color:var(--light3);width:100%;justify-content:center">💬 Let's Talk on WhatsApp</a>
                 </div>
+
             </div>
             <div class="text-center" style="margin-top:40px">
                 <p style="color:var(--text-muted);font-size:15px">🤝 All plans include a <strong>30-day satisfaction guarantee</strong>.<br>
@@ -1016,7 +1016,6 @@
                     </ul>
                     <div style="margin-top:36px;display:flex;gap:20px;flex-wrap:wrap">
                         <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">💬</div><div style="color:white;font-weight:600">WhatsApp</div>+91 90041 08811</div>
-                        <!-- ✅ Email updated to info@ -->
                         <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">📧</div><div style="color:white;font-weight:600">Email Us</div>info@web1expert.com</div>
                         <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">⏰</div><div style="color:white;font-weight:600">Response Time</div>Within 24 Hours</div>
                     </div>
@@ -1070,7 +1069,6 @@
                 <div>
                     <div class="footer-logo"><div class="logo-icon">W</div>Web1Expert</div>
                     <p class="footer-desc">We build professional, high-performance websites that help businesses grow, get found online, and convert visitors into loyal customers. Based worldwide, delivering everywhere.</p>
-                    <!-- ✅ ALL SOCIAL LINKS UPDATED -->
                     <div class="social-links">
                         <a href="https://www.facebook.com/cheapWebsiteDesigning" target="_blank" class="social-link" title="Facebook">📘</a>
                         <a href="https://x.com/tksutk" target="_blank" class="social-link" title="X / Twitter">🐦</a>
@@ -1102,7 +1100,6 @@
                 <div class="footer-col">
                     <h4>Get In Touch</h4>
                     <div class="footer-contact-item"><span class="footer-contact-icon">💬</span><a href="https://wa.me/919004108811" target="_blank" style="color:rgba(255,255,255,0.55)">+91 90041 08811 (WhatsApp)</a></div>
-                    <!-- ✅ Email updated to info@ -->
                     <div class="footer-contact-item"><span class="footer-contact-icon">📧</span>info@web1expert.com</div>
                     <div class="footer-contact-item"><span class="footer-contact-icon">⏰</span>Reply within 24 hours</div>
                     <div class="footer-contact-item"><span class="footer-contact-icon">🌍</span>Serving clients in 45+ countries</div>
@@ -1128,7 +1125,7 @@
     </a>
 
     <script>
-        // NAVBAR SCROLL
+        // NAVBAR
         const navbar = document.getElementById('navbar');
         const scrollProgress = document.getElementById('scrollProgress');
         const backToTop = document.getElementById('backToTop');
@@ -1153,9 +1150,12 @@
             if (!open) item.classList.add('open');
         }
 
-        // PRICING TOGGLE — ✅ Starter annual = $80 (20% off $100)
+        // ✅ PRICING TOGGLE — updated prices: Starter $100/$80, Growth $500/$400, Enterprise $1,000/$800
         let isAnnual = false;
-        const prices = { monthly: ['100','1,499','4,999'], annual: ['80','1,199','3,999'] };
+        const prices = {
+            monthly: ['100', '500', '1,000'],
+            annual:  ['80',  '400', '800']
+        };
         function togglePricing() {
             isAnnual = !isAnnual;
             document.getElementById('pricingToggle').classList.toggle('annual', isAnnual);
@@ -1165,7 +1165,12 @@
             [1,2,3].forEach(i => {
                 const el = document.getElementById('price' + i);
                 el.style.opacity = '0'; el.style.transform = 'translateY(-10px)';
-                setTimeout(() => { el.textContent = p[i-1]; el.style.transition = 'all 0.3s'; el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 200);
+                setTimeout(() => {
+                    el.textContent = p[i-1];
+                    el.style.transition = 'all 0.3s';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 200);
             });
         }
 
@@ -1186,17 +1191,9 @@
             setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); window.open(url, '_blank'); }, 400);
         }
 
-        // ✅ COOKIE — delayed 60 seconds
-        setTimeout(() => {
-            if (!localStorage.getItem('cookieAccepted')) {
-                document.getElementById('cookieBanner').classList.add('show');
-            }
-        }, 60000); // 60,000ms = 60 seconds
+        // ✅ COOKIE BANNER — completely disabled, never shown
 
-        function acceptCookie() { localStorage.setItem('cookieAccepted','true'); document.getElementById('cookieBanner').classList.remove('show'); }
-        function dismissCookie() { document.getElementById('cookieBanner').classList.remove('show'); }
-
-        // ✅ LIVE NOTIFICATIONS — first popup at 60s, then every 60s after
+        // LIVE NOTIFICATIONS — first at 60s, then every 60s
         const notifs = [
             {i:'JR',n:'James from Texas',m:'Just got a free consultation 🎉',c:'avatar-blue'},
             {i:'SM',n:'Sarah from NYC',m:'Just launched her new website 🚀',c:'avatar-green'},
@@ -1215,11 +1212,7 @@
             setTimeout(() => el.classList.remove('show'), 5000);
             ni++;
         }
-        // ✅ First notification after 60 seconds, then every 60 seconds
-        setTimeout(() => {
-            showNotif();
-            setInterval(showNotif, 60000);
-        }, 60000);
+        setTimeout(() => { showNotif(); setInterval(showNotif, 60000); }, 60000);
 
         // INTERSECTION OBSERVER
         const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -1254,9 +1247,9 @@
                     document.getElementById('quizFormStep').style.display = 'none';
                     document.getElementById('quizResult').classList.add('show');
                     let rt = 'Based on your answers, we recommend our ';
-                    if (qa.q2 === 'small') rt += '<strong>Starter Package</strong> — affordable, professional, and designed to get you online quickly.';
-                    else if (qa.q2 === 'medium' || qa.q2 === 'large') rt += '<strong>Growth Package</strong> — complete solution with custom design, full SEO, and ongoing support.';
-                    else rt += '<strong>Enterprise Package</strong> — comprehensive digital ecosystem with custom development and dedicated management.';
+                    if (qa.q2 === 'small') rt += '<strong>Starter Package</strong> — just $100, professional, and designed to get you online quickly.';
+                    else if (qa.q2 === 'medium' || qa.q2 === 'large') rt += '<strong>Growth Package</strong> — just $500 for custom design, full SEO, and ongoing support.';
+                    else rt += '<strong>Enterprise Package</strong> — just $1,000 for a comprehensive digital ecosystem with custom development and dedicated management.';
                     document.getElementById('quizResultText').innerHTML = rt;
                 }
             }, 600);
