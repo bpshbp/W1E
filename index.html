@@ -1,1373 +1,1291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name='impact-site-verification' value='-72097234'>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Web1Expert — Premium Website, Budget-Friendly Pricing</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --navy: #050d1a;
-  --navy2: #071428;
-  --navy3: #0b1f3a;
-  --gold: #f0a500;
-  --gold2: #ffc93c;
-  --white: #f5f0e8;
-  --muted: #8fa3bb;
-  --card: rgba(11,31,58,0.9);
-  --border: rgba(240,165,0,0.18);
-  --glow: 0 0 40px rgba(240,165,0,0.2);
-}
-html { scroll-behavior: smooth; }
-body {
-  background: var(--navy); color: var(--white);
-  font-family: 'DM Sans', sans-serif; font-weight: 300;
-  line-height: 1.7; overflow-x: hidden;
-}
-body::before {
-  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:.4;
-}
-/* INFO BAR */
-.infobar {
-  background: var(--navy3); border-bottom: 1px solid var(--border);
-  padding: 7px 5%; display: flex; align-items: center;
-  justify-content: space-between; flex-wrap: wrap; gap: 8px;
-  font-size: 0.79rem; color: var(--muted);
-  position: relative; z-index: 101;
-}
-.infobar a { color: var(--gold2); text-decoration: none; }
-.infobar a:hover { color: var(--gold); }
-.infobar-left, .infobar-right { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-/* PROMO BAR */
-.promobar {
-  background: var(--gold); color: var(--navy);
-  text-align: center; padding: 8px 20px;
-  font-family: 'Syne', sans-serif; font-size: 0.81rem;
-  font-weight: 700; letter-spacing: 0.05em;
-  position: relative; z-index: 100;
-}
-.promobar a { color: var(--navy); text-decoration: underline; }
-/* NAV */
-nav {
-  position: sticky; top: 0; z-index: 99;
-  backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(5,13,26,0.94);
-  border-bottom: 1px solid var(--border);
-  padding: 0 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px; gap: 14px;
-}
-.nav-logo {
-  font-family: 'Syne', sans-serif; font-size: 1.32rem; font-weight: 800;
-  color: var(--gold); text-decoration: none;
-  letter-spacing: -0.02em; white-space: nowrap; flex-shrink: 0;
-}
-.nav-logo span { color: var(--white); }
-/* desktop links */
-.nav-links { display: flex; gap: 2px; list-style: none; align-items: center; }
-.nav-links > li { position: relative; }
-.nav-links > li > a {
-  color: var(--muted); text-decoration: none; font-size: 0.8rem;
-  padding: 8px 10px; border-radius: 5px; display: block; white-space: nowrap;
-  transition: color .2s, background .2s;
-}
-.nav-links > li > a:hover { color: var(--gold2); background: rgba(240,165,0,0.07); }
-.drop-arrow { font-size: 0.62rem; margin-left: 2px; opacity:.55; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web1Expert | Professional Web Design, Development & Digital Solutions</title>
+    <meta name="description" content="Transform your business with expert web design, development, SEO, and digital marketing solutions. Get a stunning website that drives real results and grows your business online.">
+    <meta name="keywords" content="web design, web development, SEO, digital marketing, website design, professional website, business website, web solutions">
+    <meta name="author" content="Web1Expert">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Web1Expert | Build Your Dream Website Today">
+    <meta property="og:description" content="Professional web design, development & digital marketing that transforms businesses. Get started with a free consultation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://web1expert.com">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Web1Expert",
+      "description": "Professional web design, development, SEO and digital marketing services",
+      "url": "https://web1expert.com",
+      "serviceType": ["Web Design", "Web Development", "SEO", "Digital Marketing"],
+      "areaServed": "Worldwide"
+    }
+    </script>
 
-/* ═══ FIX 1: Portfolio hover — bridge gap so dropdown doesn't disappear ═══ */
-.has-drop { position: relative; }
-.has-drop > a { padding-bottom: 20px; }
-.has-drop:hover .dropdown { display: block; }
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;        /* flush to bottom of li, no gap */
-  left: 0;
-  background: var(--navy2); border: 1px solid var(--border);
-  border-radius: 10px; min-width: 200px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-  padding: 6px 0; z-index: 300;
-}
-/* invisible bridge keeps hover alive while mouse travels to dropdown */
-.has-drop::after {
-  content: '';
-  position: absolute;
-  top: 44px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: transparent;
-}
-.dropdown a {
-  display: block; padding: 10px 18px; color: var(--muted);
-  text-decoration: none; font-size: 0.82rem; white-space: nowrap;
-  transition: color .15s, background .15s;
-}
-.dropdown a:hover { color: var(--gold2); background: rgba(240,165,0,0.07); }
-/* ═══ END FIX 1 ═══ */
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #3B82F6;
+            --secondary: #10B981;
+            --secondary-dark: #059669;
+            --accent: #F59E0B;
+            --accent-dark: #D97706;
+            --dark: #0F172A;
+            --dark2: #1E293B;
+            --dark3: #334155;
+            --light: #F8FAFC;
+            --light2: #F1F5F9;
+            --light3: #E2E8F0;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --text-light: #94A3B8;
+            --white: #FFFFFF;
+            --gradient-1: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            --gradient-2: linear-gradient(135deg, #10B981 0%, #2563EB 100%);
+            --gradient-hero: linear-gradient(135deg, #0F172A 0%, #1E293B 40%, #0F2557 100%);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.15);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.2);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.3);
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-.nav-cta {
-  background: var(--gold); color: var(--navy);
-  font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: 0.79rem; letter-spacing: 0.05em;
-  padding: 9px 18px; border-radius: 5px;
-  text-decoration: none; white-space: nowrap; flex-shrink: 0;
-  transition: background .2s, transform .15s;
-}
-.nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
-/* hamburger */
-.hamburger {
-  display: none; flex-direction: column; justify-content: center;
-  align-items: center; gap: 5px; width: 40px; height: 40px;
-  background: transparent; border: 1px solid var(--border);
-  border-radius: 8px; cursor: pointer; padding: 8px; flex-shrink: 0;
-  transition: border-color .2s;
-}
-.hamburger:hover { border-color: var(--gold); }
-.hamburger span {
-  display: block; width: 20px; height: 2px;
-  background: var(--white); border-radius: 2px;
-  transition: transform .3s, opacity .3s, width .3s; transform-origin: center;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-/* mobile drawer */
-.mobile-nav {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(5,13,26,0.99); backdrop-filter: blur(20px);
-  z-index: 98; display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-start;
-  padding: 90px 0 40px; overflow-y: auto;
-  opacity: 0; transform: translateY(-14px);
-  transition: opacity .35s, transform .35s;
-  pointer-events: none; visibility: hidden;
-}
-.mobile-nav.open { opacity: 1; transform: translateY(0); pointer-events: all; visibility: visible; }
-.mobile-nav a {
-  color: var(--white); text-decoration: none;
-  font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800;
-  padding: 13px 40px; border-bottom: 1px solid var(--border);
-  width: 100%; text-align: center; transition: color .2s, background .2s;
-}
-.mobile-nav a:hover { color: var(--gold); background: rgba(240,165,0,0.05); }
-.mobile-nav .mob-sub { font-size: 0.9rem !important; font-weight: 500 !important; color: var(--muted) !important; }
-.mobile-nav .mob-sub:hover { color: var(--gold2) !important; }
-.mobile-nav .mob-cta {
-  margin-top: 18px; background: var(--gold); color: var(--navy) !important;
-  border-radius: 10px; width: auto !important; font-size: 1rem !important;
-  border: none !important; padding: 14px 40px !important; border-bottom: none !important;
-}
-.mobile-nav .mob-cta:hover { background: var(--gold2) !important; }
-section[id] { scroll-margin-top: 76px; }
-/* HERO */
-.hero {
-  min-height: 90vh; display: flex; align-items: center;
-  justify-content: center; text-align: center;
-  padding: 100px 5% 80px; overflow: hidden;
-  position: relative; z-index: 1;
-}
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background: radial-gradient(ellipse 80% 70% at 50% 30%, rgba(240,165,0,0.12), transparent 65%),
-              radial-gradient(ellipse 50% 50% at 80% 80%, rgba(7,20,40,0.9), transparent 70%);
-}
-.hero-grid {
-  position: absolute; inset: 0; z-index: 0; opacity: 0.06;
-  background-image: linear-gradient(rgba(240,165,0,.6) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(240,165,0,.6) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
-}
-.hero-content { position: relative; z-index: 2; max-width: 860px; }
-.hero-eyebrow {
-  display: inline-block; background: rgba(240,165,0,0.1);
-  border: 1px solid var(--border); color: var(--gold2);
-  font-family: 'Syne', sans-serif; font-size: 0.73rem;
-  font-weight: 700; letter-spacing: 0.14em;
-  padding: 6px 18px; border-radius: 100px; margin-bottom: 26px;
-  animation: fadeUp .6s ease both;
-}
-.hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
-  animation: fadeUp .7s .1s ease both;
-}
-.hero h1 em {
-  font-style: normal;
-  background: linear-gradient(90deg, var(--gold), var(--gold2));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.hero-sub {
-  margin: 22px auto 0; max-width: 580px;
-  font-size: 1.05rem; color: var(--muted);
-  animation: fadeUp .7s .2s ease both;
-}
-.hero-btns {
-  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
-  margin-top: 40px; animation: fadeUp .7s .3s ease both;
-}
-.btn-primary {
-  background: var(--gold); color: var(--navy);
-  font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: 0.92rem; letter-spacing: 0.05em;
-  padding: 15px 36px; border-radius: 6px; text-decoration: none;
-  box-shadow: 0 8px 30px rgba(240,165,0,0.35);
-  transition: all .2s; display: inline-block;
-}
-.btn-primary:hover { background: var(--gold2); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(240,165,0,0.45); }
-.btn-ghost {
-  border: 1px solid var(--border); color: var(--white);
-  background: transparent; font-family: 'Syne', sans-serif;
-  font-weight: 600; font-size: 0.92rem;
-  padding: 15px 36px; border-radius: 6px;
-  text-decoration: none; transition: all .2s; display: inline-block;
-}
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-.hero-stats {
-  margin-top: 52px; display: flex; gap: 36px;
-  justify-content: center; flex-wrap: wrap;
-  animation: fadeUp .7s .45s ease both;
-}
-.stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--gold2); line-height: 1; }
-.stat-label { font-size: 0.77rem; color: var(--muted); letter-spacing: 0.07em; }
-.stat-div { width: 1px; background: var(--border); height: 44px; align-self: center; }
-/* BADGE STRIP */
-.badge-strip {
-  background: var(--navy3); border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 5%; display: flex; gap: 32px;
-  justify-content: center; align-items: center;
-  flex-wrap: wrap; position: relative; z-index: 1;
-}
-.badge-item { display: flex; align-items: center; gap: 8px; font-size: 0.81rem; color: var(--muted); }
-.badge-item svg { color: var(--gold); flex-shrink: 0; }
-/* SECTIONS */
-section { position: relative; z-index: 1; }
-.section { padding: 90px 5%; }
-.section-label {
-  font-family: 'Syne', sans-serif; font-size: 0.71rem; font-weight: 700;
-  letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
-}
-.section-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.7rem, 3.5vw, 2.7rem);
-  font-weight: 800; line-height: 1.15; letter-spacing: -0.02em;
-}
-.section-title em { font-style: normal; color: var(--gold2); }
-.section-sub { color: var(--muted); max-width: 540px; margin-top: 12px; font-size: 0.97rem; }
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; margin-top: 56px; }
-.about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
-.about-feat {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 18px 16px; transition: border-color .2s, transform .2s;
-}
-.about-feat:hover { border-color: var(--gold); transform: translateY(-3px); }
-.about-feat-icon { font-size: 1.4rem; margin-bottom: 6px; }
-.about-feat-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.87rem; }
-.about-phone { margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.about-phone-num { font-family: 'Syne', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--gold2); text-decoration: none; }
-.about-card {
-  background: linear-gradient(135deg, var(--navy3), var(--navy2));
-  border: 1px solid var(--border); border-radius: 16px;
-  padding: 44px 36px; text-align: center; box-shadow: var(--glow);
-}
-.about-big { font-family: 'Syne', sans-serif; font-size: 3.8rem; font-weight: 800; color: var(--gold); line-height: 1; }
-.about-sub { color: var(--muted); font-size: 0.87rem; margin-top: 6px; }
-.about-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
-.about-mini { background: rgba(240,165,0,0.06); border: 1px solid var(--border); border-radius: 10px; padding: 14px 10px; }
-.about-mini-num { font-family: 'Syne', sans-serif; font-size: 1.65rem; font-weight: 800; color: var(--gold2); }
-.about-mini-lbl { font-size: 0.75rem; color: var(--muted); }
-/* WHY */
-.why-bg { background: var(--navy3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; margin-top: 52px; }
-.why-card {
-  background: var(--navy2); border: 1px solid var(--border);
-  border-radius: 14px; padding: 28px 22px; position: relative; overflow: hidden;
-  transition: border-color .2s, transform .2s, box-shadow .2s;
-}
-.why-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold2));
-  transform: scaleX(0); transform-origin: left; transition: transform .3s;
-}
-.why-card:hover::before { transform: scaleX(1); }
-.why-card:hover { border-color: rgba(240,165,0,0.4); transform: translateY(-5px); box-shadow: var(--glow); }
-.why-icon { font-size: 2rem; margin-bottom: 13px; }
-.why-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.98rem; margin-bottom: 8px; }
-.why-desc { color: var(--muted); font-size: 0.87rem; }
-/* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 18px; margin-top: 52px; }
-.service-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 14px; padding: 28px 24px;
-  text-decoration: none; display: flex; flex-direction: column; gap: 10px;
-  position: relative; overflow: hidden; transition: all .25s;
-}
-.service-card::after {
-  content:'→'; position:absolute; bottom:24px; right:24px;
-  font-size:1.1rem; color:var(--gold); opacity:0; transform:translateX(-8px);
-  transition: all .25s;
-}
-.service-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: var(--glow); }
-.service-card:hover::after { opacity:1; transform:translateX(0); }
-.svc-icon { font-size: 1.85rem; }
-.svc-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); }
-.svc-desc { color: var(--muted); font-size: 0.85rem; }
-.services-cta {
-  margin-top: 44px; text-align: center;
-  background: var(--navy3); border: 1px solid var(--border);
-  border-radius: 14px; padding: 30px;
-}
-.services-cta p { color: var(--muted); font-size: 0.85rem; font-family:'Syne',sans-serif; font-weight:700; letter-spacing:.06em; margin-bottom:6px; }
-.services-cta a { font-family:'Syne',sans-serif; font-size:1.75rem; font-weight:800; color:var(--gold2); text-decoration:none; }
-.services-cta a:hover { color:var(--gold); }
-/* CTA BANNER */
-.cta-wrap { padding: 0 5%; position:relative; z-index:1; margin-bottom: 0; }
-.cta-banner {
-  background: linear-gradient(120deg, #0f2444, #1a3a60 50%, #0f2444);
-  border: 1px solid var(--border); border-radius: 20px;
-  padding: 54px 50px; display: flex;
-  align-items: center; justify-content: space-between;
-  gap: 32px; flex-wrap: wrap;
-  position: relative; overflow: hidden; box-shadow: var(--glow);
-}
-.cta-banner::before {
-  content:''; position:absolute; right:-60px; top:-60px;
-  width:280px; height:280px;
-  background: radial-gradient(circle, rgba(240,165,0,0.16), transparent 70%);
-  border-radius:50%;
-}
-.cta-text h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.45rem, 3vw, 2.1rem);
-  font-weight: 800; letter-spacing: -0.02em;
-}
-.cta-text p { color: var(--muted); margin-top: 8px; }
-.cta-right { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.cta-sub { font-size:0.74rem; color:var(--muted); letter-spacing:.1em; font-family:'Syne',sans-serif; font-weight:700; text-transform:uppercase; }
-.cta-num { font-family:'Syne',sans-serif; font-size:clamp(1.35rem,2.5vw,1.9rem); font-weight:800; color:var(--gold2); white-space:nowrap; margin-bottom:8px; }
-.cta-badges { display:flex; gap:24px; margin-top:14px; }
-.cta-badge { text-align:center; }
-.cta-badge-label { font-size:0.72rem; color:var(--muted); letter-spacing:.07em; font-family:'Syne',sans-serif; font-weight:700; text-transform:uppercase; }
-.cta-badge-val { font-family:'Syne',sans-serif; font-weight:800; color:var(--gold2); font-size:0.95rem; }
-/* PRICING */
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); gap: 22px; margin-top: 52px; }
-.price-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 16px; padding: 34px 28px;
-  display: flex; flex-direction: column; position: relative;
-  transition: transform .25s, border-color .25s, box-shadow .25s;
-}
-.price-card.featured { border-color: var(--gold); box-shadow: 0 0 48px rgba(240,165,0,0.17); }
-.price-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: var(--glow); }
-.price-badge {
-  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
-  background: var(--gold); color: var(--navy);
-  font-family:'Syne',sans-serif; font-size:0.69rem; font-weight:800;
-  letter-spacing:.1em; padding:4px 15px; border-radius:100px; white-space:nowrap;
-}
-.price-name { font-family:'Syne',sans-serif; font-size:0.77rem; font-weight:700; letter-spacing:.12em; color:var(--gold); text-transform:uppercase; margin-bottom:5px; }
-.price-note { color:var(--muted); font-size:0.77rem; margin-bottom:15px; line-height:1.55; }
-.price-amount { font-family:'Syne',sans-serif; font-size:2.7rem; font-weight:800; color:var(--white); line-height:1; }
-.price-amount span { font-size:0.93rem; color:var(--muted); font-weight:400; }
-.price-inr { color:var(--gold2); font-size:0.86rem; margin-top:3px; }
-.price-div { height:1px; background:var(--border); margin:18px 0; }
-.price-feats { list-style:none; display:flex; flex-direction:column; gap:9px; flex:1; }
-.price-feats li { display:flex; align-items:flex-start; gap:9px; font-size:0.87rem; color:var(--muted); }
-.price-feats li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; margin-top:2px; }
-.price-cta {
-  display:block; text-align:center; text-decoration:none;
-  background:var(--gold); color:var(--navy);
-  font-family:'Syne',sans-serif; font-weight:700; font-size:0.87rem;
-  letter-spacing:.06em; padding:12px; border-radius:8px;
-  margin-top:22px; transition: background .2s, transform .15s;
-}
-.price-cta:hover { background:var(--gold2); transform:translateY(-2px); }
-.price-cta.outline { background:transparent; color:var(--gold); border:1px solid var(--gold); }
-.price-cta.outline:hover { background:rgba(240,165,0,0.1); }
-/* TESTIMONIALS */
-.testi-bg { background:var(--navy3); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.testi-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(255px,1fr)); gap:18px; margin-top:52px; }
-.testi-card {
-  background:var(--navy2); border:1px solid var(--border);
-  border-radius:14px; padding:26px; transition:border-color .2s, transform .2s;
-}
-.testi-card:hover { border-color:rgba(240,165,0,0.35); transform:translateY(-4px); }
-.testi-stars { color:var(--gold); letter-spacing:3px; font-size:0.86rem; margin-bottom:13px; }
-.testi-text { color:var(--muted); font-size:0.9rem; line-height:1.75; margin-bottom:20px; }
-.testi-author { display:flex; align-items:center; gap:12px; }
-.testi-avatar {
-  width:42px; height:42px; border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--navy3));
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Syne',sans-serif; font-weight:800; font-size:0.93rem;
-  color:var(--navy); flex-shrink:0;
-}
-.testi-name { font-family:'Syne',sans-serif; font-weight:700; font-size:0.87rem; }
-.testi-role { font-size:0.75rem; color:var(--muted); }
-/* TEAM */
-.team-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(185px,1fr)); gap:18px; margin-top:52px; }
-.team-card {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:14px; padding:26px 16px; text-align:center;
-  transition:border-color .2s, transform .2s;
-}
-.team-card:hover { border-color:var(--gold); transform:translateY(-4px); }
-.team-avatar {
-  width:66px; height:66px; border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),#0b1f3a);
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Syne',sans-serif; font-weight:800; font-size:1.35rem;
-  color:var(--navy); margin:0 auto 13px; border:3px solid var(--border);
-}
-.team-name { font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem; }
-.team-role { font-size:0.76rem; color:var(--muted); margin-top:4px; }
-/* CONTACT */
-.contact-section { background:linear-gradient(180deg,var(--navy) 0%,var(--navy3) 100%); }
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:68px; margin-top:52px; align-items:start; }
-.contact-info { display:flex; flex-direction:column; gap:22px; }
-.contact-item { display:flex; align-items:flex-start; gap:15px; }
-.contact-icon {
-  width:44px; height:44px; border-radius:10px;
-  background:rgba(240,165,0,0.1); border:1px solid var(--border);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.1rem; flex-shrink:0;
-}
-.c-lbl { font-size:0.75rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
-.c-val { font-family:'Syne',sans-serif; font-weight:600; font-size:0.95rem; color:var(--white); margin-top:3px; }
-.c-val a { color:var(--gold2); text-decoration:none; }
-.form-card {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:16px; padding:34px;
-}
-.form-card h3 { font-family:'Syne',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:22px; }
-.form-row2 { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
-.fg { display:flex; flex-direction:column; gap:6px; margin-bottom:13px; }
-.fg label { font-size:0.77rem; color:var(--muted); letter-spacing:.06em; }
-.fg input, .fg select, .fg textarea {
-  background:var(--navy); border:1px solid var(--border);
-  border-radius:8px; padding:11px 13px; color:var(--white);
-  font-family:'DM Sans',sans-serif; font-size:0.87rem;
-  outline:none; transition:border-color .2s; width:100%;
-}
-.fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--gold); }
-.fg textarea { resize:vertical; min-height:88px; }
-.fg select option { background:var(--navy2); }
-.form-success {
-  display:none; background:rgba(37,211,102,0.1);
-  border:1px solid rgba(37,211,102,0.35); border-radius:8px;
-  padding:12px 16px; color:#25d366;
-  font-family:'Syne',sans-serif; font-weight:600;
-  font-size:0.88rem; margin-bottom:16px;
-}
-.form-btn {
-  width:100%; background:var(--gold); color:var(--navy);
-  font-family:'Syne',sans-serif; font-weight:700; font-size:0.9rem;
-  letter-spacing:.06em; padding:13px;
-  border:none; border-radius:8px; cursor:pointer;
-  transition:background .2s, transform .15s;
-}
-.form-btn:hover { background:var(--gold2); transform:translateY(-2px); }
-/* FOOTER */
-footer {
-  background:#020a14; border-top:1px solid var(--border);
-  padding:58px 5% 26px; position:relative; z-index:1;
-}
-.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:40px; }
-.footer-logo { font-family:'Syne',sans-serif; font-size:1.28rem; font-weight:800; color:var(--gold); text-decoration:none; }
-.footer-desc { color:var(--muted); font-size:0.85rem; margin-top:13px; line-height:1.8; max-width:295px; }
-.footer-contacts { margin-top:18px; display:flex; flex-direction:column; gap:7px; }
-.footer-ci { display:flex; align-items:center; gap:7px; font-size:0.82rem; color:var(--muted); }
-.footer-ci a { color:var(--muted); text-decoration:none; }
-.footer-ci a:hover { color:var(--gold); }
-.fc-title { font-family:'Syne',sans-serif; font-weight:700; font-size:0.82rem; letter-spacing:.1em; margin-bottom:16px; color:var(--white); }
-.footer-links { list-style:none; display:flex; flex-direction:column; gap:9px; }
-.footer-links a { color:var(--muted); text-decoration:none; font-size:0.84rem; transition:color .2s; }
-.footer-links a:hover { color:var(--gold); }
-.footer-bottom {
-  border-top:1px solid var(--border); padding-top:20px;
-  display:flex; justify-content:space-between;
-  align-items:center; flex-wrap:wrap; gap:10px;
-}
-.footer-copy { color:var(--muted); font-size:0.79rem; }
-.footer-copy a { color:var(--gold); text-decoration:none; }
-/* FLOATING WA */
-.wa-float {
-  position:fixed; bottom:26px; right:26px; z-index:200;
-  width:56px; height:56px; border-radius:50%;
-  background:#25d366; color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 20px rgba(37,211,102,0.5);
-  text-decoration:none; transition:transform .2s, box-shadow .2s;
-  animation:waPulse 2s infinite;
-}
-.wa-float:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(37,211,102,0.7); }
-/* FLOATING MESSENGER */
-.msg-float {
-  position:fixed; bottom:92px; right:26px; z-index:200;
-  width:56px; height:56px; border-radius:50%;
-  background:linear-gradient(135deg,#0099ff,#a033ff 50%,#ff5c87);
-  color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 20px rgba(0,153,255,0.45);
-  text-decoration:none; transition:transform .2s, box-shadow .2s;
-}
-.msg-float:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(0,153,255,0.65); }
-/* BACK TO TOP */
-.btt-float {
-  position:fixed; bottom:158px; right:26px; z-index:200;
-  width:56px; height:56px; border-radius:50%;
-  background:var(--navy3); border:1px solid var(--border); color:var(--gold);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 20px rgba(0,0,0,0.4);
-  cursor:pointer; transition:transform .2s, box-shadow .2s, background .2s, opacity .3s;
-  opacity:0; pointer-events:none;
-}
-.btt-float.visible { opacity:1; pointer-events:all; }
-.btt-float:hover { transform:scale(1.12) translateY(-3px); background:var(--gold); color:var(--navy); box-shadow:0 8px 30px rgba(240,165,0,0.4); }
-/* ANIMATIONS */
-@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-@keyframes waPulse {
-  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.5)}
-  50%{box-shadow:0 4px 34px rgba(37,211,102,0.8)}
-}
-.reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
-.reveal.visible { opacity:1; transform:translateY(0); }
-/* RESPONSIVE */
-@media (max-width: 1080px) {
-  .nav-links > li > a { font-size:0.74rem; padding:8px 7px; }
-}
-@media (max-width: 960px) {
-  .nav-links { display:none; }
-  .hamburger { display:flex; }
-  .about-grid, .contact-grid { grid-template-columns:1fr; gap:42px; }
-  .footer-grid { grid-template-columns:1fr 1fr; gap:34px; }
-  .cta-banner { padding:34px 26px; }
-}
-@media (max-width: 600px) {
-  .footer-grid { grid-template-columns:1fr; }
-  .form-row2 { grid-template-columns:1fr; }
-  .hero-stats { gap:16px; }
-  .stat-div { display:none; }
-  .cta-banner { justify-content:center; text-align:center; }
-  .infobar { justify-content:center; text-align:center; }
-}
-/* ═══ PROMO BANNER STRIP ═══ */
-.promo-strip {
-  background: linear-gradient(135deg, var(--navy2) 0%, var(--navy3) 100%);
-  border-bottom: 2px solid var(--border);
-  border-top: 1px solid rgba(240,165,0,0.08);
-  overflow: hidden;
-  position: relative;
-  z-index: 98;
-}
-.promo-strip::before,
-.promo-strip::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 100px;
-  z-index: 2;
-  pointer-events: none;
-}
-.promo-strip::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--navy2) 0%, transparent 100%);
-}
-.promo-strip::after {
-  right: 0;
-  background: linear-gradient(-90deg, var(--navy2) 0%, transparent 100%);
-}
-.promo-track {
-  display: flex;
-  animation: promoScroll 36s linear infinite;
-  width: max-content;
-}
-.promo-track:hover { animation-play-state: paused; }
-@keyframes promoScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.promo-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 26px;
-  border-right: 1px solid var(--border);
-  white-space: nowrap;
-  cursor: default;
-  transition: background 0.2s;
-}
-.promo-item:hover { background: rgba(240,165,0,0.05); }
-.promo-icon { font-size: 1.25rem; flex-shrink: 0; }
-.promo-label {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.77rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.promo-label em {
-  font-style: normal;
-  color: var(--white);
-  font-weight: 700;
-}
-.promo-price {
-  background: var(--gold);
-  color: var(--navy);
-  font-family: 'Syne', sans-serif;
-  font-size: 0.73rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  padding: 4px 11px;
-  border-radius: 100px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-</style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-main); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--light2); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+        ::selection { background: var(--primary); color: white; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        p { line-height: 1.7; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .section-sm { padding: 60px 0; }
+        .text-center { text-align: center; }
+        .text-gradient { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .text-gradient-green { background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+        .badge-primary { background: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid rgba(37,99,235,0.2); }
+        .badge-success { background: rgba(16,185,129,0.1); color: var(--secondary); border: 1px solid rgba(16,185,129,0.2); }
+        .badge-warning { background: rgba(245,158,11,0.1); color: var(--accent-dark); border: 1px solid rgba(245,158,11,0.2); }
+
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; transition: var(--transition); text-decoration: none; white-space: nowrap; position: relative; overflow: hidden; }
+        .btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: rgba(255,255,255,0.15); border-radius: 50%; transform: translate(-50%,-50%); transition: width 0.6s, height 0.6s; }
+        .btn:hover::before { width: 300px; height: 300px; }
+        .btn-primary { background: var(--gradient-1); color: white; box-shadow: 0 4px 20px rgba(37,99,235,0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,99,235,0.5); }
+        .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.5); }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-2px); }
+        .btn-white { background: white; color: var(--primary); box-shadow: var(--shadow-md); }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-lg { padding: 18px 36px; font-size: 17px; border-radius: 14px; }
+        .btn-sm { padding: 10px 20px; font-size: 13px; border-radius: 8px; }
+
+        .section-header { max-width: 700px; margin: 0 auto 70px; }
+        .section-title { font-size: clamp(28px,4vw,44px); margin-bottom: 16px; color: var(--dark); }
+        .section-subtitle { font-size: 18px; color: var(--text-muted); line-height: 1.7; }
+
+        /* NAVBAR */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; transition: var(--transition); }
+        .navbar.scrolled { background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 12px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+        .navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .navbar-logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 800; color: white; text-decoration: none; }
+        .logo-icon { width: 42px; height: 42px; background: var(--gradient-1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 900; color: white; box-shadow: 0 4px 15px rgba(37,99,235,0.4); }
+        .navbar-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+        .navbar-links a { color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: var(--transition); }
+        .navbar-links a:hover { color: white; background: rgba(255,255,255,0.1); }
+        .navbar-cta { display: flex; align-items: center; gap: 12px; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: var(--transition); }
+
+        /* MOBILE MENU */
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15,23,42,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 24px; opacity: 0; transition: opacity 0.3s; }
+        .mobile-menu.active { display: flex; opacity: 1; }
+        .mobile-menu a { color: white; font-size: 24px; font-weight: 600; text-decoration: none; transition: var(--transition); }
+        .mobile-menu a:hover { color: var(--primary-light); }
+        .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: rgba(255,255,255,0.1); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .mobile-menu-close:hover { background: rgba(255,255,255,0.2); }
+
+        /* HERO */
+        .hero { min-height: 100vh; background: var(--gradient-hero); display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 0 80px; }
+        .hero-particles { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; }
+        .particle { position: absolute; border-radius: 50%; opacity: 0.15; animation: float-particle 15s infinite; }
+        .particle:nth-child(1) { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; }
+        .particle:nth-child(2) { width: 250px; height: 250px; background: #7C3AED; bottom: -50px; left: -50px; animation-delay: -5s; }
+        .particle:nth-child(3) { width: 150px; height: 150px; background: var(--secondary); top: 40%; left: 20%; animation-delay: -10s; }
+        .particle:nth-child(4) { width: 100px; height: 100px; background: var(--accent); top: 20%; right: 30%; animation-delay: -7s; }
+        .particle:nth-child(5) { width: 80px; height: 80px; background: var(--primary-light); bottom: 30%; right: 20%; animation-delay: -3s; }
+        @keyframes float-particle { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(20px,-30px) scale(1.05)} 50%{transform:translate(-15px,15px) scale(0.95)} 75%{transform:translate(30px,20px) scale(1.02)} }
+        .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(37,99,235,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.08) 1px,transparent 1px); background-size: 60px 60px; pointer-events: none; }
+        .hero-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(37,99,235,0.2); border: 1px solid rgba(37,99,235,0.4); border-radius: 50px; padding: 8px 18px; color: #93C5FD; font-size: 13px; font-weight: 600; margin-bottom: 24px; letter-spacing: 0.05em; text-transform: uppercase; }
+        .hero-tag .dot { width: 8px; height: 8px; background: #10B981; border-radius: 50%; animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+        .hero-title { font-size: clamp(36px,5vw,64px); color: white; margin-bottom: 24px; line-height: 1.1; }
+        .hero-title .highlight { background: linear-gradient(135deg,#60A5FA,#A78BFA,#34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-desc { font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 40px; max-width: 520px; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 50px; }
+        .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+        .hero-stat-number { font-size: 28px; font-weight: 800; color: white; line-height: 1; }
+        .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+        .hero-card-main { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--border-radius-lg); padding: 30px; position: relative; }
+        .browser-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .browser-url { flex: 1; background: rgba(255,255,255,0.1); border-radius: 6px; padding: 6px 12px; font-size: 12px; color: rgba(255,255,255,0.5); margin-left: 8px; }
+        .hero-website-preview { border-radius: 12px; overflow: hidden; background: var(--light); }
+        .preview-header { background: var(--primary); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+        .preview-logo { width: 80px; height: 10px; background: rgba(255,255,255,0.7); border-radius: 5px; }
+        .preview-nav { display: flex; gap: 8px; }
+        .preview-nav span { width: 30px; height: 8px; background: rgba(255,255,255,0.4); border-radius: 4px; }
+        .preview-hero-area { background: linear-gradient(135deg,#1E293B,#2563EB); padding: 20px; text-align: center; }
+        .preview-title-bar { width: 70%; height: 12px; background: rgba(255,255,255,0.8); border-radius: 6px; margin: 0 auto 8px; }
+        .preview-sub-bar { width: 50%; height: 8px; background: rgba(255,255,255,0.4); border-radius: 4px; margin: 0 auto 16px; }
+        .preview-btn-bar { display: inline-block; width: 80px; height: 24px; background: var(--secondary); border-radius: 6px; }
+        .preview-body { padding: 16px; background: white; }
+        .preview-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+        .preview-card { background: var(--light2); border-radius: 6px; padding: 10px; text-align: center; }
+        .preview-card-icon { width: 24px; height: 24px; border-radius: 6px; margin: 0 auto 6px; }
+        .preview-card-line { width: 100%; height: 6px; background: var(--light3); border-radius: 3px; }
+        .hero-floating { position: absolute; }
+        .hero-float-1 { top: -20px; right: -20px; background: rgba(16,185,129,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 12px 16px; color: #6EE7B7; font-size: 13px; font-weight: 600; animation: float-badge 3s ease-in-out infinite; }
+        .hero-float-2 { bottom: -20px; left: -30px; background: rgba(245,158,11,0.2); backdrop-filter: blur(10px); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 12px 16px; color: #FCD34D; font-size: 13px; font-weight: 600; animation: float-badge 3s ease-in-out infinite reverse; }
+        @keyframes float-badge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+        /* TRUST BAR */
+        .trust-bar { background: var(--light2); border-top: 1px solid var(--light3); border-bottom: 1px solid var(--light3); padding: 24px 0; }
+        .trust-bar-inner { display: flex; align-items: center; gap: 60px; justify-content: center; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 14px; font-weight: 500; white-space: nowrap; }
+        .trust-item-icon { font-size: 22px; }
+
+        /* TICKER */
+        .ticker-wrap { background: var(--primary); padding: 12px 0; overflow: hidden; }
+        .ticker-track { display: flex; animation: ticker 30s linear infinite; width: max-content; }
+        .ticker-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 500; padding: 0 40px; white-space: nowrap; }
+        .ticker-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+        @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+        /* SERVICES */
+        .services { background: var(--white); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 28px; }
+        .service-card { background: var(--white); border: 1px solid var(--light3); border-radius: var(--border-radius-lg); padding: 36px; position: relative; overflow: hidden; cursor: pointer; transition: var(--transition); }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-1); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: transparent; }
+        .service-icon-wrap { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 24px; transition: var(--transition); }
+        .service-card:hover .service-icon-wrap { transform: scale(1.1) rotate(5deg); }
+        .service-icon-1{background:rgba(37,99,235,0.1)} .service-icon-2{background:rgba(16,185,129,0.1)} .service-icon-3{background:rgba(245,158,11,0.1)} .service-icon-4{background:rgba(124,58,237,0.1)} .service-icon-5{background:rgba(239,68,68,0.1)} .service-icon-6{background:rgba(59,130,246,0.1)}
+        .service-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--dark); }
+        .service-desc { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+        .service-features { list-style: none; margin-bottom: 24px; }
+        .service-features li { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-muted); padding: 5px 0; }
+        .service-features li::before { content: '✓'; color: var(--secondary); font-weight: 700; font-size: 13px; width: 18px; height: 18px; background: rgba(16,185,129,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .service-link { color: var(--primary); font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: var(--transition); }
+        .service-card:hover .service-link { gap: 12px; }
+
+        /* FEATURES */
+        .features { background: var(--dark); position: relative; overflow: hidden; }
+        .features::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%,rgba(37,99,235,0.1) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(124,58,237,0.1) 0%,transparent 50%); }
+        .features-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .features-text .section-title { color: white; }
+        .features-text .section-subtitle { color: rgba(255,255,255,0.6); }
+        .features-list { margin-top: 40px; display: flex; flex-direction: column; gap: 24px; }
+        .feature-item { display: flex; gap: 16px; align-items: flex-start; }
+        .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; transition: var(--transition); }
+        .feature-item:hover .feature-icon { background: var(--primary); transform: scale(1.05); }
+        .feature-text h4 { color: white; font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+        .feature-text p { color: rgba(255,255,255,0.55); font-size: 14px; }
+        .features-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius); padding: 30px; text-align: center; transition: var(--transition); cursor: default; }
+        .stat-card:hover { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.3); transform: translateY(-4px); }
+        .stat-number { font-size: 42px; font-weight: 900; color: white; line-height: 1; margin-bottom: 8px; }
+        .stat-label { font-size: 14px; color: rgba(255,255,255,0.5); }
+        .stat-icon { font-size: 28px; margin-bottom: 12px; }
+
+        /* PROCESS */
+        .process { background: var(--light); }
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); position: relative; margin-top: 60px; }
+        .process-steps::before { content: ''; position: absolute; top: 40px; left: 80px; right: 80px; height: 2px; background: linear-gradient(90deg,var(--primary),var(--secondary)); z-index: 0; }
+        .step { text-align: center; padding: 0 20px; position: relative; z-index: 1; cursor: default; transition: var(--transition); }
+        .step:hover { transform: translateY(-8px); }
+        .step-number { width: 80px; height: 80px; border-radius: 50%; background: white; border: 3px solid var(--light3); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; color: var(--primary); margin: 0 auto 24px; transition: var(--transition); box-shadow: var(--shadow-md); }
+        .step:hover .step-number { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 8px 30px rgba(37,99,235,0.4); }
+        .step-title { font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
+        .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* TESTIMONIALS */
+        .testimonials { background: var(--light); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 28px; }
+        .testimonial-card { background: white; border-radius: var(--border-radius-lg); padding: 36px; box-shadow: var(--shadow-sm); border: 1px solid var(--light3); transition: var(--transition); position: relative; }
+        .testimonial-card::before { content: '"'; position: absolute; top: 20px; right: 30px; font-size: 80px; color: var(--primary); opacity: 0.1; line-height: 1; font-family: Georgia,serif; }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .testimonial-stars { color: var(--accent); font-size: 18px; margin-bottom: 16px; letter-spacing: 3px; }
+        .testimonial-text { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 14px; }
+        .author-avatar { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: white; flex-shrink: 0; }
+        .author-info h5 { font-size: 15px; font-weight: 700; color: var(--dark); }
+        .author-info span { font-size: 13px; color: var(--text-muted); }
+
+        /* PRICING */
+        .pricing { background: white; }
+        .pricing-toggle { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 50px; }
+        .toggle-label { font-size: 15px; font-weight: 600; color: var(--text-muted); cursor: pointer; }
+        .toggle-label.active { color: var(--dark); }
+        .toggle-switch { width: 54px; height: 28px; background: var(--primary); border-radius: 14px; position: relative; cursor: pointer; transition: var(--transition); }
+        .toggle-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; background: white; border-radius: 50%; transition: var(--transition); box-shadow: var(--shadow-sm); }
+        .toggle-switch.annual::after { left: 29px; }
+        .pricing-save { background: var(--secondary); color: white; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 50px; text-transform: uppercase; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 28px; align-items: start; }
+        .pricing-card { border-radius: var(--border-radius-lg); padding: 40px; border: 2px solid var(--light3); position: relative; transition: var(--transition); cursor: default; }
+        .pricing-card.popular { border-color: var(--primary); background: var(--dark); color: white; transform: scale(1.05); box-shadow: var(--shadow-xl); }
+        .pricing-card:hover:not(.popular) { border-color: var(--primary); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .popular-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gradient-1); color: white; padding: 6px 20px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+        .plan-name { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+        .pricing-card .plan-name { color: var(--primary); }
+        .pricing-card.popular .plan-name { color: #60A5FA; }
+        .plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 8px; }
+        .price-currency { font-size: 24px; font-weight: 700; color: var(--dark); }
+        .pricing-card.popular .price-currency { color: white; }
+        .price-amount { font-size: 54px; font-weight: 900; color: var(--dark); line-height: 1; }
+        .pricing-card.popular .price-amount { color: white; }
+        .price-period { font-size: 15px; color: var(--text-muted); }
+        .pricing-card.popular .price-period { color: rgba(255,255,255,0.5); }
+        .plan-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.5; }
+        .pricing-card.popular .plan-desc { color: rgba(255,255,255,0.6); }
+        .plan-divider { height: 1px; background: var(--light3); margin-bottom: 24px; }
+        .pricing-card.popular .plan-divider { background: rgba(255,255,255,0.1); }
+        .plan-features { list-style: none; margin-bottom: 32px; }
+        .plan-features li { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 14px; color: var(--text-muted); }
+        .pricing-card.popular .plan-features li { color: rgba(255,255,255,0.7); }
+        .plan-features .check { color: var(--secondary); font-weight: 700; }
+
+        /* FAQ */
+        .faq { background: var(--light); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: white; border: 1px solid var(--light3); border-radius: var(--border-radius); margin-bottom: 12px; overflow: hidden; transition: var(--transition); }
+        .faq-item:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; cursor: pointer; gap: 16px; }
+        .faq-question h4 { font-size: 16px; font-weight: 600; color: var(--dark); line-height: 1.4; }
+        .faq-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--light2); display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--primary); flex-shrink: 0; transition: var(--transition); }
+        .faq-item.open .faq-icon { background: var(--primary); color: white; transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-answer-inner { padding: 0 28px 22px; font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+
+        /* CONTACT CTA */
+        .contact-cta { background: var(--gradient-hero); position: relative; overflow: hidden; }
+        .contact-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%,rgba(37,99,235,0.2) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(124,58,237,0.2) 0%,transparent 50%); }
+        .contact-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .contact-text h2 { font-size: clamp(28px,4vw,44px); color: white; margin-bottom: 16px; }
+        .contact-text p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 36px; line-height: 1.7; }
+        .contact-features-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .contact-features-list li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.8); font-size: 15px; }
+        .contact-features-list .icon { color: var(--secondary); font-size: 18px; }
+        .contact-form { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--border-radius-lg); padding: 40px; }
+        .form-title { color: white; font-size: 22px; margin-bottom: 28px; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 8px; letter-spacing: 0.05em; }
+        .form-input { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; font-size: 15px; color: white; outline: none; transition: var(--transition); font-family: inherit; }
+        .form-input::placeholder { color: rgba(255,255,255,0.35); }
+        .form-input:focus { border-color: var(--primary-light); background: rgba(255,255,255,0.12); box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
+        .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.5)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; }
+        .form-select option { background: var(--dark2); color: white; }
+        .form-textarea { resize: vertical; min-height: 100px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-submit { width: 100%; padding: 16px; background: linear-gradient(135deg,#25D366 0%,#128C7E 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+        .form-note { text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 12px; }
+        .form-success { display: none; text-align: center; padding: 40px 20px; }
+        .form-success.show { display: block; }
+        .success-icon { font-size: 60px; margin-bottom: 16px; }
+        .form-success h3 { color: white; font-size: 22px; margin-bottom: 8px; }
+        .form-success p { color: rgba(255,255,255,0.6); font-size: 15px; }
+
+        /* COMPARISON */
+        .comparison { background: white; }
+        .comparison-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); }
+        .comparison-table th { padding: 20px; text-align: center; font-size: 14px; font-weight: 700; }
+        .comparison-table th:first-child { text-align: left; background: var(--light2); }
+        .comparison-table th.us { background: var(--primary); color: white; }
+        .comparison-table th.other { background: var(--light3); color: var(--text-muted); }
+        .comparison-table td { padding: 16px 20px; text-align: center; font-size: 14px; border-bottom: 1px solid var(--light3); }
+        .comparison-table td:first-child { text-align: left; font-weight: 500; color: var(--dark); background: var(--light); }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .check-yes{color:var(--secondary);font-size:20px} .check-no{color:var(--text-light);font-size:20px} .check-partial{color:var(--accent);font-size:20px}
+
+        /* QUIZ */
+        .quiz-section { background: var(--gradient-1); padding: 80px 0; position: relative; overflow: hidden; }
+        .quiz-section::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .quiz-container { max-width: 650px; margin: 0 auto; position: relative; z-index: 2; text-align: center; }
+        .quiz-title { color: white; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+        .quiz-subtitle { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 36px; }
+        .quiz-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--border-radius-lg); padding: 40px; }
+        .quiz-question { color: white; font-size: 18px; font-weight: 600; margin-bottom: 28px; line-height: 1.4; }
+        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+        .quiz-option { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 14px 16px; color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; cursor: pointer; transition: var(--transition); text-align: left; display: flex; align-items: center; gap: 10px; }
+        .quiz-option:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); }
+        .quiz-option.selected { background: rgba(16,185,129,0.2); border-color: var(--secondary); color: white; }
+        .quiz-option-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+        .quiz-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .quiz-progress-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; overflow: hidden; }
+        .quiz-progress-fill { height: 100%; background: var(--secondary); border-radius: 2px; transition: width 0.5s ease; }
+        .quiz-step { color: rgba(255,255,255,0.5); font-size: 13px; white-space: nowrap; }
+        .quiz-result { display: none; }
+        .quiz-result.show { display: block; }
+        .quiz-result-emoji { font-size: 60px; margin-bottom: 16px; }
+        .quiz-result h3 { color: white; font-size: 24px; margin-bottom: 12px; }
+        .quiz-result p { color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 24px; line-height: 1.6; }
+
+        /* HIGHLIGHT */
+        .highlight-section { background: white; padding: 80px 0; }
+        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
+        .highlight-item { text-align: center; padding: 40px 30px; border-right: 1px solid var(--light3); cursor: default; transition: var(--transition); }
+        .highlight-item:last-child { border-right: none; }
+        .highlight-item:hover { background: var(--light); }
+        .highlight-emoji { font-size: 40px; margin-bottom: 16px; display: block; transition: var(--transition); }
+        .highlight-item:hover .highlight-emoji { transform: scale(1.2) rotate(5deg); }
+        .highlight-number { font-size: 36px; font-weight: 900; color: var(--dark); margin-bottom: 6px; }
+        .highlight-number .plus { color: var(--primary); }
+        .highlight-label { font-size: 14px; color: var(--text-muted); }
+
+        /* TECH */
+        .tech-section { background: var(--dark2); padding: 60px 0; }
+        .tech-label { text-align: center; color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 30px; }
+        .tech-grid { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .tech-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 10px 22px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 500; transition: var(--transition); cursor: default; }
+        .tech-pill:hover { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.4); color: white; transform: translateY(-2px); }
+        .tech-pill .tech-icon { font-size: 18px; }
+
+        /* FOOTER */
+        .footer { background: var(--dark); color: rgba(255,255,255,0.7); padding-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; color: white; margin-bottom: 16px; }
+        .footer-desc { font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-link { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-size: 18px; color: rgba(255,255,255,0.7); transition: var(--transition); text-decoration: none; }
+        .social-link:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+        .footer-col h4 { color: white; font-size: 15px; font-weight: 700; margin-bottom: 20px; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.55); font-size: 14px; transition: var(--transition); text-decoration: none; }
+        .footer-links a:hover { color: white; padding-left: 4px; }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.55); font-size: 14px; margin-bottom: 12px; }
+        .footer-contact-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: var(--transition); }
+        .footer-bottom-links a:hover { color: white; }
+
+        /* BACK TO TOP & FLOATING WA */
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--gradient-1); color: white; border: none; border-radius: 14px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,99,235,0.4); transition: var(--transition); opacity: 0; pointer-events: none; z-index: 100; }
+        .back-to-top.visible { opacity: 1; pointer-events: all; }
+        .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(37,99,235,0.5); }
+        .floating-wa { position: fixed; bottom: 30px; left: 30px; background: linear-gradient(135deg,#25D366 0%,#128C7E 100%); color: white; padding: 14px 22px; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(37,211,102,0.5); z-index: 100; display: flex; align-items: center; gap: 8px; text-decoration: none; animation: float-cta 4s ease-in-out infinite; }
+        .floating-wa:hover { animation: none; transform: translateY(-4px); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
+        @keyframes float-cta { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+        /* LIVE NOTIF */
+        .live-notification { position: fixed; top: 80px; right: 20px; background: white; border: 1px solid var(--light3); border-radius: 12px; padding: 14px 18px; box-shadow: var(--shadow-lg); max-width: 280px; z-index: 500; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .live-notification.show { transform: translateX(0); }
+        .notif-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+        .notif-text strong { color: var(--dark); display: block; }
+        .notif-dot { width: 8px; height: 8px; background: var(--secondary); border-radius: 50%; flex-shrink: 0; animation: pulse-dot 2s infinite; }
+
+        /* SCROLL PROGRESS */
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--gradient-1); z-index: 10000; width: 0%; transition: width 0.1s linear; }
+
+        /* ANIMATIONS */
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in-right.visible { opacity: 1; transform: translateX(0); }
+        .delay-1{transition-delay:0.1s} .delay-2{transition-delay:0.2s} .delay-3{transition-delay:0.3s} .delay-4{transition-delay:0.4s}
+        .counter { display: inline; }
+
+        /* COLORS */
+        .bg-blue{background:linear-gradient(135deg,#1E40AF,#3B82F6)} .bg-green{background:linear-gradient(135deg,#065F46,#10B981)} .bg-yellow{background:linear-gradient(135deg,#92400E,#F59E0B)}
+        .avatar-blue{background:linear-gradient(135deg,#2563EB,#7C3AED)} .avatar-green{background:linear-gradient(135deg,#10B981,#2563EB)} .avatar-orange{background:linear-gradient(135deg,#F59E0B,#EF4444)} .avatar-purple{background:linear-gradient(135deg,#7C3AED,#EC4899)} .avatar-teal{background:linear-gradient(135deg,#06B6D4,#10B981)} .avatar-red{background:linear-gradient(135deg,#EF4444,#F97316)}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .hero-content{grid-template-columns:1fr;gap:60px}
+            .hero-visual{order:-1;max-width:500px;margin:0 auto}
+            .features-content{grid-template-columns:1fr;gap:60px}
+            .contact-inner{grid-template-columns:1fr;gap:50px}
+            .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+            .pricing-card.popular{transform:none}
+        }
+        @media(max-width:768px){
+            .section{padding:70px 0}
+            .navbar-links,.navbar-cta{display:none}
+            .hamburger{display:flex}
+            .hero-stats{gap:24px}
+            .process-steps::before{display:none}
+            .form-row{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr;gap:32px}
+            .highlight-item{border-right:none;border-bottom:1px solid var(--light3)}
+            .highlight-item:last-child{border-bottom:none}
+            .highlight-grid{grid-template-columns:1fr 1fr}
+            .floating-wa{display:none}
+            .features-stats{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:480px){
+            .container{padding:0 16px}
+            .hero-actions{flex-direction:column}
+            .hero-actions .btn{width:100%}
+            .highlight-grid{grid-template-columns:1fr}
+            .features-stats{grid-template-columns:1fr}
+            .pricing-grid{grid-template-columns:1fr}
+            .quiz-options{grid-template-columns:1fr}
+        }
+    </style>
 </head>
 <body>
 
-<!-- Floating Sidebar -->
-<div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0px; top:150px;">
-  <a class="a2a_button_facebook"></a>
-  <a class="a2a_button_x"></a>
-  <a class="a2a_button_linkedin"></a>
-  <a class="a2a_button_whatsapp"></a>
-  <a class="a2a_button_pinterest"></a>
-  <a class="a2a_dd" href="#"></a>
-</div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- INFO BAR -->
-<div class="infobar">
-  <div class="infobar-left">
-    <span>📍 Mumbai, India</span>
-    <a href="tel:+919004108811">📞 +91 9004108811</a>
-    <a href="mailto:info@web1expert.com">✉️ info@web1expert.com</a>
-  </div>
-  <div class="infobar-right">
-    <a href="https://drive.google.com/drive/folders/1xFOpKTKsCvxuuRIB4UrRIvJuLLh2LWfB" target="_blank">🖼️ Samples</a>
-    <a href="https://besthelptool.site" target="_blank">🛠️ FREE PAID Tools</a>
-  </div>
-</div>
+    <!-- ✅ COOKIE BANNER — completely hidden/removed -->
 
-<!-- PROMO BAR -->
-<div class="promobar">
-  🚀 Premium Website start from just <strong>$50</strong> &nbsp;·&nbsp; 15+ Years of Expertise &nbsp;·&nbsp;
-  <a href="https://wa.me/919004108811">WhatsApp Us for Free Quote →</a>
-</div>
-
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="https://web1expert.com">Web1<span>Expert</span></a>
-  <ul class="nav-links">
-    <li><a href="https://web1expert.com">Home</a></li>
-    <li class="has-drop">
-      <a href="https://web1expert.com/portfolio.html">Portfolio <span class="drop-arrow">▾</span></a>
-      <div class="dropdown">
-        <a href="https://web1expert.com/portfolio.html" target="_blank">Website Portfolio</a>
-        <a href="https://web1expert.com/portfolio.html" target="_blank">Graphics Portfolio</a>
-        <a href="https://web1expert.com/portfolio.html" target="_blank">Videos Samples</a>
-        <a href="https://web1expert.com/portfolio.html" target="_blank">Articles Samples</a>
-      </div>
-    </li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#testimonial">Testimonial</a></li>
-    <li><a href="https://blog.web1expert.com/category/blog/" target="_blank">Blog</a></li>
-    <li><a href="https://besthelptool.site" target="_blank">FREE PAID Tools</a></li>
-  </ul>
-  <a class="nav-cta" href="https://wa.me/919004108811">Free Quote →</a>
-  <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="https://web1expert.com" onclick="closeMenu()">Home</a>
-  <a href="https://web1expert.com/portfolio.html" target="_blank" onclick="closeMenu()" class="mob-sub">↳ Website Portfolio</a>
-  <a href="https://web1expert.com/portfolio.html" target="_blank" onclick="closeMenu()" class="mob-sub">↳ Graphics Portfolio</a>
-  <a href="https://web1expert.com/portfolio.html" target="_blank" onclick="closeMenu()" class="mob-sub">↳ Videos Samples</a>
-  <a href="https://web1expert.com/portfolio.html" target="_blank" onclick="closeMenu()" class="mob-sub">↳ Articles Samples</a>
-  <a href="#pricing" onclick="closeMenu()">Pricing</a>
-  <a href="#services" onclick="closeMenu()">Services</a>
-  <a href="#testimonial" onclick="closeMenu()">Testimonial</a>
-  <a href="https://blog.web1expert.com/category/blog/" target="_blank" onclick="closeMenu()">Blog</a>
-  <a href="https://besthelptool.site" target="_blank" onclick="closeMenu()">FREE PAID Tools</a>
-  <a href="#contact" onclick="closeMenu()">Contact Us</a>
-  <a href="https://wa.me/919004108811" onclick="closeMenu()" class="mob-cta">💬 Free Quote on WhatsApp</a>
-</div>
-<!-- ═══ PROMO BANNER STRIP ═══ -->
-<div class="promo-strip">
-  <div class="promo-track">
-
-    <!-- SET 1 -->
-    <div class="promo-item">
-      <span class="promo-icon">🖥️</span>
-      <span class="promo-label">Get Free <em>LIFETIME</em> Hosting</span>
-      <span class="promo-price">Just for $20 ONE TIME</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🌐</span>
-      <span class="promo-label"><em>Get PRO</em> Website</span>
-      <span class="promo-price">start from $10</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🛒</span>
-      <span class="promo-label"><em>Get PRO</em> Ecommerce Website</span>
-      <span class="promo-price">start from $100</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🎨</span>
-      <span class="promo-label">Get Graphics Design</span>
-      <span class="promo-price">start from $5</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🎬</span>
-      <span class="promo-label">Get Video Editing </span>
-      <span class="promo-price">start from $15</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">📈</span>
-      <span class="promo-label">Get Digital Marketing</span>
-      <span class="promo-price">start from $100</span>
+    <!-- Live Notification -->
+    <div class="live-notification" id="liveNotif">
+        <div class="notif-avatar avatar-blue">JR</div>
+        <div class="notif-text"><strong>James from Texas</strong>Just got a free consultation 🎉</div>
+        <div class="notif-dot"></div>
     </div>
 
-    <!-- SET 2 — exact duplicate required for seamless infinite scroll -->
-    <div class="promo-item">
-      <span class="promo-icon">🖥️</span>
-      <span class="promo-label">Get Free <em>LIFETIME</em> Hosting</span>
-      <span class="promo-price">Just for $20 ONE TIME</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🌐</span>
-      <span class="promo-label"><em>Get PRO</em> Website</span>
-      <span class="promo-price">start from $10</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🛒</span>
-      <span class="promo-label"><em>Get PRO</em> Ecommerce Website</span>
-      <span class="promo-price">start from $100</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🎨</span>
-      <span class="promo-label">Get Graphics Design</span>
-      <span class="promo-price">start from $5</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">🎬</span>
-      <span class="promo-label">Get Video Editing </span>
-      <span class="promo-price">start from $15</span>
-    </div>
-    <div class="promo-item">
-      <span class="promo-icon">📈</span>
-      <span class="promo-label">Get Digital Marketing</span>
-      <span class="promo-price">start from $100</span>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+        <a href="#services"     onclick="closeMobileMenu()">Services</a>
+        <a href="#process"      onclick="closeMobileMenu()">How It Works</a>
+        <a href="#pricing"      onclick="closeMobileMenu()">Pricing</a>
+        <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+        <a href="#faq"          onclick="closeMobileMenu()">FAQ</a>
+        <a href="#contact"      onclick="closeMobileMenu()">Contact</a>
+        <a href="#contact" class="btn btn-primary btn-lg" onclick="closeMobileMenu()">Get Free Quote</a>
     </div>
 
-  </div>
-</div>
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">✦ Creative &amp; Innovative &nbsp;·&nbsp; Mumbai, India</div>
-    <h1>Creative &amp; Innovative<em>Digital Solution</em></h1>
-    <p class="hero-sub">Premium websites, stunning graphics, powerful apps &amp; digital marketing — at prices that actually make sense for your business.</p>
-    <div class="hero-btns">
-      <a class="btn-primary" href="https://wa.me/919004108811">Free Quote →</a>
-      <a class="btn-ghost" href="#contact">Contact Us</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num" data-target="405" data-suffix="">0</span><span class="stat-label">Happy Clients</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num" data-target="475" data-suffix="">0</span><span class="stat-label">Projects Done</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num" data-target="234" data-suffix="">0</span><span class="stat-label">Current Projects</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num" data-target="15" data-suffix="+">0+</span><span class="stat-label">Years Experience</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- BADGE STRIP -->
-<div class="badge-strip">
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>FREE Website Security</div>
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24/7 Support</div>
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>All Device Compatible</div>
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>FREE Data Upload</div>
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Review Winning</div>
-  <div class="badge-item"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Professional Staff</div>
-</div>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="section">
-  <div class="about-grid">
-    <div class="reveal">
-      <p class="section-label">About Us</p>
-      <h2 class="section-title">The Best IT Solution With <em>15 Years</em> of Experience</h2>
-      <p class="section-sub">Web1Expert delivers affordable, secure, and high-speed website services for individuals and small businesses. Get top-tier performance with unbeatable prices and 24/7 support.</p>
-      <div class="about-feats">
-        <div class="about-feat"><div class="about-feat-icon">🏆</div><div class="about-feat-title">Review Winning</div></div>
-        <div class="about-feat"><div class="about-feat-icon">👥</div><div class="about-feat-title">Professional Staff</div></div>
-        <div class="about-feat"><div class="about-feat-icon">🕐</div><div class="about-feat-title">24/7 Support</div></div>
-        <div class="about-feat"><div class="about-feat-icon">💰</div><div class="about-feat-title">Fair Prices</div></div>
-      </div>
-      <div class="about-phone">
-        <div>
-          <div style="font-size:0.74rem;color:var(--muted);font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;">Call to ask any question</div>
-          <a class="about-phone-num" href="tel:+919004108811">+91 9004108811</a>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <a href="#" class="navbar-logo">
+                    <div class="logo-icon">W</div>
+                    Web1Expert
+                </a>
+                <ul class="navbar-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="navbar-cta">
+                    <a href="https://wa.me/919004108811" target="_blank" class="btn btn-outline btn-sm">💬 WhatsApp</a>
+                    <a href="#contact" class="btn btn-primary btn-sm">Get Free Quote →</a>
+                </div>
+                <div class="hamburger" id="hamburger" onclick="openMobileMenu()">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
         </div>
-        <a class="btn-primary" href="https://wa.me/919004108811" style="font-size:0.84rem;padding:11px 20px;">Request A Quote</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <div class="about-card">
-        <div class="about-big">15+</div>
-        <div class="about-sub">Years of Trusted IT Experience</div>
-        <div class="about-mini-grid">
-          <div class="about-mini"><div class="about-mini-num">405</div><div class="about-mini-lbl">Happy Clients</div></div>
-          <div class="about-mini"><div class="about-mini-num">475</div><div class="about-mini-lbl">Projects Done</div></div>
-          <div class="about-mini"><div class="about-mini-num">234</div><div class="about-mini-lbl">Current Projects</div></div>
-          <div class="about-mini"><div class="about-mini-num">100%</div><div class="about-mini-lbl">Satisfaction</div></div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-particles">
+            <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+            <div class="particle"></div><div class="particle"></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="hero-grid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-tag"><div class="dot"></div>🏆 Rated #1 Web Agency 2026</div>
+                    <h1 class="hero-title">Build a Website That <span class="highlight">Actually Grows</span> Your Business</h1>
+                    <p class="hero-desc">We design, develop, and optimize websites that don't just look stunning — they convert visitors into customers, rank on Google, and work for you 24/7. No fluff. Just real, measurable results.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary btn-lg">🚀 Get Free Consultation</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">500<span style="color:#60A5FA">+</span></div>
+                            <div class="hero-stat-label">Websites Launched</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">98<span style="color:#34D399">%</span></div>
+                            <div class="hero-stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">12<span style="color:#A78BFA">+</span></div>
+                            <div class="hero-stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card-main">
+                        <div class="browser-bar">
+                            <div class="browser-dot" style="background:#EF4444"></div>
+                            <div class="browser-dot" style="background:#F59E0B"></div>
+                            <div class="browser-dot" style="background:#10B981"></div>
+                            <div class="browser-url">www.your-new-website.com</div>
+                        </div>
+                        <div class="hero-website-preview">
+                            <div class="preview-header">
+                                <div class="preview-logo"></div>
+                                <div class="preview-nav"><span></span><span></span><span></span></div>
+                            </div>
+                            <div class="preview-hero-area">
+                                <div class="preview-title-bar"></div>
+                                <div class="preview-sub-bar"></div>
+                                <div class="preview-btn-bar"></div>
+                            </div>
+                            <div class="preview-body">
+                                <div class="preview-cards">
+                                    <div class="preview-card"><div class="preview-card-icon bg-blue"></div><div class="preview-card-line"></div></div>
+                                    <div class="preview-card"><div class="preview-card-icon bg-green"></div><div class="preview-card-line"></div></div>
+                                    <div class="preview-card"><div class="preview-card-icon bg-yellow"></div><div class="preview-card-line"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-floating hero-float-1">✅ SEO Score: 98/100</div>
+                    <div class="hero-floating hero-float-2">⚡ Page Speed: 0.8s</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ═══ WHY CHOOSE US ═══ -->
-<section class="section why-bg">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-label">Why Choose Us</p>
-    <h2 class="section-title">We Are Here to Grow Your <em>Business Exponentially</em></h2>
-  </div>
-  <div class="why-grid">
-    <div class="why-card reveal">
-      <div class="why-icon">🏅</div>
-      <div class="why-title">Best In Industry</div>
-      <div class="why-desc">Recognized for excellence across web development, design, and digital marketing with consistent award-winning work.</div>
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker-track">
+            <span class="ticker-item"><span>🚀</span> Web Design</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>💻</span> Web Development</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>📈</span> SEO Optimization</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🎯</span> Digital Marketing</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🛒</span> E-Commerce Solutions</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>📱</span> Mobile-First Design</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🔒</span> Secure & Fast Hosting</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>💡</span> Brand Identity</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🚀</span> Web Design</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>💻</span> Web Development</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>📈</span> SEO Optimization</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🎯</span> Digital Marketing</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🛒</span> E-Commerce Solutions</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>📱</span> Mobile-First Design</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>🔒</span> Secure & Fast Hosting</span><span class="ticker-dot"></span>
+            <span class="ticker-item"><span>💡</span> Brand Identity</span>
+        </div>
     </div>
-    <div class="why-card reveal">
-      <div class="why-icon">🏆</div>
-      <div class="why-title">Review Winning</div>
-      <div class="why-desc">Our projects have earned accolades for innovation, design quality, and measurable business impact for clients worldwide.</div>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">👨‍💻</div>
-      <div class="why-title">Professional Staff</div>
-      <div class="why-desc">Senior developers, designers, and marketers with deep domain expertise deliver precision on every single project.</div>
-    </div>
-    <div class="why-card reveal">
-      <div class="why-icon">🕐</div>
-      <div class="why-title">24/7 Support</div>
-      <div class="why-desc">Round-the-clock assistance ensures your business never faces downtime without expert backup immediately available.</div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══ SERVICES ═══ -->
-<section id="services" class="section">
-  <div class="reveal">
-    <p class="section-label">Our Services</p>
-    <h2 class="section-title">Custom IT Solutions for Your <em>Successful Business</em></h2>
-    <p class="section-sub">End-to-end digital services — start from design to deployment, marketing to maintenance.</p>
-  </div>
-  <div class="services-grid">
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">🎨</div>
-      <div class="svc-title">Web &amp; APP Designing</div>
-      <div class="svc-desc">Pixel-perfect, mobile-first UI/UX designs that captivate visitors and drive conversions.</div>
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-inner">
+                <div class="trust-item"><span class="trust-item-icon">⭐</span><span>5-Star Rated Agency</span></div>
+                <div class="trust-item"><span class="trust-item-icon">🏆</span><span>Award-Winning Designs</span></div>
+                <div class="trust-item"><span class="trust-item-icon">🔒</span><span>100% Secure & Compliant</span></div>
+                <div class="trust-item"><span class="trust-item-icon">⚡</span><span>Lightning-Fast Delivery</span></div>
+                <div class="trust-item"><span class="trust-item-icon">🤝</span><span>Money-Back Guarantee</span></div>
+                <div class="trust-item"><span class="trust-item-icon">📞</span><span>24/7 Support</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIGHLIGHT NUMBERS -->
+    <div class="highlight-section">
+        <div class="container">
+            <div class="highlight-grid">
+                <div class="highlight-item fade-in-up"><span class="highlight-emoji">🌍</span><div class="highlight-number"><span class="counter" data-target="500">0</span><span class="plus">+</span></div><div class="highlight-label">Websites Delivered</div></div>
+                <div class="highlight-item fade-in-up delay-1"><span class="highlight-emoji">😊</span><div class="highlight-number"><span class="counter" data-target="98">0</span><span class="plus">%</span></div><div class="highlight-label">Happy Clients</div></div>
+                <div class="highlight-item fade-in-up delay-2"><span class="highlight-emoji">🌐</span><div class="highlight-number"><span class="counter" data-target="45">0</span><span class="plus">+</span></div><div class="highlight-label">Countries Served</div></div>
+                <div class="highlight-item fade-in-up delay-3"><span class="highlight-emoji">⚡</span><div class="highlight-number"><span class="counter" data-target="12">0</span><span class="plus">+</span></div><div class="highlight-label">Years Experience</div></div>
+                <div class="highlight-item fade-in-up delay-4"><span class="highlight-emoji">🏆</span><div class="highlight-number"><span class="counter" data-target="30">0</span><span class="plus">+</span></div><div class="highlight-label">Industry Awards</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="badge badge-primary">⚙️ What We Do</span>
+                <h2 class="section-title" style="margin-top:16px">Every Service You Need to <span class="text-gradient">Win Online</span></h2>
+                <p class="section-subtitle">From a simple landing page to a full-scale enterprise platform — we've got every solution to make your digital presence unstoppable.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up delay-1">
+                    <div class="service-icon-wrap service-icon-1">🎨</div>
+                    <h3 class="service-title">Custom Web Design</h3>
+                    <p class="service-desc">Unique, brand-aligned websites designed from scratch. No boring templates — every pixel crafted to reflect your identity and captivate your audience.</p>
+                    <ul class="service-features"><li>Mobile-first responsive design</li><li>UI/UX optimized layouts</li><li>Brand consistency across all pages</li><li>Fast loading visual design</li></ul>
+                    <a href="#contact" class="service-link">Start your project →</a>
+                </div>
+                <div class="service-card fade-in-up delay-2">
+                    <div class="service-icon-wrap service-icon-2">💻</div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-desc">Clean, scalable code that powers high-performance websites. From simple brochure sites to complex web apps — built to last and grow with you.</p>
+                    <ul class="service-features"><li>React, Next.js, WordPress, PHP</li><li>API integrations & custom features</li><li>Database design & architecture</li><li>Secure, tested, optimized code</li></ul>
+                    <a href="#contact" class="service-link">Discuss your idea →</a>
+                </div>
+                <div class="service-card fade-in-up delay-3">
+                    <div class="service-icon-wrap service-icon-3">📈</div>
+                    <h3 class="service-title">SEO & Visibility</h3>
+                    <p class="service-desc">Get found on Google by people actively searching for what you offer. We use proven, white-hat SEO strategies that build long-term organic traffic.</p>
+                    <ul class="service-features"><li>Technical SEO audit & fixes</li><li>Keyword research & strategy</li><li>Content optimization</li><li>Local & global SEO campaigns</li></ul>
+                    <a href="#contact" class="service-link">Boost my rankings →</a>
+                </div>
+                <div class="service-card fade-in-up delay-1">
+                    <div class="service-icon-wrap service-icon-4">🛒</div>
+                    <h3 class="service-title">E-Commerce Stores</h3>
+                    <p class="service-desc">Launch your online store with a platform built to sell. Beautiful product pages, smooth checkout, everything configured to maximize your revenue.</p>
+                    <ul class="service-features"><li>WooCommerce & Shopify experts</li><li>Payment gateway integration</li><li>Inventory & order management</li><li>Conversion rate optimization</li></ul>
+                    <a href="#contact" class="service-link">Launch my store →</a>
+                </div>
+                <div class="service-card fade-in-up delay-2">
+                    <div class="service-icon-wrap service-icon-5">🎯</div>
+                    <h3 class="service-title">Digital Marketing</h3>
+                    <p class="service-desc">Reach your ideal customers wherever they are online. Strategic campaigns that build awareness, generate leads, and turn clicks into paying clients.</p>
+                    <ul class="service-features"><li>Google Ads & Facebook Ads</li><li>Email marketing campaigns</li><li>Social media management</li><li>Analytics & reporting</li></ul>
+                    <a href="#contact" class="service-link">Grow my audience →</a>
+                </div>
+                <div class="service-card fade-in-up delay-3">
+                    <div class="service-icon-wrap service-icon-6">🛡️</div>
+                    <h3 class="service-title">Maintenance & Support</h3>
+                    <p class="service-desc">Your website is your hardest-working employee — keep it running perfectly. We handle updates, security, backups, and everything in between.</p>
+                    <ul class="service-features"><li>Daily backups & monitoring</li><li>Security patches & SSL</li><li>Performance optimization</li><li>Priority support team</li></ul>
+                    <a href="#contact" class="service-link">Protect my site →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="features section" id="about">
+        <div class="container">
+            <div class="features-content">
+                <div class="features-text fade-in-left">
+                    <span class="badge" style="background:rgba(37,99,235,0.15);color:#93C5FD;border:1px solid rgba(37,99,235,0.3)">💪 Why We're Different</span>
+                    <h2 class="section-title" style="margin-top:16px">We Don't Just Build Websites.<br><span class="text-gradient">We Build Growth Engines.</span></h2>
+                    <p class="section-subtitle">Most web agencies hand you a pretty website and disappear. We stay with you, optimize your online presence, and make sure your investment pays off for years to come.</p>
+                    <div class="features-list">
+                        <div class="feature-item"><div class="feature-icon">🎯</div><div class="feature-text"><h4>Results-First Approach</h4><p>Every decision tied to your business goals — not just aesthetics. Your success is our success.</p></div></div>
+                        <div class="feature-item"><div class="feature-icon">⚡</div><div class="feature-text"><h4>Lightning-Fast Turnaround</h4><p>We move quickly without cutting corners. Most projects launch in 2–4 weeks, not months.</p></div></div>
+                        <div class="feature-item"><div class="feature-icon">🔍</div><div class="feature-text"><h4>Built-In SEO From Day One</h4><p>Every site we build is optimized for search engines from the ground up — not as an afterthought.</p></div></div>
+                        <div class="feature-item"><div class="feature-icon">🤝</div><div class="feature-text"><h4>Transparent Communication</h4><p>No hidden fees, no vague timelines. You always know exactly what's happening and why.</p></div></div>
+                    </div>
+                </div>
+                <div class="features-stats fade-in-right">
+                    <div class="stat-card"><div class="stat-icon">🌟</div><div class="stat-number"><span class="counter" data-target="500">0</span><span style="color:#60A5FA">+</span></div><div class="stat-label">Projects Completed</div></div>
+                    <div class="stat-card"><div class="stat-icon">😊</div><div class="stat-number"><span class="counter" data-target="98">0</span><span style="color:#34D399">%</span></div><div class="stat-label">Satisfaction Rate</div></div>
+                    <div class="stat-card"><div class="stat-icon">🌍</div><div class="stat-number"><span class="counter" data-target="45">0</span><span style="color:#A78BFA">+</span></div><div class="stat-label">Countries Served</div></div>
+                    <div class="stat-card"><div class="stat-icon">⚡</div><div class="stat-number"><span class="counter" data-target="14">0</span></div><div class="stat-label">Days Avg. Launch Time</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process section" id="process">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="badge badge-success">🗺️ Our Process</span>
+                <h2 class="section-title" style="margin-top:16px">From Idea to <span class="text-gradient-green">Live Website</span> in 4 Simple Steps</h2>
+                <p class="section-subtitle">A straightforward, stress-free journey from your first conversation to your polished, published website. You stay in control every step of the way.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step fade-in-up delay-1"><div class="step-number">1</div><h3 class="step-title">Discovery Call</h3><p class="step-desc">We listen first. Tell us about your business, goals, and vision. We ask the right questions to understand exactly what you need.</p></div>
+                <div class="step fade-in-up delay-2"><div class="step-number">2</div><h3 class="step-title">Strategy & Design</h3><p class="step-desc">We craft a custom strategy and design mockups tailored to your brand. You approve every detail before a single line of code is written.</p></div>
+                <div class="step fade-in-up delay-3"><div class="step-number">3</div><h3 class="step-title">Build & Optimize</h3><p class="step-desc">Our developers bring your designs to life with clean, fast, and SEO-ready code. We test everything across all devices and browsers.</p></div>
+                <div class="step fade-in-up delay-4"><div class="step-number">4</div><h3 class="step-title">Launch & Grow</h3><p class="step-desc">Your website goes live and we don't disappear. We monitor performance, support you, and help your site grow into a revenue machine.</p></div>
+            </div>
+            <div class="text-center" style="margin-top:60px">
+                <a href="#contact" class="btn btn-primary btn-lg">🚀 Start Your Project Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="comparison section-sm">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="badge badge-primary">⚖️ How We Compare</span>
+                <h2 class="section-title" style="margin-top:16px">Why <span class="text-gradient">Smart Businesses</span> Choose Us</h2>
+            </div>
+            <div style="overflow-x:auto">
+                <table class="comparison-table fade-in-up">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="us">Web1Expert ✅</th>
+                            <th class="other">Template Services</th>
+                            <th class="other">Freelancers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Custom Design (Not Templates)</td><td><span class="check-yes">✅</span></td><td><span class="check-no">❌</span></td><td><span class="check-partial">⚠️ Sometimes</span></td></tr>
+                        <tr><td>SEO Built-In From Start</td><td><span class="check-yes">✅</span></td><td><span class="check-no">❌</span></td><td><span class="check-partial">⚠️ Rarely</span></td></tr>
+                        <tr><td>Ongoing Support & Maintenance</td><td><span class="check-yes">✅</span></td><td><span class="check-partial">⚠️ Paid Extra</span></td><td><span class="check-no">❌</span></td></tr>
+                        <tr><td>Dedicated Project Manager</td><td><span class="check-yes">✅</span></td><td><span class="check-no">❌</span></td><td><span class="check-no">❌</span></td></tr>
+                        <tr><td>Performance & Speed Optimization</td><td><span class="check-yes">✅</span></td><td><span class="check-partial">⚠️ Basic</span></td><td><span class="check-partial">⚠️ Varies</span></td></tr>
+                        <tr><td>Money-Back Guarantee</td><td><span class="check-yes">✅</span></td><td><span class="check-no">❌</span></td><td><span class="check-no">❌</span></td></tr>
+                        <tr><td>Conversion Rate Optimization</td><td><span class="check-yes">✅</span></td><td><span class="check-no">❌</span></td><td><span class="check-partial">⚠️ Rarely</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="quiz-section">
+        <div class="quiz-container">
+            <div class="hero-tag" style="margin:0 auto 24px;width:fit-content">🧠 Find Your Perfect Package</div>
+            <h2 class="quiz-title">What Does Your Business Need?</h2>
+            <p class="quiz-subtitle">Answer 3 quick questions and we'll recommend the perfect solution for you — completely free!</p>
+            <div class="quiz-card">
+                <div id="quizFormStep">
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill" style="width:33%"></div></div>
+                        <span class="quiz-step" id="quizStep">Step 1 of 3</span>
+                    </div>
+                    <div id="quizQ1">
+                        <div class="quiz-question">What best describes your current situation?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectOption(this,'q1','new')"><div class="quiz-option-icon">🆕</div>I need a brand new website</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q1','redesign')"><div class="quiz-option-icon">🔄</div>My current site needs a redesign</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q1','seo')"><div class="quiz-option-icon">📈</div>I need more traffic & leads</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q1','ecom')"><div class="quiz-option-icon">🛒</div>I want to sell products online</div>
+                        </div>
+                    </div>
+                    <div id="quizQ2" style="display:none">
+                        <div class="quiz-question">What's your approximate budget range?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectOption(this,'q2','small')"><div class="quiz-option-icon">💰</div>Under $1,000</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q2','medium')"><div class="quiz-option-icon">💰</div>$1,000 – $5,000</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q2','large')"><div class="quiz-option-icon">💰</div>$5,000 – $15,000</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q2','enterprise')"><div class="quiz-option-icon">💰</div>$15,000+</div>
+                        </div>
+                    </div>
+                    <div id="quizQ3" style="display:none">
+                        <div class="quiz-question">When do you need this completed?</div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectOption(this,'q3','urgent')"><div class="quiz-option-icon">⚡</div>ASAP (within 2 weeks)</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q3','month')"><div class="quiz-option-icon">📅</div>Within 1 month</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q3','flexible')"><div class="quiz-option-icon">🗓️</div>1-3 months, flexible</div>
+                            <div class="quiz-option" onclick="selectOption(this,'q3','planning')"><div class="quiz-option-icon">🤔</div>Still planning & exploring</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-result" id="quizResult">
+                    <div class="quiz-result-emoji">🎉</div>
+                    <h3>We've Got the Perfect Solution for You!</h3>
+                    <p id="quizResultText">Based on your answers, we recommend our <strong>Business Growth Package</strong>.</p>
+                    <a href="https://wa.me/919004108811" target="_blank" class="btn btn-white btn-lg" style="color:var(--primary)">💬 Chat With Us on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="badge badge-success">💬 Client Stories</span>
+                <h2 class="section-title" style="margin-top:16px">Don't Take Our Word For It — <span class="text-gradient-green">Hear From Our Clients</span></h2>
+                <p class="section-subtitle">Real words from real business owners who trusted us with their online presence and watched their businesses grow.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up delay-1">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"We went from invisible online to ranking on the first page of Google in just 3 months. The new website looks incredible and actually converts visitors. Best investment we've made."</p>
+                    <div class="testimonial-author"><div class="author-avatar avatar-blue">SM</div><div class="author-info"><h5>Sarah M.</h5><span>CEO, BrightPath Consulting</span></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up delay-2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Our e-commerce store was struggling. After the redesign and SEO work, our monthly sales jumped by 185%. The team was professional, responsive, and genuinely cared about our results."</p>
+                    <div class="testimonial-author"><div class="author-avatar avatar-green">JL</div><div class="author-info"><h5>James L.</h5><span>Founder, EcoHome Store</span></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up delay-3">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"What impressed me most was how quickly they understood my vision. The final website exceeded my expectations in every way — design, speed, and functionality. Highly recommend!"</p>
+                    <div class="testimonial-author"><div class="author-avatar avatar-orange">RK</div><div class="author-info"><h5>Rachel K.</h5><span>Director, Apex Legal Group</span></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up delay-1">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've worked with three other web agencies before. None come close to the level of communication, quality, and ongoing support that Web1Expert provides. They're genuinely a long-term partner."</p>
+                    <div class="testimonial-author"><div class="author-avatar avatar-purple">MP</div><div class="author-info"><h5>Michael P.</h5><span>Owner, PeakFit Gym Chain</span></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up delay-2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Our restaurant was barely getting online orders. After their redesign and Google SEO work, we're now getting 3x more orders per week. The ROI was evident within the very first month."</p>
+                    <div class="testimonial-author"><div class="author-avatar avatar-teal">AT</div><div class="author-info"><h5>Amelia T.</h5><span>Co-Owner, Harvest Table</span></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up delay-3">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The support is unmatched. Any time I have a question or need a small change, the team responds quickly and takes care of it. My site has been running flawlessly for over 2 years."</p>
+                    <div class="testimonial-author"><div class="author-avatar avatar-red">DW</div><div class="author-info"><h5>David W.</h5><span>CEO, Summit Real Estate</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <div class="tech-section">
+        <div class="container">
+            <div class="tech-label">Technologies & Platforms We Work With</div>
+            <div class="tech-grid">
+                <div class="tech-pill"><span class="tech-icon">⚛️</span> React</div>
+                <div class="tech-pill"><span class="tech-icon">▲</span> Next.js</div>
+                <div class="tech-pill"><span class="tech-icon">🌐</span> WordPress</div>
+                <div class="tech-pill"><span class="tech-icon">🛒</span> Shopify</div>
+                <div class="tech-pill"><span class="tech-icon">🛍️</span> WooCommerce</div>
+                <div class="tech-pill"><span class="tech-icon">🐘</span> PHP</div>
+                <div class="tech-pill"><span class="tech-icon">🍃</span> MongoDB</div>
+                <div class="tech-pill"><span class="tech-icon">🐬</span> MySQL</div>
+                <div class="tech-pill"><span class="tech-icon">☁️</span> AWS</div>
+                <div class="tech-pill"><span class="tech-icon">🔥</span> Firebase</div>
+                <div class="tech-pill"><span class="tech-icon">📊</span> Google Analytics</div>
+                <div class="tech-pill"><span class="tech-icon">🎯</span> Google Ads</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ PRICING — All 3 prices updated ═══ -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="badge badge-primary">💳 Transparent Pricing</span>
+                <h2 class="section-title" style="margin-top:16px">Clear Pricing. <span class="text-gradient">No Surprises.</span></h2>
+                <p class="section-subtitle">Every plan comes with our satisfaction guarantee. Pay for value, not fluff. Need something custom? Let's talk — we'll build a plan just for you.</p>
+            </div>
+            <div class="pricing-toggle">
+                <span class="toggle-label active" id="monthlyLabel">Monthly</span>
+                <div class="toggle-switch" id="pricingToggle" onclick="togglePricing()"></div>
+                <span class="toggle-label" id="annualLabel">Annual</span>
+                <span class="pricing-save">Save 20%</span>
+            </div>
+            <div class="pricing-grid">
+
+                <!-- ✅ STARTER — $100 -->
+                <div class="pricing-card fade-in-up delay-1">
+                    <div class="plan-name">Starter</div>
+                    <div class="plan-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount" id="price1">100</span>
+                        <span class="price-period">/project</span>
+                    </div>
+                    <p class="plan-desc">Perfect for small businesses, freelancers, and local services looking for a clean professional web presence.</p>
+                    <div class="plan-divider"></div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> 5-page custom website</li>
+                        <li><span class="check">✓</span> Mobile responsive design</li>
+                        <li><span class="check">✓</span> Basic SEO setup</li>
+                        <li><span class="check">✓</span> Contact form integration</li>
+                        <li><span class="check">✓</span> SSL security certificate</li>
+                        <li><span class="check">✓</span> 30 days free support</li>
+                    </ul>
+                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Starter%20Plan%20%24100" target="_blank" class="btn btn-outline" style="color:var(--dark);border-color:var(--light3);width:100%;justify-content:center">💬 Get Started on WhatsApp</a>
+                </div>
+
+                <!-- ✅ GROWTH — $500 (was $1,499) -->
+                <div class="pricing-card popular fade-in-up delay-2">
+                    <div class="popular-badge">⭐ Most Popular</div>
+                    <div class="plan-name">Growth</div>
+                    <div class="plan-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount" id="price2">500</span>
+                        <span class="price-period">/project</span>
+                    </div>
+                    <p class="plan-desc">For growing businesses that want a powerful, results-driven website with full SEO and marketing capabilities.</p>
+                    <div class="plan-divider"></div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Up to 15 custom pages</li>
+                        <li><span class="check">✓</span> Advanced UI/UX design</li>
+                        <li><span class="check">✓</span> Full SEO optimization</li>
+                        <li><span class="check">✓</span> Blog & content system</li>
+                        <li><span class="check">✓</span> Google Analytics setup</li>
+                        <li><span class="check">✓</span> Email marketing integration</li>
+                        <li><span class="check">✓</span> 90 days priority support</li>
+                        <li><span class="check">✓</span> Speed & performance optimization</li>
+                    </ul>
+                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Growth%20Plan%20%24500" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center">💬 Get Growth Plan on WhatsApp</a>
+                </div>
+
+                <!-- ✅ ENTERPRISE — $1,000 (was $4,999) -->
+                <div class="pricing-card fade-in-up delay-3">
+                    <div class="plan-name">Enterprise</div>
+                    <div class="plan-price">
+                        <span class="price-currency">$</span>
+                        <span class="price-amount" id="price3">1,000</span>
+                        <span class="price-period">/project</span>
+                    </div>
+                    <p class="plan-desc">Full-scale digital solutions for established businesses that need a powerful online ecosystem.</p>
+                    <div class="plan-divider"></div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Unlimited pages</li>
+                        <li><span class="check">✓</span> Custom web application</li>
+                        <li><span class="check">✓</span> E-commerce with payments</li>
+                        <li><span class="check">✓</span> Full digital marketing strategy</li>
+                        <li><span class="check">✓</span> CRM & third-party integrations</li>
+                        <li><span class="check">✓</span> Dedicated project manager</li>
+                        <li><span class="check">✓</span> 12 months ongoing support</li>
+                        <li><span class="check">✓</span> Monthly performance reports</li>
+                    </ul>
+                    <a href="https://wa.me/919004108811?text=Hi!%20I'm%20interested%20in%20the%20Enterprise%20Plan%20%241000" target="_blank" class="btn btn-outline" style="color:var(--dark);border-color:var(--light3);width:100%;justify-content:center">💬 Let's Talk on WhatsApp</a>
+                </div>
+
+            </div>
+            <div class="text-center" style="margin-top:40px">
+                <p style="color:var(--text-muted);font-size:15px">🤝 All plans include a <strong>30-day satisfaction guarantee</strong>.<br>
+                <a href="https://wa.me/919004108811" target="_blank" style="color:var(--primary);font-weight:600">Need something custom? Chat with us on WhatsApp →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <span class="badge badge-warning">❓ FAQs</span>
+                <h2 class="section-title" style="margin-top:16px">Questions? We Have <span class="text-gradient">Clear Answers.</span></h2>
+                <p class="section-subtitle">Everything you need to know before getting started. Don't see your question? Just reach out — we love a good conversation.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item fade-in-up">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>How long does it take to build my website?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Most websites are ready to launch within 2–4 weeks from the day we kick off. Larger projects like full e-commerce stores or custom web apps can take 4–8 weeks. We always provide a clear timeline upfront so there are no surprises.</div></div>
+                </div>
+                <div class="faq-item fade-in-up delay-1">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>Will my website rank on Google?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Every website we build has foundational SEO built in from day one — proper page structure, meta tags, image optimization, page speed, schema markup, and mobile responsiveness. Many of our clients see first-page rankings within 60–90 days.</div></div>
+                </div>
+                <div class="faq-item fade-in-up delay-2">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>What if I don't have content or images yet?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">No worries! We work with many clients who come to us with nothing more than an idea. We can write professional website copy, source high-quality stock photography, and create custom graphics. We meet you wherever you are in your journey.</div></div>
+                </div>
+                <div class="faq-item fade-in-up delay-3">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>Will I be able to update my website myself?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Absolutely. We build websites on user-friendly platforms like WordPress that you can update without any coding knowledge. After launch, we provide a personalized walkthrough session so you feel confident making updates.</div></div>
+                </div>
+                <div class="faq-item fade-in-up delay-1">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>Do you offer payment plans?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes! We offer flexible payment schedules — typically split into a deposit at project start, a milestone payment at design approval, and a final payment at launch. For larger projects, we can arrange monthly installments.</div></div>
+                </div>
+                <div class="faq-item fade-in-up delay-2">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>What if I'm not happy with the design?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">We have a rock-solid revision process. Before any coding begins, you approve wireframes and design mockups. Every plan includes multiple revision rounds. If after launch you're still not satisfied — our 30-day satisfaction guarantee means we'll make it right or refund you.</div></div>
+                </div>
+                <div class="faq-item fade-in-up delay-3">
+                    <div class="faq-question" onclick="toggleFaq(this)"><h4>Do you work with clients worldwide?</h4><div class="faq-icon">+</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">Yes! We work with clients across 45+ countries. Our entire process is designed to work remotely and collaboratively. Timezone differences are never a barrier — we find a communication rhythm that works perfectly for you.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="contact-cta section" id="contact">
+        <div class="container">
+            <div class="contact-inner">
+                <div class="contact-text fade-in-left">
+                    <span class="badge" style="background:rgba(16,185,129,0.15);color:#6EE7B7;border:1px solid rgba(16,185,129,0.3);margin-bottom:20px">📩 Let's Work Together</span>
+                    <h2>Ready to Build Something<br><span style="color:#60A5FA">Amazing Together?</span></h2>
+                    <p>Tell us about your project and get a free, no-obligation proposal within 24 hours. There's no commitment — just a friendly conversation to explore how we can help you win online.</p>
+                    <ul class="contact-features-list">
+                        <li><span class="icon">✅</span> Free consultation, no strings attached</li>
+                        <li><span class="icon">✅</span> Custom proposal within 24 hours</li>
+                        <li><span class="icon">✅</span> Transparent pricing, no hidden fees</li>
+                        <li><span class="icon">✅</span> 30-day satisfaction guarantee</li>
+                        <li><span class="icon">✅</span> Friendly, expert team ready to help</li>
+                    </ul>
+                    <div style="margin-top:36px;display:flex;gap:20px;flex-wrap:wrap">
+                        <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">💬</div><div style="color:white;font-weight:600">WhatsApp</div>+91 90041 08811</div>
+                        <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">📧</div><div style="color:white;font-weight:600">Email Us</div>info@web1expert.com</div>
+                        <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">⏰</div><div style="color:white;font-weight:600">Response Time</div>Within 24 Hours</div>
+                    </div>
+                </div>
+                <div class="fade-in-right">
+                    <div class="contact-form">
+                        <h3 class="form-title">Get Your Free Proposal 🚀</h3>
+                        <form id="contactForm" onsubmit="submitForm(event)">
+                            <div class="form-row">
+                                <div class="form-group"><label class="form-label">First Name *</label><input type="text" class="form-input" id="firstName" placeholder="John" required></div>
+                                <div class="form-group"><label class="form-label">Last Name *</label><input type="text" class="form-input" id="lastName" placeholder="Doe" required></div>
+                            </div>
+                            <div class="form-group"><label class="form-label">Email Address *</label><input type="email" class="form-input" id="email" placeholder="john@yourbusiness.com" required></div>
+                            <div class="form-group"><label class="form-label">Phone / WhatsApp Number *</label><input type="tel" class="form-input" id="phone" placeholder="+1 555 000 0000" required></div>
+                            <div class="form-group">
+                                <label class="form-label">What do you need?</label>
+                                <select class="form-input form-select" id="service">
+                                    <option value="">Select a service...</option>
+                                    <option>New Website Design</option>
+                                    <option>Website Redesign</option>
+                                    <option>E-Commerce Store</option>
+                                    <option>SEO Services</option>
+                                    <option>Digital Marketing</option>
+                                    <option>Web Application</option>
+                                    <option>Website Maintenance</option>
+                                    <option>Not Sure — Just Exploring</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label class="form-label">Tell Us About Your Project</label><textarea class="form-input form-textarea" id="message" placeholder="What's your business, your goals, and what you're hoping to achieve? The more detail, the better!"></textarea></div>
+                            <button type="submit" class="form-submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+                                Send via WhatsApp
+                            </button>
+                            <p class="form-note">🔒 Your details go directly to our WhatsApp. We reply within hours!</p>
+                        </form>
+                        <div class="form-success" id="formSuccess">
+                            <div class="success-icon">🎉</div>
+                            <h3>Redirecting to WhatsApp...</h3>
+                            <p>Your message has been prepared. Complete sending it on WhatsApp and our team will reply within a few hours!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo"><div class="logo-icon">W</div>Web1Expert</div>
+                    <p class="footer-desc">We build professional, high-performance websites that help businesses grow, get found online, and convert visitors into loyal customers. Based worldwide, delivering everywhere.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/cheapWebsiteDesigning" target="_blank" class="social-link" title="Facebook">📘</a>
+                        <a href="https://x.com/tksutk" target="_blank" class="social-link" title="X / Twitter">🐦</a>
+                        <a href="https://www.instagram.com/web1expertdotcom/" target="_blank" class="social-link" title="Instagram">📸</a>
+                        <a href="https://wa.me/919004108811" target="_blank" class="social-link" title="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Design</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">SEO Services</a></li>
+                        <li><a href="#services">E-Commerce</a></li>
+                        <li><a href="#services">Digital Marketing</a></li>
+                        <li><a href="#services">Maintenance & Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item"><span class="footer-contact-icon">💬</span><a href="https://wa.me/919004108811" target="_blank" style="color:rgba(255,255,255,0.55)">+91 90041 08811 (WhatsApp)</a></div>
+                    <div class="footer-contact-item"><span class="footer-contact-icon">📧</span>info@web1expert.com</div>
+                    <div class="footer-contact-item"><span class="footer-contact-icon">⏰</span>Reply within 24 hours</div>
+                    <div class="footer-contact-item"><span class="footer-contact-icon">🌍</span>Serving clients in 45+ countries</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2026 Web1Expert. All rights reserved. Built with ❤️ for businesses that want to grow.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <a href="https://wa.me/919004108811" target="_blank" class="floating-wa">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+        Chat on WhatsApp
     </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">🖥️</div>
-      <div class="svc-title">Website Development</div>
-      <div class="svc-desc">Fast, secure, SEO-ready websites built with modern tech and optimized for performance.</div>
-    </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">⚙️</div>
-      <div class="svc-title">Software Development</div>
-      <div class="svc-desc">Custom software solutions tailored to automate and scale your business operations efficiently.</div>
-    </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">📱</div>
-      <div class="svc-title">APP Development</div>
-      <div class="svc-desc">Native and cross-platform mobile apps delivering seamless user experiences on all devices.</div>
-    </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">✏️</div>
-      <div class="svc-title">Graphic Designing</div>
-      <div class="svc-desc">Logos, flyers, social media graphics, brochures — visual identity that sells your brand.</div>
-    </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">🎬</div>
-      <div class="svc-title">Video Development</div>
-      <div class="svc-desc">Reels, logo animations, corporate profiles, and celebration videos with professional polish.</div>
-    </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">📈</div>
-      <div class="svc-title">Digital Marketing</div>
-      <div class="svc-desc">SEO, social media management, and content strategy to grow organic reach and revenue.</div>
-    </a>
-    <a class="service-card reveal" href="#pricing">
-      <div class="svc-icon">📝</div>
-      <div class="svc-title">Content Writing</div>
-      <div class="svc-desc">Compelling SEO-optimised copy for websites, blogs, articles, and marketing materials.</div>
-    </a>
-  </div>
-  <div class="services-cta reveal">
-    <p>Call Us For Quote</p>
-    <a href="tel:+919004108811">+91 9004108811</a>
-  </div>
-</section>
 
-<!-- ═══ CTA BANNER ═══ -->
-<div class="cta-wrap" style="padding-bottom:80px;">
-  <div class="cta-banner reveal">
-    <div class="cta-text">
-      <h2>Need A Free Quote? Please Feel<br/>Free to Contact Us</h2>
-      <p>We build success stories — one project at a time.</p>
-      <div class="cta-badges">
-        <div class="cta-badge">
-          <div class="cta-badge-label">Reply within</div>
-          <div class="cta-badge-val">24 Hours</div>
-        </div>
-        <div style="width:1px;background:var(--border);"></div>
-        <div class="cta-badge">
-          <div class="cta-badge-label">Telephone</div>
-          <div class="cta-badge-val">24 hrs Support</div>
-        </div>
-      </div>
-    </div>
-    <div class="cta-right">
-      <div class="cta-sub">Call to ask any question</div>
-      <div class="cta-num">+91 9004108811</div>
-      <a class="btn-primary" href="https://wa.me/919004108811">💬 Free Quote on WhatsApp</a>
-    </div>
-  </div>
-</div>
+    <script>
+        // NAVBAR
+        const navbar = document.getElementById('navbar');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            const st = window.scrollY;
+            const dh = document.documentElement.scrollHeight - window.innerHeight;
+            scrollProgress.style.width = ((st / dh) * 100) + '%';
+            navbar.classList.toggle('scrolled', st > 80);
+            backToTop.classList.toggle('visible', st > 80);
+        });
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-<!-- ═══ PRICING — INDIVIDUALS ═══ -->
-<section id="pricing" class="section" style="padding-top:16px;">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-label">Pricing Plans</p>
-    <h2 class="section-title">We are Offering Competitive Prices <em>for Individuals</em></h2>
-  </div>
-  <div class="pricing-grid">
-    <div class="price-card reveal">
-      <div class="price-name">FREE Website Hosting Plan</div>
-      <div class="price-note">Below Prices are for NON PROFIT</div>
-      <div class="price-amount">$20 <span>or</span></div>
-      <div class="price-inr">₹2,000</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Free LIFE TIME HOSTING</li>
-        <li>Free 1 Page Website</li>
-        <li>Free Data Upload</li>
-        <li>FREE Website Security Setup</li>
-        <li>Free All Device Compatible Website</li>
-      </ul>
-      <a class="price-cta outline" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-    <div class="price-card featured reveal">
-      <div class="price-badge">⭐ MOST POPULAR</div>
-      <div class="price-name">PRO Website Plan</div>
-      <div class="price-note"><!--For small Business Prices are 2x-->For Big Brand Prices are 2x</div>
-      <div class="price-amount">$10 <span>or</span></div>
-      <div class="price-inr">₹1,000</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Free 1 Page Website</li>
-        <li>Free GOOGLE MAP Integration</li>
-        <li>Free Contact Form</li>
-        <li>FREE Website Security Setup</li>
-        <li>Free Data Upload</li>
-        <li>Free CDN Setup</li>
-        <li>More Features will cost little Extra</li>
-        <li>Free All Device Compatible Website</li>
-      </ul>
-      <a class="price-cta" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-    <div class="price-card reveal">
-      <div class="price-name">Ecommerce Plan</div>
-      <div class="price-note"><!--For small Business Prices are 2x-->For Big Brand Prices are 2x</div>
-      <div class="price-amount">$100 <span>or</span></div>
-      <div class="price-inr">₹10,000</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Free 5 Product Setup</li>
-        <li>Free GOOGLE MAP Integration</li>
-        <li>Free Contact Form</li>
-        <li>FREE Website Security Setup</li>
-        <li>Free Data Upload</li>
-        <li>Free CDN Setup</li>
-        <li>More Features Cost Extra</li>
-        <li>Free All Device Compatible Website</li>
-        <li>More Features will cost little Extra</li>
-      </ul>
-      <a class="price-cta outline" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-  </div>
-</section>
+        // MOBILE MENU
+        function openMobileMenu() { document.getElementById('mobileMenu').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('active'); document.body.style.overflow = ''; }
 
-<!-- ═══ PRICING — BRANDS ═══ -->
-<section class="section" style="padding-top:0;">
-  <div style="text-align:center;" class="reveal">
-    <!--<p class="section-label">Pricing Plans</p>
-    <h2 class="section-title">We are Offering Competitive Prices for <em>Small &amp; Big Brands</em></h2> -->
-  </div>
-  <div class="pricing-grid">
-    <div class="price-card reveal">
-      <div class="price-name">Graphic Design Plan</div>
-      <div class="price-note"><!--For small Business Prices are 2x-->For Big Brand Prices are 2x</div>
-      <div class="price-amount">$5 <span>or</span></div>
-      <div class="price-inr">₹500/Art</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Logo Design just for 15$</li>
-        <li>Flyer Design just for 15$</li>
-        <li>Social Media Design just for 5$</li>
-        <li>Brochure (4 Pages) for 25$</li>
-        <li>Business Card Design just for 5$</li>
-        <li>Visiting / ID Card just for 15$</li>
-        <li>Sticker Design just for 5$</li>
-        <li>Infographics Design just for 15$</li>
-        <li>Letter Head Design just for 8$</li>
-        <li>Invitation Card Design just for 10$</li>
-        <li>Web Banner Design just for 15$</li>
-        <li>UI/UX Design just for 8$</li>
-        <li>More Features will cost little Extra</li>
-      </ul>
-      <a class="price-cta outline" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-    <div class="price-card featured reveal">
-      <div class="price-badge">🎬 VIRAL PLAN</div>
-      <div class="price-name">Video Editing Plan</div>
-      <div class="price-note"><!--For small Business Prices are 2x-->For Big Brand Prices are 2x</div>
-      <div class="price-amount">$15 <span>or</span></div>
-      <div class="price-inr">₹1,000/Minute</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Insta Reels (30 Sec) for 15$</li>
-        <li>Logo Animation for 25$</li>
-        <li>Company Profile for 25$</li>
-        <li>Celebration Video Edit for 25$</li>
-        <li>Free Data Upload</li>
-        <li>Free Fair Revisions</li>
-        <li>More Features will cost little Extra</li>
-      </ul>
-      <a class="price-cta" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-    <div class="price-card reveal">
-      <div class="price-name">Digital Marketing Plan</div>
-      <div class="price-note"><!--For small Business Prices are 2x-->For Big Brand Prices are 2x</div>
-      <div class="price-amount">$100 <span>or</span></div>
-      <div class="price-inr">₹10,000/Month</div>
-      <div class="price-div"></div>
-      <ul class="price-feats">
-        <li>Free 10 Page Onpage SEO</li>
-        <li>Free Offpage SEO</li>
-        <li>Free Technical SEO</li>
-        <li>Free Social Media Management</li>
-        <li>Free SEO Audits</li>
-        <li>Google Business Page Setup just for 10$ or ₹1000 one Time</li>
-        <li>Paid Marketing we charge 20% on Total Investment</li>
-        <li>More Features will cost little Extra</li>
-      </ul>
-      <a class="price-cta outline" href="https://wa.me/919004108811">Order Now</a>
-    </div>
-  </div>
-</section>
-<!-- ═══ TESTIMONIALS ═══ -->
-<section id="testimonial" class="section testi-bg">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-label">Testimonial</p>
-    <h2 class="section-title">What Our Clients Say About <em>Our Digital Services</em></h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">Excellent service with reliable uptime and exceptional customer support. www.Web1Expert.com helped my small business get online quickly and affordably. Highly recommend!</p>
-      <div class="testi-author">
-        <div class="testi-avatar">E</div>
-        <div><div class="testi-name">Emily Smith</div><div class="testi-role">Blogger</div></div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">I've been using www.Web1Expert.com for over a year, and I couldn't be happier. Their hosting is fast, secure, and cost-effective. Plus, the customer support team is always responsive!</p>
-      <div class="testi-author">
-        <div class="testi-avatar">J</div>
-        <div><div class="testi-name">John Doe</div><div class="testi-role">Business Owner</div></div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">As a freelancer, I needed a hosting provider that offered great performance at an affordable price. www.Web1Expert.com delivered just that and more. My website has never been smoother!</p>
-      <div class="testi-author">
-        <div class="testi-avatar">M</div>
-        <div><div class="testi-name">Michael Thompson</div><div class="testi-role">Web Designer</div></div>
-      </div>
-    </div>
-    <div class="testi-card reveal">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">I switched to www.Web1Expert.com after struggling with unreliable hosting. Now my website loads faster, and I've saved money too. Definitely a solid choice!</p>
-      <div class="testi-author">
-        <div class="testi-avatar">S</div>
-        <div><div class="testi-name">Sarah Brown</div><div class="testi-role">E-commerce Entrepreneur</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+        // FAQ
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const open = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!open) item.classList.add('open');
+        }
 
-<!-- ═══ TEAM ═══ -->
-<section class="section">
-  <div style="text-align:center;" class="reveal">
-    <p class="section-label">Team Members</p>
-    <h2 class="section-title">Professional Stuffs Ready to <em>Help Your Business</em></h2>
-  </div>
-  <div class="team-grid" style="max-width:700px;margin-left:auto;margin-right:auto;">
-    <div class="team-card reveal">
-      <div class="team-avatar">M</div>
-      <div class="team-name">Matthew Martinez</div>
-      <div class="team-role">Web Developer</div>
-    </div>
-    <div class="team-card reveal">
-      <div class="team-avatar">S</div>
-      <div class="team-name">Sophia Anderson</div>
-      <div class="team-role">UI/UX Designer</div>
-    </div>
-    <div class="team-card reveal">
-      <div class="team-avatar">D</div>
-      <div class="team-name">Daniel Robinson</div>
-      <div class="team-role">Digital Marketer</div>
-    </div>
-    <div class="team-card reveal">
-      <div class="team-avatar">O</div>
-      <div class="team-name">Olivia Walker</div>
-      <div class="team-role">Content Writer</div>
-    </div>
-  </div>
-</section>
+        // ✅ PRICING TOGGLE — updated prices: Starter $100/$80, Growth $500/$400, Enterprise $1,000/$800
+        let isAnnual = false;
+        const prices = {
+            monthly: ['100', '500', '1,000'],
+            annual:  ['80',  '400', '800']
+        };
+        function togglePricing() {
+            isAnnual = !isAnnual;
+            document.getElementById('pricingToggle').classList.toggle('annual', isAnnual);
+            document.getElementById('monthlyLabel').classList.toggle('active', !isAnnual);
+            document.getElementById('annualLabel').classList.toggle('active', isAnnual);
+            const p = isAnnual ? prices.annual : prices.monthly;
+            [1,2,3].forEach(i => {
+                const el = document.getElementById('price' + i);
+                el.style.opacity = '0'; el.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    el.textContent = p[i-1];
+                    el.style.transition = 'all 0.3s';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 200);
+            });
+        }
 
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="section contact-section">
-  <div class="reveal">
-    <p class="section-label">Contact Us</p>
-    <h2 class="section-title">Get In Touch With <em>Our Team</em></h2>
-    <p class="section-sub">Have a project in mind? Let's talk and build something great together.</p>
-  </div>
-  <div class="contact-grid">
-    <div class="contact-info reveal">
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="c-lbl">Location</div>
-          <div class="c-val">Mumbai, Maharashtra, India</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="c-lbl">Phone</div>
-          <div class="c-val"><a href="tel:+919004108811">+91 9004108811</a></div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <div class="c-lbl">Email</div>
-          <div class="c-val"><a href="mailto:info@web1expert.com">info@web1expert.com</a></div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">💬</div>
-        <div>
-          <div class="c-lbl">WhatsApp</div>
-          <div class="c-val"><a href="https://wa.me/919004108811">+91 9004108811</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="form-card reveal">
-      <h3>Send Us a Message</h3>
-      <div class="form-success" id="formSuccess">✓ Message sent! We'll reply within 24 hours.</div>
-      <div class="form-row2">
-        <div class="fg">
-          <label>YOUR NAME</label>
-          <input type="text" id="fname" placeholder="John Doe"/>
-        </div>
-        <div class="fg">
-          <label>YOUR EMAIL</label>
-          <input type="email" id="femail" placeholder="john@example.com"/>
-        </div>
-      </div>
-      <div class="fg">
-        <label>PHONE NUMBER</label>
-        <input type="tel" id="fphone" placeholder="+91 9000000000"/>
-      </div>
-      <div class="fg">
-        <label>SERVICE NEEDED</label>
-        <select id="fservice">
-          <option value="">Select a service…</option>
-          <option>Website Development</option>
-          <option>APP Development</option>
-          <option>Graphic Designing</option>
-          <option>Video Editing</option>
-          <option>Digital Marketing</option>
-          <option>Content Writing</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label>YOUR MESSAGE</label>
-        <textarea id="fmsg" placeholder="Tell us about your project…"></textarea>
-      </div>
-      <button class="form-btn" onclick="submitForm()">Send Message →</button>
-    </div>
-  </div>
-</section>
+        // WHATSAPP FORM
+        function submitForm(e) {
+            e.preventDefault();
+            const fn = document.getElementById('firstName').value.trim();
+            const ln = document.getElementById('lastName').value.trim();
+            const em = document.getElementById('email').value.trim();
+            const ph = document.getElementById('phone').value.trim();
+            const sv = document.getElementById('service').value;
+            const mg = document.getElementById('message').value.trim();
+            const msg = `🌟 *New Project Inquiry — Web1Expert*\n\n👤 *Name:* ${fn} ${ln}\n📧 *Email:* ${em}\n📱 *Phone:* ${ph}\n⚙️ *Service:* ${sv || 'Not specified'}\n\n💬 *Project Details:*\n${mg || 'No details provided.'}\n\n_Sent from Web1Expert Landing Page_`;
+            const url = `https://wa.me/919004108811?text=${encodeURIComponent(msg)}`;
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+            form.style.opacity = '0'; form.style.transform = 'translateY(-20px)'; form.style.transition = 'all 0.4s';
+            setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); window.open(url, '_blank'); }, 400);
+        }
 
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <a class="footer-logo" href="https://web1expert.com">Web1Expert</a>
-      <p class="footer-desc">Premium websites, stunning graphics, powerful apps &amp; digital marketing — at prices that make sense for your business. Serving clients globally since 2009.</p>
-      <div class="footer-contacts">
-        <div class="footer-ci">📍 Mumbai, Maharashtra, India</div>
-        <div class="footer-ci">📞 <a href="tel:+919004108811">+91 9004108811</a></div>
-        <div class="footer-ci">✉️ <a href="mailto:info@web1expert.com">info@web1expert.com</a></div>
-        <div class="footer-ci">💬 <a href="https://wa.me/919004108811">WhatsApp Us</a></div>
-      </div>
-    </div>
-    <div>
-      <div class="fc-title">QUICK LINKS</div>
-      <ul class="footer-links">
-        <li><a href="https://web1expert.com">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#testimonial">Testimonials</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fc-title">RESOURCES</div>
-      <ul class="footer-links">
-        <li><a href="https://blog.web1expert.com/category/blog/" target="_blank">Latest Blog</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1xFOpKTKsCvxuuRIB4UrRIvJuLLh2LWfB" target="_blank">Portfolio / Samples</a></li>
-        <li><a href="https://besthelptool.site" target="_blank">FREE PAID Tools</a></li>
-        <li><a href="https://web1expert.com/portfolio.html" target="_blank">Website Portfolio</a></li>
-        <li><a href="https://web1expert.com/portfolio.html" target="_blank">Graphics Portfolio</a></li>
-        <li><a href="https://wa.me/919004108811" target="_blank">Get Free Quote</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 <a href="https://web1expert.com">Web1Expert</a>. All rights reserved.</div>
-    <div class="footer-copy">Designed &amp; Developed by <a href="https://web1expert.com">Web1Expert</a></div>
-  </div>
-</footer>
+        // ✅ COOKIE BANNER — completely disabled, never shown
 
-<!-- FLOATING WHATSAPP -->
-<a class="wa-float" href="https://wa.me/919004108811" target="_blank" aria-label="Chat on WhatsApp">
-  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+        // LIVE NOTIFICATIONS — first at 60s, then every 60s
+        const notifs = [
+            {i:'JR',n:'James from Texas',m:'Just got a free consultation 🎉',c:'avatar-blue'},
+            {i:'SM',n:'Sarah from NYC',m:'Just launched her new website 🚀',c:'avatar-green'},
+            {i:'MP',n:'Michael from London',m:'Signed up for the Growth Plan ⭐',c:'avatar-purple'},
+            {i:'AT',n:'Amelia from Sydney',m:'Just booked a strategy call 📞',c:'avatar-teal'},
+            {i:'DW',n:'David from Toronto',m:'Got their free proposal 📩',c:'avatar-orange'},
+        ];
+        let ni = 0;
+        function showNotif() {
+            const el = document.getElementById('liveNotif');
+            const d = notifs[ni % notifs.length];
+            el.querySelector('.notif-avatar').textContent = d.i;
+            el.querySelector('.notif-avatar').className = 'notif-avatar ' + d.c;
+            el.querySelector('.notif-text').innerHTML = `<strong>${d.n}</strong>${d.m}`;
+            el.classList.add('show');
+            setTimeout(() => el.classList.remove('show'), 5000);
+            ni++;
+        }
+        setTimeout(() => { showNotif(); setInterval(showNotif, 60000); }, 60000);
 
-<!-- FLOATING MESSENGER -->
-<a class="msg-float" href="https://m.me/cheapWebsiteDesigning" target="_blank" aria-label="Chat on Messenger">
-  <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111S18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.559 6.963z"/>
-  </svg>
-</a>
+        // INTERSECTION OBSERVER
+        const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in-up,.fade-in-left,.fade-in-right').forEach(el => obs.observe(el));
 
-<!-- BACK TO TOP -->
-<button class="btt-float" id="bttBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-  <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-    <polyline points="18 15 12 9 6 15"/>
-  </svg>
-</button>
+        // COUNTER
+        const cObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting && !e.target.classList.contains('counted')) {
+                    e.target.classList.add('counted');
+                    const target = parseInt(e.target.dataset.target);
+                    const step = target / (2000 / 16);
+                    let cur = 0;
+                    const t = setInterval(() => { cur += step; if (cur >= target) { cur = target; clearInterval(t); } e.target.textContent = Math.floor(cur).toLocaleString(); }, 16);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
 
-<script>
-/* ── Back to Top ── */
-const bttBtn = document.getElementById('bttBtn');
-window.addEventListener('scroll', () => {
-  bttBtn.classList.toggle('visible', window.scrollY > 300);
-});
+        // QUIZ
+        const qa = {}; let cq = 1;
+        function selectOption(el, q, a) {
+            el.parentElement.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+            el.classList.add('selected'); qa[q] = a;
+            setTimeout(() => {
+                if (cq < 3) {
+                    document.getElementById('quizQ' + cq).style.display = 'none'; cq++;
+                    document.getElementById('quizQ' + cq).style.display = 'block';
+                    document.getElementById('quizProgressFill').style.width = (cq * 33.33) + '%';
+                    document.getElementById('quizStep').textContent = `Step ${cq} of 3`;
+                } else {
+                    document.getElementById('quizFormStep').style.display = 'none';
+                    document.getElementById('quizResult').classList.add('show');
+                    let rt = 'Based on your answers, we recommend our ';
+                    if (qa.q2 === 'small') rt += '<strong>Starter Package</strong> — just $100, professional, and designed to get you online quickly.';
+                    else if (qa.q2 === 'medium' || qa.q2 === 'large') rt += '<strong>Growth Package</strong> — just $500 for custom design, full SEO, and ongoing support.';
+                    else rt += '<strong>Enterprise Package</strong> — just $1,000 for a comprehensive digital ecosystem with custom development and dedicated management.';
+                    document.getElementById('quizResultText').innerHTML = rt;
+                }
+            }, 600);
+        }
 
-/* ── Hamburger ── */
-function toggleMenu() {
-  const nav = document.getElementById('mobileNav');
-  const btn = document.getElementById('hamburger');
-  nav.classList.toggle('open');
-  btn.classList.toggle('open');
-}
-function closeMenu() {
-  document.getElementById('mobileNav').classList.remove('open');
-  document.getElementById('hamburger').classList.remove('open');
-}
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }
+            });
+        });
 
-/* ── Scroll reveal ── */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // PARALLAX
+        document.addEventListener('mousemove', e => {
+            const x = e.clientX / window.innerWidth, y = e.clientY / window.innerHeight;
+            document.querySelectorAll('.particle').forEach((p, i) => { const s = (i+1)*8; p.style.transform = `translate(${(x-.5)*s}px,${(y-.5)*s}px)`; });
+        });
 
-/* ── Counter animation ── */
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const duration = 1800;
-  const start = performance.now();
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-const counterObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      animateCounter(e.target);
-      counterObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
+        // CARD TILT
+        document.querySelectorAll('.service-card').forEach(c => {
+            c.addEventListener('mousemove', e => {
+                const r = c.getBoundingClientRect();
+                const rx = (e.clientY - r.top - r.height/2) / 15, ry = (r.width/2 - (e.clientX - r.left)) / 15;
+                c.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`; c.style.transition = 'transform 0.1s';
+            });
+            c.addEventListener('mouseleave', () => { c.style.transform = ''; c.style.transition = 'all 0.3s cubic-bezier(0.4,0,0.2,1)'; });
+        });
 
-/* ── Contact form ── */
-function submitForm() {
-  const name    = document.getElementById('fname').value.trim();
-  const email   = document.getElementById('femail').value.trim();
-  const phone   = document.getElementById('fphone').value.trim();
-  const service = document.getElementById('fservice').value;
-  const msg     = document.getElementById('fmsg').value.trim();
-  if (!name || !email || !msg) { alert('Please fill in Name, Email, and Message.'); return; }
-  const waMsg = encodeURIComponent(
-    `Hi Web1Expert!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${msg}`
-  );
-  window.open(`https://wa.me/919004108811?text=${waMsg}`, '_blank');
-  document.getElementById('formSuccess').style.display = 'block';
-  ['fname','femail','fphone','fmsg'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('fservice').selectedIndex = 0;
-}
-</script>
+        // HERO INIT
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.hero-text > *').forEach((el, i) => {
+                el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+                setTimeout(() => { el.style.transition = 'all 0.6s ease'; el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, i * 150);
+            });
+        });
+    </script>
 </body>
 </html>
