@@ -142,7 +142,6 @@
         .hero-stat-number { font-size: 28px; font-weight: 800; color: white; line-height: 1; }
         .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
 
-        /* Hero Visual */
         .hero-card-main { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--border-radius-lg); padding: 30px; position: relative; }
         .browser-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
@@ -486,9 +485,7 @@
         <div class="notif-dot"></div>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         MOBILE MENU — Portfolio link REMOVED
-    ═══════════════════════════════════════════ -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
         <a href="#services"     onclick="closeMobileMenu()">Services</a>
@@ -500,9 +497,7 @@
         <a href="#contact" class="btn btn-primary btn-lg" onclick="closeMobileMenu()">Get Free Quote</a>
     </div>
 
-    <!-- ═══════════════════════════════════════════
-         NAVBAR — Portfolio link REMOVED
-    ═══════════════════════════════════════════ -->
+    <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="navbar-inner">
@@ -510,7 +505,6 @@
                     <div class="logo-icon">W</div>
                     Web1Expert
                 </a>
-
                 <ul class="navbar-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#process">How It Works</a></li>
@@ -519,12 +513,10 @@
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-
                 <div class="navbar-cta">
                     <a href="https://wa.me/919004108811" target="_blank" class="btn btn-outline btn-sm">💬 WhatsApp</a>
                     <a href="#contact" class="btn btn-primary btn-sm">Get Free Quote →</a>
                 </div>
-
                 <div class="hamburger" id="hamburger" onclick="openMobileMenu()">
                     <span></span><span></span><span></span>
                 </div>
@@ -532,7 +524,7 @@
         </div>
     </nav>
 
-    <!-- ═══ HERO ═══ -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-particles">
             <div class="particle"></div><div class="particle"></div><div class="particle"></div>
@@ -542,7 +534,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="hero-tag"><div class="dot"></div>🏆 Rated #1 Web Agency 2024</div>
+                    <!-- ✅ RENAMED: #1 Web Agency 2026 -->
+                    <div class="hero-tag"><div class="dot"></div>🏆 Rated #1 Web Agency 2026</div>
                     <h1 class="hero-title">Build a Website That <span class="highlight">Actually Grows</span> Your Business</h1>
                     <p class="hero-desc">We design, develop, and optimize websites that don't just look stunning — they convert visitors into customers, rank on Google, and work for you 24/7. No fluff. Just real, measurable results.</p>
                     <div class="hero-actions">
@@ -646,7 +639,7 @@
         </div>
     </div>
 
-    <!-- ═══ SERVICES ═══ -->
+    <!-- SERVICES -->
     <section class="services section" id="services">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -701,7 +694,7 @@
         </div>
     </section>
 
-    <!-- ═══ WHY US ═══ -->
+    <!-- WHY US -->
     <section class="features section" id="about">
         <div class="container">
             <div class="features-content">
@@ -726,7 +719,7 @@
         </div>
     </section>
 
-    <!-- ═══ PROCESS ═══ -->
+    <!-- PROCESS -->
     <section class="process section" id="process">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -746,7 +739,7 @@
         </div>
     </section>
 
-    <!-- ═══ COMPARISON ═══ -->
+    <!-- COMPARISON -->
     <section class="comparison section-sm">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -777,7 +770,7 @@
         </div>
     </section>
 
-    <!-- ═══ QUIZ ═══ -->
+    <!-- QUIZ -->
     <section class="quiz-section">
         <div class="quiz-container">
             <div class="hero-tag" style="margin:0 auto 24px;width:fit-content">🧠 Find Your Perfect Package</div>
@@ -827,7 +820,7 @@
         </div>
     </section>
 
-    <!-- ═══ TESTIMONIALS ═══ -->
+    <!-- TESTIMONIALS -->
     <section class="testimonials section" id="testimonials">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -891,7 +884,7 @@
         </div>
     </div>
 
-    <!-- ═══ PRICING ═══ -->
+    <!-- PRICING -->
     <section class="pricing section" id="pricing">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -906,9 +899,10 @@
                 <span class="pricing-save">Save 20%</span>
             </div>
             <div class="pricing-grid">
+                <!-- ✅ Starter price changed to $100 -->
                 <div class="pricing-card fade-in-up delay-1">
                     <div class="plan-name">Starter</div>
-                    <div class="plan-price"><span class="price-currency">$</span><span class="price-amount" id="price1">499</span><span class="price-period">/project</span></div>
+                    <div class="plan-price"><span class="price-currency">$</span><span class="price-amount" id="price1">100</span><span class="price-period">/project</span></div>
                     <p class="plan-desc">Perfect for small businesses, freelancers, and local services looking for a clean professional web presence.</p>
                     <div class="plan-divider"></div>
                     <ul class="plan-features">
@@ -964,7 +958,7 @@
         </div>
     </section>
 
-    <!-- ═══ FAQ ═══ -->
+    <!-- FAQ -->
     <section class="faq section" id="faq">
         <div class="container">
             <div class="section-header text-center fade-in-up">
@@ -995,7 +989,7 @@
                 </div>
                 <div class="faq-item fade-in-up delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)"><h4>What if I'm not happy with the design?</h4><div class="faq-icon">+</div></div>
-                    <div class="faq-answer"><div class="faq-answer-inner">We have a rock-solid revision process. Before any coding begins, you approve wireframes and design mockups. Every plan includes multiple revision rounds. And if after launch you're still not satisfied — our 30-day satisfaction guarantee means we'll make it right or refund you.</div></div>
+                    <div class="faq-answer"><div class="faq-answer-inner">We have a rock-solid revision process. Before any coding begins, you approve wireframes and design mockups. Every plan includes multiple revision rounds. If after launch you're still not satisfied — our 30-day satisfaction guarantee means we'll make it right or refund you.</div></div>
                 </div>
                 <div class="faq-item fade-in-up delay-3">
                     <div class="faq-question" onclick="toggleFaq(this)"><h4>Do you work with clients worldwide?</h4><div class="faq-icon">+</div></div>
@@ -1005,7 +999,7 @@
         </div>
     </section>
 
-    <!-- ═══ CONTACT CTA ═══ -->
+    <!-- CONTACT CTA -->
     <section class="contact-cta section" id="contact">
         <div class="container">
             <div class="contact-inner">
@@ -1022,7 +1016,8 @@
                     </ul>
                     <div style="margin-top:36px;display:flex;gap:20px;flex-wrap:wrap">
                         <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">💬</div><div style="color:white;font-weight:600">WhatsApp</div>+91 90041 08811</div>
-                        <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">📧</div><div style="color:white;font-weight:600">Email Us</div>hello@web1expert.com</div>
+                        <!-- ✅ Email updated to info@ -->
+                        <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">📧</div><div style="color:white;font-weight:600">Email Us</div>info@web1expert.com</div>
                         <div style="color:rgba(255,255,255,0.7);font-size:14px"><div style="font-size:24px;margin-bottom:4px">⏰</div><div style="color:white;font-weight:600">Response Time</div>Within 24 Hours</div>
                     </div>
                 </div>
@@ -1068,18 +1063,18 @@
         </div>
     </section>
 
-    <!-- ═══ FOOTER ═══ -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo"><div class="logo-icon">W</div>Web1Expert</div>
                     <p class="footer-desc">We build professional, high-performance websites that help businesses grow, get found online, and convert visitors into loyal customers. Based worldwide, delivering everywhere.</p>
+                    <!-- ✅ ALL SOCIAL LINKS UPDATED -->
                     <div class="social-links">
-                        <a href="#" class="social-link" title="Facebook">📘</a>
-                        <a href="#" class="social-link" title="Twitter/X">🐦</a>
-                        <a href="#" class="social-link" title="Instagram">📸</a>
-                        <a href="#" class="social-link" title="LinkedIn">💼</a>
+                        <a href="https://www.facebook.com/cheapWebsiteDesigning" target="_blank" class="social-link" title="Facebook">📘</a>
+                        <a href="https://x.com/tksutk" target="_blank" class="social-link" title="X / Twitter">🐦</a>
+                        <a href="https://www.instagram.com/web1expertdotcom/" target="_blank" class="social-link" title="Instagram">📸</a>
                         <a href="https://wa.me/919004108811" target="_blank" class="social-link" title="WhatsApp">💬</a>
                     </div>
                 </div>
@@ -1107,13 +1102,14 @@
                 <div class="footer-col">
                     <h4>Get In Touch</h4>
                     <div class="footer-contact-item"><span class="footer-contact-icon">💬</span><a href="https://wa.me/919004108811" target="_blank" style="color:rgba(255,255,255,0.55)">+91 90041 08811 (WhatsApp)</a></div>
-                    <div class="footer-contact-item"><span class="footer-contact-icon">📧</span>hello@web1expert.com</div>
+                    <!-- ✅ Email updated to info@ -->
+                    <div class="footer-contact-item"><span class="footer-contact-icon">📧</span>info@web1expert.com</div>
                     <div class="footer-contact-item"><span class="footer-contact-icon">⏰</span>Reply within 24 hours</div>
                     <div class="footer-contact-item"><span class="footer-contact-icon">🌍</span>Serving clients in 45+ countries</div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="footer-copy">© 2024 Web1Expert. All rights reserved. Built with ❤️ for businesses that want to grow.</div>
+                <div class="footer-copy">© 2026 Web1Expert. All rights reserved. Built with ❤️ for businesses that want to grow.</div>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -1157,9 +1153,9 @@
             if (!open) item.classList.add('open');
         }
 
-        // PRICING TOGGLE
+        // PRICING TOGGLE — ✅ Starter annual = $80 (20% off $100)
         let isAnnual = false;
-        const prices = { monthly: ['499','1,499','4,999'], annual: ['399','1,199','3,999'] };
+        const prices = { monthly: ['100','1,499','4,999'], annual: ['80','1,199','3,999'] };
         function togglePricing() {
             isAnnual = !isAnnual;
             document.getElementById('pricingToggle').classList.toggle('annual', isAnnual);
@@ -1190,12 +1186,17 @@
             setTimeout(() => { form.style.display = 'none'; success.classList.add('show'); window.open(url, '_blank'); }, 400);
         }
 
-        // COOKIE
-        setTimeout(() => { if (!localStorage.getItem('cookieAccepted')) document.getElementById('cookieBanner').classList.add('show'); }, 2000);
+        // ✅ COOKIE — delayed 60 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('cookieAccepted')) {
+                document.getElementById('cookieBanner').classList.add('show');
+            }
+        }, 60000); // 60,000ms = 60 seconds
+
         function acceptCookie() { localStorage.setItem('cookieAccepted','true'); document.getElementById('cookieBanner').classList.remove('show'); }
         function dismissCookie() { document.getElementById('cookieBanner').classList.remove('show'); }
 
-        // LIVE NOTIFICATIONS
+        // ✅ LIVE NOTIFICATIONS — first popup at 60s, then every 60s after
         const notifs = [
             {i:'JR',n:'James from Texas',m:'Just got a free consultation 🎉',c:'avatar-blue'},
             {i:'SM',n:'Sarah from NYC',m:'Just launched her new website 🚀',c:'avatar-green'},
@@ -1211,10 +1212,14 @@
             el.querySelector('.notif-avatar').className = 'notif-avatar ' + d.c;
             el.querySelector('.notif-text').innerHTML = `<strong>${d.n}</strong>${d.m}`;
             el.classList.add('show');
-            setTimeout(() => el.classList.remove('show'), 4000);
+            setTimeout(() => el.classList.remove('show'), 5000);
             ni++;
         }
-        setTimeout(() => { showNotif(); setInterval(showNotif, 12000); }, 5000);
+        // ✅ First notification after 60 seconds, then every 60 seconds
+        setTimeout(() => {
+            showNotif();
+            setInterval(showNotif, 60000);
+        }, 60000);
 
         // INTERSECTION OBSERVER
         const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
