@@ -1535,6 +1535,173 @@
       color: var(--gold-400);
     }
 
+    /* ─── FIXED SOCIAL MEDIA SHARE BAR (LEFT CENTER) ─── */
+    .social-share-bar {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(10, 20, 48, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: none;
+      border-radius: 0 14px 14px 0;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+      padding: 8px 0;
+      transition: transform 0.3s ease;
+    }
+
+    .share-bar-label {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold-400);
+      padding: 2px 0 6px 0;
+      user-select: none;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      opacity: 0.85;
+      margin-bottom: 4px;
+    }
+
+    .share-btn {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .share-btn svg {
+      width: 19px;
+      height: 19px;
+      transition: transform 0.22s ease, filter 0.22s ease;
+    }
+
+    .share-btn:hover {
+      transform: translateX(3px);
+    }
+
+    .share-btn:hover svg {
+      transform: scale(1.15);
+    }
+
+    /* Individual Brand Colors & Glows on Hover */
+    .share-btn.share-fb:hover {
+      color: #1877F2;
+      background: rgba(24, 119, 242, 0.14);
+      filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.5));
+    }
+
+    .share-btn.share-tw:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+    }
+
+    .share-btn.share-in:hover {
+      color: #0A66C2;
+      background: rgba(10, 102, 194, 0.14);
+      filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.5));
+    }
+
+    .share-btn.share-wa:hover {
+      color: #25D366;
+      background: rgba(37, 211, 102, 0.14);
+      filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.5));
+    }
+
+    .share-btn.share-pin:hover {
+      color: #E60023;
+      background: rgba(230, 0, 35, 0.14);
+      filter: drop-shadow(0 0 8px rgba(230, 0, 35, 0.5));
+    }
+
+    .share-btn.share-copy:hover {
+      color: var(--gold-400);
+      background: rgba(245, 158, 11, 0.14);
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
+    }
+
+    /* Tooltip sliding to right */
+    .share-btn::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 52px;
+      background: rgba(5, 10, 23, 0.96);
+      color: #ffffff;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 5px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      z-index: 200;
+    }
+
+    .share-btn:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Toast Notification for Copy Link */
+    .share-toast {
+      position: fixed;
+      left: 60px;
+      top: 50%;
+      transform: translateY(-50%) translateX(-15px) scale(0.92);
+      background: var(--navy-850);
+      border: 1px solid var(--gold-500);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 160;
+    }
+
+    .share-toast.show {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
+
+    .share-toast svg {
+      color: var(--gold-400);
+    }
+
+    /* Hide on mobile viewport to prevent blocking text */
+    @media (max-width: 768px) {
+      .social-share-bar {
+        display: none !important;
+      }
+    }
+
     /* ─── FLOATING ACTIONS DOCK (SCROLL TO TOP, MESSENGER, WHATSAPP) ─── */
     .floating-actions-dock {
       position: fixed;
@@ -2599,6 +2766,71 @@
     </div>
   </footer>
 
+  <!-- ─── SOCIAL MEDIA SHARE BAR (LEFT CENTER) ─── -->
+  <aside class="social-share-bar" aria-label="Social Media Share Bar">
+    <span class="share-bar-label">Share</span>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fweb1expert.com%2F" 
+       target="_blank" rel="noopener" class="share-btn share-fb" 
+       data-tooltip="Share on Facebook" aria-label="Share on Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </a>
+
+    <!-- Twitter / X -->
+    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fweb1expert.com%2F&text=Web1Expert%20%E2%80%94%20Affordable%20%26%20Premium%20Website%20Designing%20Services" 
+       target="_blank" rel="noopener" class="share-btn share-tw" 
+       data-tooltip="Share on X (Twitter)" aria-label="Share on X (Twitter)">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fweb1expert.com%2F" 
+       target="_blank" rel="noopener" class="share-btn share-in" 
+       data-tooltip="Share on LinkedIn" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+
+    <!-- WhatsApp Share -->
+    <a href="https://api.whatsapp.com/send?text=Check%20out%20Web1Expert%20for%20affordable%20and%20premium%20website%20designing%3A%20https%3A%2F%2Fweb1expert.com%2F" 
+       target="_blank" rel="noopener" class="share-btn share-wa" 
+       data-tooltip="Share on WhatsApp" aria-label="Share on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.15c-.24.68-1.39 1.3-1.92 1.38-.49.08-1.12.11-3.63-.93-3.08-1.28-5.06-4.41-5.21-4.61-.15-.2-1.25-1.66-1.25-3.17 0-1.51.78-2.25 1.06-2.56.28-.31.62-.39.83-.39.21 0 .41 0 .59.01.19.01.44-.07.69.52.25.6.86 2.1.94 2.26.08.16.13.35.03.55-.1.2-.16.32-.31.5-.15.18-.32.4-.46.54-.15.15-.31.31-.13.62.18.31.8 1.32 1.72 2.14 1.18 1.05 2.18 1.38 2.49 1.53.31.15.49.13.67-.08.18-.21.78-.91.99-1.22.21-.31.41-.26.69-.15.28.11 1.77.83 2.07.98.3.15.5.23.57.36.07.13.07.76-.17 1.44z"/>
+      </svg>
+    </a>
+
+    <!-- Pinterest Share -->
+    <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweb1expert.com%2F&description=Web1Expert%20-%20Web%20Design%20Agency" 
+       target="_blank" rel="noopener" class="share-btn share-pin" 
+       data-tooltip="Share on Pinterest" aria-label="Share on Pinterest">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0a12 12 0 0 0-4.37 23.17c-.07-.94-.13-2.39.03-3.42.14-.94.94-3.99.94-3.99s-.24-.48-.24-1.19c0-1.12.65-1.95 1.46-1.95.69 0 1.02.52 1.02 1.14 0 .69-.44 1.73-.67 2.69-.19.81.41 1.47 1.21 1.47 1.45 0 2.57-1.53 2.57-3.74 0-1.95-1.4-3.32-3.41-3.32-2.49 0-3.95 1.87-3.95 3.8 0 .75.29 1.56.65 2 .07.09.08.17.06.26-.07.28-.22.88-.25 1-.04.16-.13.2-.3.12-1.11-.52-1.8-2.14-1.8-3.45 0-2.81 2.04-5.39 5.88-5.39 3.09 0 5.49 2.2 5.49 5.14 0 3.07-1.93 5.54-4.62 5.54-.9 0-1.75-.47-2.04-1.02l-.56 2.12c-.2.78-.75 1.76-1.12 2.36A12 12 0 1 0 12 0z"/>
+      </svg>
+    </a>
+
+    <!-- Copy Link Button -->
+    <button type="button" class="share-btn share-copy" id="shareCopyBtn" 
+            data-tooltip="Copy Page Link" aria-label="Copy Page Link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Copy Toast -->
+  <div class="share-toast" id="shareToast" role="alert" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>Link copied to clipboard!</span>
+  </div>
+
   <!-- ─── FLOATING ACTIONS DOCK (SCROLL TO TOP + MESSENGER + WHATSAPP) ─── -->
   <div class="floating-actions-dock">
     <!-- 1. Scroll To Top Button -->
@@ -2623,6 +2855,49 @@
 
   <!-- ─── SCRIPT LOGIC ─── -->
   <script>
+    // Social Share Bar - Copy Link Feature
+    const shareCopyBtn = document.getElementById('shareCopyBtn');
+    const shareToast = document.getElementById('shareToast');
+
+    if (shareCopyBtn && shareToast) {
+      shareCopyBtn.addEventListener('click', () => {
+        const urlToCopy = window.location.href.startsWith('http') ? window.location.href : 'https://web1expert.com/';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(urlToCopy).then(() => {
+            showShareToast();
+          }).catch(() => {
+            fallbackCopy(urlToCopy);
+          });
+        } else {
+          fallbackCopy(urlToCopy);
+        }
+      });
+    }
+
+    function showShareToast() {
+      if (!shareToast) return;
+      shareToast.classList.add('show');
+      setTimeout(() => {
+        shareToast.classList.remove('show');
+      }, 2400);
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showShareToast();
+      } catch (err) {
+        alert('Share link: ' + text);
+      }
+      document.body.removeChild(textarea);
+    }
+
     // Back to Top Button Logic
     const bttBtn = document.getElementById('bttBtn');
     if (bttBtn) {
