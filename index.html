@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web1Expert — Premium Website, Budget-Friendly Pricing</title>
+  <!-- Open Graph & Social Share Featured Image Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://web1expert.com/">
+  <meta property="og:title" content="Web1Expert — Premium Website & Digital Solutions">
+  <meta property="og:description" content="Affordable, secure, and high-speed website services, graphic designing, app development, and digital marketing. 15+ years experience, 405+ happy clients.">
+  <meta property="og:image" content="featured-image.jpg">
+  <meta property="og:image:secure_url" content="https://web1expert.com/featured-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+
+  <!-- Twitter / X Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://web1expert.com/">
+  <meta name="twitter:title" content="Web1Expert — Premium Website & Digital Solutions">
+  <meta name="twitter:description" content="Affordable, secure, and high-speed website services, graphic designing, app development, and digital marketing.">
+  <meta name="twitter:image" content="https://web1expert.com/featured-image.jpg">
   <meta name="description" content="Web1Expert delivers affordable, secure, and high-speed website services, graphic designing, app development, and digital marketing for individuals and businesses worldwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -526,6 +543,57 @@
       padding: 24px;
       box-shadow: var(--shadow-card);
       position: relative;
+    }
+
+    .hero-featured-media {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--navy-border);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+      background: var(--navy-950);
+      aspect-ratio: 16 / 9;
+      margin-bottom: 14px;
+    }
+
+    .hero-featured-media img.featured-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-featured-media:hover img.featured-img {
+      transform: scale(1.035);
+    }
+
+    .featured-badge-float {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(5, 10, 23, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--r-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      pointer-events: none;
+    }
+
+    .pulse-ring {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
     }
 
     .terminal-header {
@@ -2024,6 +2092,18 @@
             </div>
           </div>
 
+          <!-- Featured Hero Visual Showcase -->
+          <div class="hero-featured-media">
+            <picture>
+              <source srcset="featured-image.webp" type="image/webp">
+              <img src="featured-image.jpg" alt="Web1Expert Premium Digital Agency Solutions" class="featured-img" width="1376" height="768" loading="eager" decoding="async">
+            </picture>
+            <div class="featured-badge-float">
+              <span class="pulse-ring"></span>
+              <span>Active Ecosystem</span>
+            </div>
+          </div>
+
           <div class="terminal-body">
             <h3 class="terminal-body-title">High-Speed Cloud Hosting</h3>
             <p class="terminal-body-desc">Enterprise SSL security, DDoS defense, and 100% device responsive layout.</p>
@@ -2405,6 +2485,7 @@
               <li class="price-feature-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg><span>Free Data Upload</span></li>
               <li class="price-feature-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg><span>Free CDN Setup</span></li>
               <li class="price-feature-item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg><span>Free All Device Compatible Website</span></li>
+              <li class="price-feature-item" style="color:var(--gold-400);"><span>+ More Features Cost Extra</span></li>
               <li class="price-feature-item" style="color:var(--gold-400);"><span>+ More Features will cost little Extra</span></li>
             </ul>
           </div>
@@ -2806,7 +2887,7 @@
     </a>
 
     <!-- Pinterest Share -->
-    <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweb1expert.com%2F&description=Web1Expert%20-%20Web%20Design%20Agency" 
+    <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fweb1expert.com%2F&media=https%3A%2F%2Fweb1expert.com%2Ffeatured-image.jpg&description=Web1Expert%20-%20Premium%20Web%20Design%20Agency" 
        target="_blank" rel="noopener" class="share-btn share-pin" 
        data-tooltip="Share on Pinterest" aria-label="Share on Pinterest">
       <svg viewBox="0 0 24 24" fill="currentColor">
