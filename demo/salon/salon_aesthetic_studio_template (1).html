@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maison Aura | Luxury Salon & Aesthetic Studio Template</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cormorant Garamond (Luxury Editorial Serif) & Plus Jakarta Sans (Modern Clean Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Configuration for Custom Color Scheme & Fonts -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#FAF7F2',
+            sand: '#F2ECE1',
+            espresso: '#231F20',
+            charcoal: '#4A4445',
+            terracotta: '#C88A75',
+            terracottaDark: '#B0725D',
+            sage: '#7A8B76',
+            gold: '#D4AF37'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 20px 40px -15px rgba(35, 31, 32, 0.08)',
+            'glow': '0 10px 30px -5px rgba(200, 138, 117, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Smooth Animations & Micro-interactions */
+    body {
+      background-color: #FAF7F2;
+      color: #231F20;
+      overflow-x: hidden;
+    }
+
+    /* Scroll Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    /* Floating Ambient Glow */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-16px) scale(1.03); }
+    }
+    .animate-float {
+      animation: floatSlow 8s ease-in-out infinite;
+    }
+
+    /* Glassmorphism Header */
+    .glass-nav {
+      background: rgba(250, 247, 242, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(35, 31, 32, 0.06);
+    }
+
+    /* Custom Button Hover Effect */
+    .btn-luxury {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-luxury:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Before/After Slider Handle */
+    .slider-handle {
+      touch-action: none;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-terracotta/20 selection:text-espresso">
+
+  <!-- Ambient Background Decorative Blobs -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-terracotta/10 blur-3xl animate-float"></div>
+    <div class="absolute top-1/2 -left-40 w-[30rem] h-[30rem] rounded-full bg-sage/10 blur-3xl animate-float" style="animation-delay: 3s;"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div id="brand-initials" class="w-10 h-10 rounded-full bg-espresso text-alabaster flex items-center justify-center font-serif text-xl italic group-hover:bg-terracotta transition-colors duration-300">
+          MA
+        </div>
+        <div>
+          <span id="brand-name-nav" class="font-serif text-2xl font-semibold tracking-tight block leading-none">Maison Aura</span>
+          <span id="brand-tagline-nav" class="text-[11px] uppercase tracking-[0.2em] text-charcoal/70 block mt-0.5">Luxury Salon & Aesthetic Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-charcoal">
+        <a href="#services" class="hover:text-terracotta transition-colors">Services</a>
+        <a href="#transformations" class="hover:text-terracotta transition-colors">Results</a>
+        <a href="#reviews" id="nav-reviews-link" class="hover:text-terracotta transition-colors">Reviews (4.9★)</a>
+        <a href="#visit" id="nav-location-link" class="hover:text-terracotta transition-colors">Our Studio</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="btn-luxury bg-espresso text-alabaster hover:bg-terracotta px-5 py-2.5 rounded-full text-sm font-medium shadow-soft">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10 pt-20">
+
+    <!-- HERO SECTION -->
+    <section class="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-8">
+          <!-- Status & Rating Pill -->
+          <div class="reveal inline-flex flex-wrap items-center gap-3 bg-white/80 border border-espresso/10 px-4 py-2 rounded-full shadow-sm">
+            <span id="studio-hours-pill" class="flex items-center gap-1.5 text-xs font-semibold text-sage">
+              <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+              Open Today · Closes 9:00 PM
+            </span>
+            <span class="text-espresso/20">|</span>
+            <span class="flex items-center gap-1 text-xs font-semibold text-espresso">
+              <svg class="w-3.5 h-3.5 text-gold fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <span id="studio-rating-pill">4.9 (320+ Verified Reviews)</span>
+            </span>
+          </div>
+
+          <!-- Editorial Headline -->
+          <h1 class="reveal delay-100 font-serif text-5xl sm:text-6xl lg:text-7xl font-medium leading-[1.08] tracking-tight text-espresso">
+            Elevate your radiance with <span class="italic text-terracotta font-normal">bespoke</span> artistry & care.
+          </h1>
+
+          <!-- Subtitle -->
+          <p id="hero-subtitle" class="reveal delay-200 text-base sm:text-lg text-charcoal/80 max-w-xl leading-relaxed font-light">
+            Step into a serene sanctuary crafted for modern hair, skin, and aesthetic wellness. Located in the heart of your city, our specialists blend timeless elegance with personalized rituals.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="reveal delay-300 flex flex-wrap items-center gap-4 pt-2">
+            <a href="#contact" class="btn-luxury bg-terracotta hover:bg-terracottaDark text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide shadow-glow">
+              Get in Touch
+            </a>
+            <a href="#transformations" class="btn-luxury bg-white hover:bg-sand text-espresso border border-espresso/15 px-7 py-4 rounded-full text-sm font-medium flex items-center gap-2">
+              <span>Explore Transformations</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual Card -->
+        <div class="lg:col-span-5 reveal delay-200">
+          <div class="relative rounded-[2.5rem] overflow-hidden bg-sand p-3 shadow-soft border border-white">
+            <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5] bg-espresso/5">
+              <img 
+                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80" 
+                onerror="this.src='https://placehold.co/800x1000/F2ECE1/231F20?text=Luxury+Studio+Interior'"
+                alt="Luxury Salon & Aesthetic Studio" 
+                class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000"
+              />
+              <!-- Floating Glass Badge -->
+              <div class="absolute bottom-5 left-5 right-5 glass-nav rounded-2xl p-4 shadow-soft">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p id="founder-name-card" class="font-serif text-lg font-semibold text-espresso">Lead Creative Director & Team</p>
+                    <p id="studio-sub-card" class="text-xs text-charcoal/80">Flagship Salon & Wellness Studio</p>
+                  </div>
+                  <div class="w-10 h-10 rounded-full bg-terracotta/15 text-terracotta flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SIGNATURE SERVICES SECTION (Universal Demo Services) -->
+    <section id="services" class="py-20 sm:py-28 bg-sand/60 border-y border-espresso/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold">Signature Menu</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-medium mt-3 text-espresso">Bespoke Salon & Aesthetic Rituals</h2>
+          <p class="text-charcoal/75 mt-4 text-sm sm:text-base">Tailored treatments designed to nourish, restore, and highlight your natural beauty.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Service 1 -->
+          <div class="reveal group bg-alabaster rounded-3xl p-8 border border-espresso/5 hover:border-terracotta/40 shadow-sm hover:shadow-soft transition-all duration-500 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-espresso mb-2">Precision Hair Styling & Cut</h3>
+              <p class="text-sm text-charcoal/80 leading-relaxed mb-6">
+                Customized consultations, architectural cuts, and signature blowouts tailored to complement your face shape and lifestyle.
+              </p>
+            </div>
+            <a href="#contact" onclick="prefillSubject('Precision Hair Styling & Cut')" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-terracotta group-hover:translate-x-1 transition-transform">
+              Inquire Now <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="reveal delay-100 group bg-alabaster rounded-3xl p-8 border border-espresso/5 hover:border-terracotta/40 shadow-sm hover:shadow-soft transition-all duration-500 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage/15 text-sage flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-espresso mb-2">Dimensional Color & Balayage</h3>
+              <p class="text-sm text-charcoal/80 leading-relaxed mb-6">
+                Luminous, seamless hair coloring using bond-building formulas that protect hair integrity while delivering rich, lasting vibrancy.
+              </p>
+            </div>
+            <a href="#contact" onclick="prefillSubject('Dimensional Color & Balayage')" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-terracotta group-hover:translate-x-1 transition-transform">
+              Inquire Now <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="reveal delay-200 group bg-alabaster rounded-3xl p-8 border border-espresso/5 hover:border-terracotta/40 shadow-sm hover:shadow-soft transition-all duration-500 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-espresso mb-2">Radiance Facial & Skin Care</h3>
+              <p class="text-sm text-charcoal/80 leading-relaxed mb-6">
+                Botanical and clinical-grade facials engineered to deeply hydrate, brighten, and rejuvenate dull skin for an effortless glow.
+              </p>
+            </div>
+            <a href="#contact" onclick="prefillSubject('Radiance Facial & Skin Care')" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-terracotta group-hover:translate-x-1 transition-transform">
+              Inquire Now <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="reveal group bg-alabaster rounded-3xl p-8 border border-espresso/5 hover:border-terracotta/40 shadow-sm hover:shadow-soft transition-all duration-500 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sage/15 text-sage flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-espresso mb-2">Keratin & Scalp Therapy</h3>
+              <p class="text-sm text-charcoal/80 leading-relaxed mb-6">
+                Restorative smoothing treatments and detoxifying scalp rituals that eliminate frizz and promote healthy, resilient hair growth.
+              </p>
+            </div>
+            <a href="#contact" onclick="prefillSubject('Keratin & Scalp Therapy')" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-terracotta group-hover:translate-x-1 transition-transform">
+              Inquire Now <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="reveal delay-100 group bg-alabaster rounded-3xl p-8 border border-espresso/5 hover:border-terracotta/40 shadow-sm hover:shadow-soft transition-all duration-500 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-terracotta/15 text-terracotta flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-espresso mb-2">Spa Manicure & Nail Artistry</h3>
+              <p class="text-sm text-charcoal/80 leading-relaxed mb-6">
+                Indulgent hand and foot spa rituals paired with minimalist gel extensions and long-wear luxury finishes.
+              </p>
+            </div>
+            <a href="#contact" onclick="prefillSubject('Spa Manicure & Nail Artistry')" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-terracotta group-hover:translate-x-1 transition-transform">
+              Inquire Now <span>→</span>
+            </a>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="reveal delay-200 group bg-espresso text-alabaster rounded-3xl p-8 shadow-soft flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-terracotta text-white flex items-center justify-center mb-6">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold mb-2">Bridal & Event Makeover</h3>
+              <p class="text-sm text-alabaster/75 leading-relaxed mb-6">
+                Bespoke pre-event skin prep, hairstyling, and editorial makeup packages curated for your most memorable occasions.
+              </p>
+            </div>
+            <a href="#contact" onclick="prefillSubject('Bridal & Event Makeover')" class="block text-center w-full py-3 rounded-full bg-terracotta hover:bg-terracottaDark text-white text-xs uppercase tracking-wider font-semibold transition-colors">
+              Consult Our Stylists
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BEFORE & AFTER TRANSFORMATION SLIDER -->
+    <section id="transformations" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-5 reveal space-y-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold">Studio Showcase</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-medium text-espresso leading-tight">
+            Visible radiance, <span class="italic font-normal">effortlessly</span> revealed.
+          </h2>
+          <p class="text-charcoal/80 text-sm sm:text-base leading-relaxed">
+            Drag the interactive slider to preview our signature aesthetic transformations—from dull, tired tones to luminous, healthy shine crafted with gentle, nourishing formulations.
+          </p>
+          <ul class="space-y-3 text-sm text-espresso font-medium pt-2">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-sage/20 text-sage flex items-center justify-center text-xs">✓</span>
+              Cruelty-free, salon-grade botanical & clinical products
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-sage/20 text-sage flex items-center justify-center text-xs">✓</span>
+              Complimentary 1-on-1 style & skin consultation
+            </li>
+          </ul>
+        </div>
+
+        <!-- Interactive Comparison Slider -->
+        <div class="lg:col-span-7 reveal delay-100">
+          <div class="bg-white p-3 sm:p-4 rounded-[2rem] shadow-soft border border-espresso/10">
+            <div id="compare-container" class="relative w-full aspect-[16/10] rounded-[1.5rem] overflow-hidden select-none cursor-ew-resize">
+              
+              <!-- AFTER Image (Base Layer) -->
+              <div class="absolute inset-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" 
+                  onerror="this.src='https://placehold.co/1200x750/FAF7F2/231F20?text=After+Studio+Treatment'"
+                  alt="After Studio Transformation" 
+                  class="w-full h-full object-cover brightness-105 contrast-105"
+                />
+                <span class="absolute bottom-4 right-4 bg-espresso/80 backdrop-blur-md text-alabaster text-xs font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+                  After Ritual
+                </span>
+              </div>
+
+              <!-- BEFORE Image (Clipped Overlay Layer) -->
+              <div id="before-layer" class="absolute inset-0 overflow-hidden" style="width: 50%;">
+                <img 
+                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85" 
+                  onerror="this.src='https://placehold.co/1200x750/E5DEC9/231F20?text=Before+Treatment'"
+                  alt="Before Studio Transformation" 
+                  class="w-full h-full object-cover saturate-50 brightness-90 contrast-90"
+                  style="width: 100%; max-width: none;"
+                  id="before-img"
+                />
+                <span class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md text-espresso text-xs font-semibold uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+                  Before
+                </span>
+              </div>
+
+              <!-- Vertical Divider & Handle -->
+              <div id="slider-divider" class="slider-handle absolute top-0 bottom-0 w-0.5 bg-white shadow-lg" style="left: 50%;">
+                <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white text-espresso shadow-xl flex items-center justify-center border border-espresso/10">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF & DEMO TESTIMONIALS -->
+    <section id="reviews" class="py-20 bg-espresso text-alabaster">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 reveal">
+          <div>
+            <div class="flex items-center gap-2 text-gold mb-3">
+              <span class="text-xl">★★★★★</span>
+              <span id="reviews-score-heading" class="text-sm font-semibold text-alabaster">4.9 out of 5</span>
+            </div>
+            <h2 id="reviews-main-heading" class="font-serif text-4xl sm:text-5xl font-medium">Loved by 320+ Guests Across the City</h2>
+          </div>
+          <p class="text-alabaster/70 text-sm max-w-md">
+            Consistently celebrated for warm hospitality, hygienic luxury suites, and personalized results that exceed expectations.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Review 1 -->
+          <div class="reveal bg-white/5 border border-white/10 rounded-3xl p-7 backdrop-blur-sm">
+            <div class="text-gold text-sm mb-4">★★★★★</div>
+            <p class="text-sm text-alabaster/85 leading-relaxed italic mb-6">
+              "The moment you walk in, the calm ambiance melts your stress away. My hair color and gloss treatment turned out effortlessly natural!"
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-terracotta/30 text-terracotta flex items-center justify-center font-serif font-bold">S</div>
+              <div>
+                <p class="text-sm font-semibold">Sophia Kapoor</p>
+                <p class="text-xs text-alabaster/50">Verified Client · Google Review</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="reveal delay-100 bg-white/5 border border-white/10 rounded-3xl p-7 backdrop-blur-sm">
+            <div class="text-gold text-sm mb-4">★★★★★</div>
+            <p class="text-sm text-alabaster/85 leading-relaxed italic mb-6">
+              "Immaculate hygiene, attentive specialists, and zero rush. Their signature radiance facial is hands down the best in town."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-sage/30 text-sage flex items-center justify-center font-serif font-bold">M</div>
+              <div>
+                <p class="text-sm font-semibold">Meera Nair</p>
+                <p class="text-xs text-alabaster/50">Regular Member · Google Review</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="reveal delay-200 bg-white/5 border border-white/10 rounded-3xl p-7 backdrop-blur-sm">
+            <div class="text-gold text-sm mb-4">★★★★★</div>
+            <p class="text-sm text-alabaster/85 leading-relaxed italic mb-6">
+              "From consultation to aftercare advice, the attention to detail is unmatched. Truly a boutique luxury experience every visit."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-terracotta/30 text-terracotta flex items-center justify-center font-serif font-bold">A</div>
+              <div>
+                <p class="text-sm font-semibold">Aanya Verma</p>
+                <p class="text-xs text-alabaster/50">Verified Client · Google Review</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="visit" class="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal bg-sand rounded-[2.5rem] p-8 sm:p-12 lg:p-16 border border-espresso/10 shadow-soft">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Left Column: Studio Info & Directions -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs uppercase tracking-[0.25em] text-terracotta font-semibold">Visit Our Sanctuary</span>
+            <h2 id="visit-studio-title" class="font-serif text-4xl sm:text-5xl font-medium text-espresso">Maison Aura Studio</h2>
+            
+            <div class="space-y-5 pt-2 text-sm sm:text-base text-charcoal">
+              <!-- Demo Address -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-white text-terracotta flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-espresso">Studio Address</p>
+                  <p id="studio-address-text" class="text-charcoal/80 leading-relaxed">
+                    Suite 101 & 102, The Galleria Promenade, Park Avenue District, Metro City 400001
+                  </p>
+                  <button onclick="copyAddress()" class="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-terracotta hover:text-terracottaDark">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    <span id="copy-label">Copy Full Address</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Demo Hours -->
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-white text-sage flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-espresso">Studio Hours</p>
+                  <p id="studio-hours-detail" class="text-sage font-medium">Open Daily · 10:00 AM – 9:00 PM</p>
+                  <p id="studio-neighborhood-detail" class="text-xs text-charcoal/70">Complimentary Valet Parking Available</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Maps Action Button -->
+            <div class="pt-3">
+              <a id="maps-direction-link" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="btn-luxury bg-espresso text-alabaster hover:bg-terracotta px-6 py-3.5 rounded-full text-sm font-medium inline-flex items-center gap-2">
+                <span>Get Directions on Maps</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Embedded Contact Us Form -->
+          <div id="contact" class="lg:col-span-7 scroll-mt-28">
+            <div class="bg-alabaster rounded-[2rem] p-7 sm:p-10 shadow-soft border border-white">
+              <div id="contact-form-wrapper">
+                <span class="text-[11px] uppercase tracking-[0.2em] text-terracotta font-semibold">Send Us a Message</span>
+                <h3 class="font-serif text-3xl sm:text-4xl font-medium text-espresso mt-1">Contact Us</h3>
+                <p class="text-xs sm:text-sm text-charcoal/75 mt-1.5 mb-6">
+                  Have a question about our treatments, packages, or availability? Send a quick note below and our concierge team will respond shortly.
+                </p>
+
+                <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1.5">Full Name</label>
+                      <input type="text" id="contact-name" required placeholder="e.g. Riya Malhotra" class="w-full px-4 py-3 rounded-xl bg-white border border-espresso/15 text-sm focus:outline-none focus:border-terracotta transition-colors" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1.5">Phone Number</label>
+                      <input type="tel" id="contact-phone" required placeholder="+91 90000 00000" class="w-full px-4 py-3 rounded-xl bg-white border border-espresso/15 text-sm focus:outline-none focus:border-terracotta transition-colors" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1.5">Subject / Service of Interest</label>
+                    <input type="text" id="contact-subject" placeholder="e.g. Hair Styling, Radiance Facial, Bridal Package" class="w-full px-4 py-3 rounded-xl bg-white border border-espresso/15 text-sm focus:outline-none focus:border-terracotta transition-colors" />
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal mb-1.5">Your Message</label>
+                    <textarea id="contact-message" rows="3" required placeholder="Tell us how our specialists can assist you..." class="w-full px-4 py-3 rounded-xl bg-white border border-espresso/15 text-sm focus:outline-none focus:border-terracotta transition-colors resize-none"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn-luxury w-full py-4 rounded-full bg-terracotta hover:bg-terracottaDark text-white font-semibold text-sm shadow-glow">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+
+              <!-- Confirmation Message State -->
+              <div id="contact-success" class="hidden text-center py-10 space-y-4">
+                <div class="w-16 h-16 rounded-full bg-sage/20 text-sage flex items-center justify-center mx-auto text-2xl">
+                  ✓
+                </div>
+                <h4 class="font-serif text-3xl font-medium text-espresso">Message Received</h4>
+                <p id="contact-success-text" class="text-sm text-charcoal/80 max-w-md mx-auto leading-relaxed">
+                  Thank you for reaching out to Maison Aura. Our concierge team has received your inquiry and will get back to you shortly.
+                </p>
+                <button onclick="resetContactForm()" class="px-8 py-3 rounded-full bg-espresso text-alabaster hover:bg-terracotta text-xs uppercase tracking-wider font-semibold transition-colors">
+                  Send Another Message
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-alabaster border-t border-espresso/10 py-12 px-4 sm:px-6 lg:px-8 pb-24 sm:pb-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-charcoal/70">
+      <div class="flex items-center gap-2">
+        <span id="footer-brand-name" class="font-serif text-lg font-semibold text-espresso">Maison Aura</span>
+        <span id="footer-location-sub">· Luxury Salon & Aesthetic Studio</span>
+      </div>
+      <p id="footer-copyright">© 2026 Maison Aura Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON (Bottom Right Corner) -->
+  <a 
+    id="whatsapp-float-btn"
+    href="https://wa.me/?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20salon%20services." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    aria-label="Chat with us on WhatsApp"
+    class="fixed bottom-6 right-6 z-50 group flex items-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+  >
+    <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+    </svg>
+    <span class="hidden sm:inline text-sm font-semibold tracking-wide">Chat on WhatsApp</span>
+  </a>
+
+  <!-- Interactive & Template Configuration Scripts -->
+  <script>
+    /**
+     * ============================================================================
+     * CLIENT TEMPLATE CONFIGURATION
+     * Edit ONLY this object when pitching to a new salon, spa, or studio client!
+     * ============================================================================
+     */
+    const STUDIO_CONFIG = {
+      initials: "MA",
+      brandName: "Maison Aura",
+      tagline: "Luxury Salon & Aesthetic Studio",
+      city: "Metro City",
+      rating: "4.9",
+      reviewCount: "320+",
+      hoursSummary: "Open Today · Closes 9:00 PM",
+      hoursDetail: "Open Daily · 10:00 AM – 9:00 PM",
+      leadSpecialist: "Lead Creative Director & Team",
+      studioSubtitle: "Flagship Salon & Wellness Studio",
+      address: "Suite 101 & 102, The Galleria Promenade, Park Avenue District, Metro City 400001",
+      parkingNote: "Complimentary Valet Parking Available",
+      whatsappNumber: "", // Optional: add client number with country code e.g. "919876543210"
+      whatsappMessage: "Hello! I visited your website and would like to inquire about your salon services."
+    };
+
+    // Apply STUDIO_CONFIG values across the template automatically
+    function applyStudioConfig() {
+      document.title = `${STUDIO_CONFIG.brandName} | ${STUDIO_CONFIG.tagline}`;
+      document.getElementById('brand-initials').textContent = STUDIO_CONFIG.initials;
+      document.getElementById('brand-name-nav').textContent = STUDIO_CONFIG.brandName;
+      document.getElementById('brand-tagline-nav').textContent = STUDIO_CONFIG.tagline;
+      document.getElementById('nav-reviews-link').textContent = `Reviews (${STUDIO_CONFIG.rating}★)`;
+      document.getElementById('nav-location-link').textContent = `${STUDIO_CONFIG.city} Studio`;
+      
+      document.getElementById('studio-hours-pill').innerHTML = `<span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>${STUDIO_CONFIG.hoursSummary}`;
+      document.getElementById('studio-rating-pill').textContent = `${STUDIO_CONFIG.rating} (${STUDIO_CONFIG.reviewCount} Verified Reviews)`;
+      
+      document.getElementById('founder-name-card').textContent = STUDIO_CONFIG.leadSpecialist;
+      document.getElementById('studio-sub-card').textContent = `${STUDIO_CONFIG.studioSubtitle} · ${STUDIO_CONFIG.city}`;
+      
+      document.getElementById('reviews-score-heading').textContent = `${STUDIO_CONFIG.rating} out of 5`;
+      document.getElementById('reviews-main-heading').textContent = `Loved by ${STUDIO_CONFIG.reviewCount} Guests in ${STUDIO_CONFIG.city}`;
+      
+      document.getElementById('visit-studio-title').textContent = `${STUDIO_CONFIG.brandName}, ${STUDIO_CONFIG.city}`;
+      document.getElementById('studio-address-text').textContent = STUDIO_CONFIG.address;
+      document.getElementById('studio-hours-detail').textContent = STUDIO_CONFIG.hoursDetail;
+      document.getElementById('studio-neighborhood-detail').textContent = STUDIO_CONFIG.parkingNote;
+      document.getElementById('maps-direction-link').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(STUDIO_CONFIG.brandName + ' ' + STUDIO_CONFIG.address)}`;
+      
+      document.getElementById('contact-success-text').textContent = `Thank you for reaching out to ${STUDIO_CONFIG.brandName}. Our concierge team has received your inquiry and will get back to you shortly.`;
+      document.getElementById('footer-brand-name').textContent = STUDIO_CONFIG.brandName;
+      document.getElementById('footer-location-sub').textContent = `· ${STUDIO_CONFIG.tagline}`;
+      document.getElementById('footer-copyright').textContent = `© 2026 ${STUDIO_CONFIG.brandName}. All rights reserved.`;
+
+      const waBase = STUDIO_CONFIG.whatsappNumber ? `https://wa.me/${STUDIO_CONFIG.whatsappNumber}` : `https://wa.me/`;
+      document.getElementById('whatsapp-float-btn').href = `${waBase}?text=${encodeURIComponent(STUDIO_CONFIG.whatsappMessage)}`;
+    }
+
+    // 1. Scroll Reveal Intersection Observer & Init
+    document.addEventListener('DOMContentLoaded', () => {
+      applyStudioConfig();
+
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      reveals.forEach(el => observer.observe(el));
+
+      // Sync Before/After Image width
+      syncBeforeImageWidth();
+      window.addEventListener('resize', syncBeforeImageWidth);
+    });
+
+    // 2. Interactive Before & After Comparison Slider
+    const container = document.getElementById('compare-container');
+    const beforeLayer = document.getElementById('before-layer');
+    const beforeImg = document.getElementById('before-img');
+    const divider = document.getElementById('slider-divider');
+    let isDragging = false;
+
+    function syncBeforeImageWidth() {
+      if (container && beforeImg) {
+        beforeImg.style.width = container.offsetWidth + 'px';
+      }
+    }
+
+    function updateSlider(clientX) {
+      const rect = container.getBoundingClientRect();
+      let offsetX = clientX - rect.left;
+      offsetX = Math.max(0, Math.min(offsetX, rect.width));
+      const percentage = (offsetX / rect.width) * 100;
+      beforeLayer.style.width = percentage + '%';
+      divider.style.left = percentage + '%';
+    }
+
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      updateSlider(e.clientX);
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      updateSlider(e.clientX);
+    });
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Touch support for mobile
+    container.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      updateSlider(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      updateSlider(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    // 3. Copy Address Utility (Using execCommand fallback for iFrame safety)
+    function copyAddress() {
+      const addressText = STUDIO_CONFIG.address;
+      const tempInput = document.createElement("textarea");
+      tempInput.value = addressText;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      const label = document.getElementById('copy-label');
+      label.textContent = "Address Copied to Clipboard!";
+      setTimeout(() => {
+        label.textContent = "Copy Full Address";
+      }, 2500);
+    }
+
+    // 4. Contact Form Controls
+    const contactFormWrapper = document.getElementById('contact-form-wrapper');
+    const contactSuccess = document.getElementById('contact-success');
+    const contactForm = document.getElementById('contact-form');
+    const contactSubject = document.getElementById('contact-subject');
+
+    function prefillSubject(treatmentName) {
+      if (contactSubject) {
+        contactSubject.value = treatmentName;
+      }
+      resetContactForm(false);
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      contactFormWrapper.classList.add('hidden');
+      contactSuccess.classList.remove('hidden');
+    }
+
+    function resetContactForm(clearInputs = true) {
+      if (clearInputs && contactForm) {
+        contactForm.reset();
+      }
+      contactSuccess.classList.add('hidden');
+      contactFormWrapper.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
